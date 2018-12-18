@@ -1,6 +1,9 @@
 # Media upload folder
 media/
 
+# Node Modules
+node_modules/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
