@@ -12,16 +12,19 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import environ
+import dj_database_url
 
 # default env vars
 env = environ.Env(
-    DEBUG=(bool, False)
+    DEBUG=(bool, False),
+    ON_HEROKU=(bool, False)
 )
 
 environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
     'projects',
     'comments',
     'profiles',
@@ -83,15 +87,47 @@ TEMPLATES = [
 WSGI_APPLICATION = 'databee.wsgi.application'
 
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+DATABASES = {}
+DATABASES['default'] = {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 }
+
+
+
+# MEDIA_ROOT (for debugging/testing)
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+MEDIA_URL = '/media/'
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
+
+# Heroku specific settings
+ON_HEROKU = env('ON_HEROKU')
+
+if ON_HEROKU:
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+    # AWS
+    AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    AWS_S3_OBJECT_PARAMETERS = {
+        'CacheControl': 'max-age=86400',
+    }
+    AWS_LOCATION = 'static'
+    AWS_DEFAULT_ACL = None
+    STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    DEFAULT_FILE_STORAGE = 'databee.storage_backends.MediaStorage'
+
 
 
 # Password validation
@@ -125,12 +161,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATIC_URL = '/static/'
-
-# MEDIA_ROOT (for debugging/testing)
-MEDIA_ROOT = 'media/'
-MEDIA_URL = '/media/'
