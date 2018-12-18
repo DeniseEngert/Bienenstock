@@ -36,8 +36,6 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS', default=[])
 
-print(ALLOWED_HOSTS)
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -101,8 +99,9 @@ DATABASES['default'] = {
 
 
 # MEDIA_ROOT (for debugging/testing)
-STATIC_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
 
 # Static files (CSS, JavaScript, Images)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

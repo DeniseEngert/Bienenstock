@@ -14,8 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 
+# for serving media and static files
+from django.conf import settings
+from django.conf.urls.static import static
+from django.views.static import serve
+
+# only for hello world test
 from django.http import HttpResponse
 from django.template import loader
 def hello_world(req):
@@ -27,3 +33,10 @@ urlpatterns = [
     path('', hello_world)
 ]
 
+if not settings.ON_HEROKU:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += [
+        re_path(r'^media/(?P<path>.*)$', serve, {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+    ]
