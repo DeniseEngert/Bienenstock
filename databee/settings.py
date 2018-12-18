@@ -103,13 +103,13 @@ DATABASES['default'] = {
 
 
 # MEDIA_ROOT (for debugging/testing)
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
+print("Media root:", MEDIA_ROOT)
 
 # Heroku specific settings
 ON_HEROKU = env('ON_HEROKU')
