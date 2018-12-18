@@ -119,7 +119,7 @@ if ON_HEROKU:
     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
     # AWS
     AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
-    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    AWS_S3_CUSTOM_DOMAIN = 's3.eu-central-1.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
     AWS_S3_OBJECT_PARAMETERS = {
         'CacheControl': 'max-age=86400',
     }
