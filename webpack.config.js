@@ -1,8 +1,9 @@
 var path = require('path')
 var webpack = require('webpack')
 
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
@@ -13,32 +14,21 @@ module.exports = {
     filename: 'js/build.js'
   },
   plugins: [
-    new ExtractTextPlugin('css/style.css'),
+    // new CleanWebpackPlugin('dist', {} ),
+    new MiniCssExtractPlugin({
+      filename: 'css/style.css',
+    }),
+    new OptimizeCSSAssetsPlugin({})
   ],
-  optimization: {
-    minimizer: [new UglifyJsPlugin()] 
-  },
   module: {
     rules: [
       {
-        test: /\.scss$/,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [
-              { loader: 'css-loader', options: { minimize: process.env.NODE_ENV === 'production' ? true : false } },
-              'sass-loader'
-            ] 
-          })
-      },
-      {
-        test: /\.sass$/,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [
-              { loader: 'css-loader', options: { minimize: process.env.NODE_ENV === 'production' ? true : false } },
-              "sass-loader?indentedSyntax"
-            ]
-          })
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.vue$/,
@@ -71,7 +61,16 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          publicPath: '../',
+          name: 'images/[name].[ext]'
+        }
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        loader: 'file-loader',
+        options: {
+          publicPath: '../',
+          name: 'fonts/[name].[ext]'
         }
       }
     ]
@@ -82,14 +81,5 @@ module.exports = {
     },
     extensions: ['*', '.js', '.vue', '.json']
   },
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true,
-    overlay: true
-  },
-  performance: {
-    hints: false
-  },
-  devtool: '#eval-source-map'
 }
 
