@@ -152,7 +152,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGOUT_REDIRECT_URL = 'projects'
+LOGOUT_REDIRECT_URL = 'start'
 LOGIN_REDIRECT_URL = 'projects'
 
 # Internationalization
