@@ -1,0 +1,51 @@
+{% load static %}
+
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Databee</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="apple-touch-icon" href="icon.png">
+</head>
+
+<body>
+    <h2>Loginseite</h2>
+    {% if form.errors %}
+        <p>Nutzername und Passwort passen nicht zusammen. Beide Felder beachten die Groß-/Kleinschreibung. Bitte nochmal versuchen.</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+        <p>Mit diesem Konto kann nicht auf die Seite zugegriffen werden. Um fortzufahren melden Sie sich bitte mit einem authentifizierten Konto an.</p>
+        {% else %}
+        <p>Bitte melden Sie sich an um diese Seite zu sehen.</p>
+        {% endif %}
+    {% endif %}
+
+    <form action="{% url 'login' %}" enctype="multipart/form-data" method="post" class="form-horizontal">
+    {% csrf_token %}
+    <table>
+    <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+    </tr>
+    </table>
+
+    <input type="submit" value="Einloggen">
+    <input type="hidden" name="next" value="{{ next }}">
+    </form>
+
+    <a href="{% url 'register' %}">Neues Konto erstellen </a>
+    <script src="{% static "js/build.js" %}"></script>
+</body>
+
+</html>

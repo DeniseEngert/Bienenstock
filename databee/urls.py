@@ -16,6 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 
+# for user management (registration, profiles and login)
+from profiles import views as profiles_views
+from django.contrib.auth import views as auth_views
+
+# project sites (private and public or just one site ???)
+from projects import views as projects_views
+
 # for serving media and static files
 from django.conf import settings
 from django.conf.urls.static import static
@@ -24,13 +31,20 @@ from django.views.static import serve
 # only for hello world test
 from django.http import HttpResponse
 from django.template import loader
+
+
 def hello_world(req):
     template = loader.get_template('base.html')
     return HttpResponse(template.render())
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', hello_world)
+    path('', hello_world),
+    path('register/', profiles_views.register, name='register'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('projects/', projects_views.projects, name='projects')
 ]
 
 if not settings.ON_HEROKU:
