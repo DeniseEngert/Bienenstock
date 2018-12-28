@@ -1,0 +1,45 @@
+.c-startpage-hero
+  background-color: $black
+  background-position: center center
+  background-size: cover
+  color: white
+  text-align: center
+
+.c-startpage-hero__title
+  margin-bottom: 2rem
+
+.c-startpage-hero__button
+  background-color: transparent
+  border-color: $white
+  color: $white
+
+  &:hover
+    background-color: $white
+    border-color: $white
+    color: $black
+
+.c-startpage-hero__latest-projects
+  position: absolute
+  bottom: 2.5rem
+  left: 50%
+  transform: translateX(-50%)
+
+  &::after
+    border: 2px solid $white;
+    border-right-style: solid;
+    border-right: 0;
+    border-top: 0;
+    content: " ";
+    display: block;
+    height: 0.7em;
+    margin-top: -.4375em;
+    pointer-events: none;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    -webkit-transform: rotate(-45deg) translateX(-50%);
+    transform: rotate(-45deg) translateX(-50%);
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    width: 0.7em;
+

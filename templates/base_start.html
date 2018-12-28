@@ -1,0 +1,24 @@
+{% load static %}
+
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Databee</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="apple-touch-icon" href="{% static "images/icon.png" %}">
+</head>
+
+<body>
+
+    {% include "_parts/_startpage-navbar.html" %}
+    {% block content %}{% endblock %}
+    {% include "_parts/_footer.html" %}
+
+    <script src="{% static "js/build.js" %}"></script>
+</body>
+</html>
