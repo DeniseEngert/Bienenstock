@@ -10,12 +10,15 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="{% static "css/style.css" %}">
-  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="apple-touch-icon" href="{% static "images/icon.png" %}">
 </head>
 
 <body>
-    <h1>Hello bees</h1>
+
+    {% include "_parts/_navbar.html" %}
+    {% block content %}{% endblock %}
+    {% include "_parts/_footer.html" %}
+
     <script src="{% static "js/build.js" %}"></script>
 </body>
-
 </html>
