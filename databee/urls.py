@@ -34,7 +34,7 @@ from django.template import loader
 
 
 def hello_world(req):
-    template = loader.get_template('base.html')
+    template = loader.get_template('pages/start.html')
     return HttpResponse(template.render())
 
 

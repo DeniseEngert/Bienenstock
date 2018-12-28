@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bulma": "^0.7.2",
+    "dygraphs": "^2.1.0",
     "vue": "^2.5.11"
   },
   "browserslist": [
@@ -21,7 +22,6 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
-    "babel-preset-stage-3": "^6.24.1",
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
