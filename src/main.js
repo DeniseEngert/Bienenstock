@@ -1,5 +1,5 @@
-require('./scss/styles.scss');
-function myprint() {
-    console.log('hello world')
-}
-myprint()
+// Main CSS
+require('./scss/styles.sass');
+
+// Dygraph
+require('../node_modules/dygraphs/dist/dygraph.min.js')
