@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="title is-1">Projects</h1>
+<div class="c-projects-list">
+    <a class="button is-primary" href="{% url 'addProject' %}">Add Project</a>
+    <table class="table is-hoverable is-fullwidth">
+            <tr>
+                <th>Titel</th>
+            </tr>
+        {% for project in projects %}
+            <tr>
+                <td><a href="{% url 'editProject' pk=course.pk %}">{{project.title}}</a></td>
+            </tr>
+        {% endfor %}
+  </table>
+</div>
+{% endblock %}

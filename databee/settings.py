@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'projects',
     'comments',
     'profiles',
-    'pages'
+    'pages',
+    'bulma',
 ]
 
 MIDDLEWARE = [

@@ -41,7 +41,10 @@ urlpatterns = [
     path('register/', profiles_views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('projects/', projects_views.projects, name='projects')
+    path('projects/', projects_views.projects, name='projects'),
+    path('project/<int:pk>', projects_views.ProjectList.as_view(), name="editProject"),
+    path('project/add', projects_views.ProjectCreate.as_view(), name="addProject"),
+    path('project/<int:pk>/delete', projects_views.ProjectDelete.as_view(), name="deleteProject"),
 ]
 
 if not settings.ON_HEROKU:
