@@ -7,17 +7,43 @@
 @font-face
   font-family: 'Inter UI'
   font-style:  normal
-  font-weight: 900
-  src: url("../fonts/Inter-UI-Black.woff2") format("woff2"), url("../fonts/Inter-UI-Black.woff") format("woff")
+  font-weight: 700
+  src: url("../fonts/Inter-UI-Bold.woff2") format("woff2"), url("../fonts/Inter-UI-Bold.woff") format("woff")
 
-// BRAND COLORS
+
+// BULMA OVERRIDES
 $primary: #FFD200
 $secondary: #003B53
+$family-sans-serif: 'Inter UI', sans-serif
+$yellow: $primary
 
-// BULMA GLOBAL VARS
-$family-sans-serif: 'Inter UI', sans-serif;
+$black: hsl(0, 0%, 4%)
+$black-bis: hsl(0, 0%, 7%)
+$black-ter: hsl(0, 0%, 14%)
+$grey-darker: hsl(0, 0%, 21%)
+$grey-dark: hsl(0, 0%, 29%)
+$grey: hsl(0, 0%, 48%)
+$grey-light: hsl(0, 0%, 71%)
+$grey-lighter: hsl(0, 0%, 86%)
+$white-ter: hsl(0, 0%, 96%)
+$white-bis: hsl(0, 0%, 98%)
+$white: hsl(0, 0%, 100%)
+
+$link: $grey-darker
+$link-invert: $grey-darker
+$link-visited: $grey-darker
+$link-hover: $grey-darker
+$link-hover-border: $grey-darker
+$link-focus: $grey
+$link-focus-border:	$grey
+$link-active: $grey-darker
+$link-active-border: $grey-darker
 
 // BULMA COMPONTEN VARS
-$control-border-width: 2px;
-$input-border-color: transparent;
-$input-shadow: none;
+$control-border-width: 2px
+$input-border-color: transparent
+$input-shadow: none
+
+// EXTRA VARS
+$size-0: 4rem
+$line-height-tight: 1em

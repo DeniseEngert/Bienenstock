@@ -1,11 +1,37 @@
-{% extends 'base.html' %}
+{% extends 'base_start.html' %}
+
+{% load static %}
+
 
 {% block content %}
 
-<div class="c-page">
-  <div class="">
-    Hello Bees
-  </div>
 
-</div>
+<div class="c-page c-page__start">
+
+    {% if not user.is_authenticated %}
+    <section class="c-startpage-hero hero is-fullheight" style="background-image:url('{% static 'placeholders/annie-spratt-137316-unsplash.jpg' %}')">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="c-startpage-hero__title c-t-start-title is-size-1-mobile">
+            Visualize and  Share Data Sets
+          </h1>
+          <a class="button is-outlined is-medium c-startpage-hero__button" href="{% url 'register' %}">Sign Up</a>
+        </div>
+      </div>
+      <div class="c-startpage-hero__latest-projects">
+        <p>Latest Projects</p>
+
+
+      </div>
+    </section>
+    {% endif %}
+
+    <section class="section c-startpage-projects is-primary">
+      <div class="container">
+        <h2 class="is-size-2 has-line-height-tight">Die neusten Projekte</h2>
+        <p>Momentan keine Projekte (Platzhalter)</p>
+      </div>
+    </section>
+
+
 {% endblock %}

@@ -1,0 +1,25 @@
+<nav class="navbar c-start-navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img src="static/images/icon-logotype-white.svg" width="160" height="28">
+    </a>
+  </div>
+
+  <div class="c-start-navbar__menu">
+    {% if not user.is_authenticated %}
+      <div class="navbar-item">
+        <a class="" href="{% url 'login' %}">Log In</a>
+      </div>
+      <div class="navbar-item">
+        <a class="" href="{% url 'register' %}">Sign Up</a>
+      </div>
+    {% else %}
+      <div class="navbar-item">
+        <a class="" href="{% url 'projects' %}">Dashboard</a>
+      </div>
+      <div class="navbar-item">
+        <a class="" href="{% url 'logout' %}">Log out</a>
+      </div>
+    {% endif %}
+  </div>
+</nav>
