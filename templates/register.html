@@ -1,0 +1,27 @@
+{% load static %}
+
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Databee</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="apple-touch-icon" href="icon.png">
+</head>
+
+<body>
+    <h2>Registrierungsseite</h2>
+    <form action="" enctype="multipart/form-data" method="post" class="form-horizontal">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Neues Konto erstellen </button>
+    </form>
+    <a href="{% url 'login' %}">Einloggen</a>
+    <script src="{% static "js/build.js" %}"></script>
+</body>
+
+</html>

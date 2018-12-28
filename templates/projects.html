@@ -15,14 +15,17 @@
 
 <body>
 
-    <p>Hello bees</p>
     <div class="dropdown">
+        <a href="#">Home</a>
         <!-- nur für authentifizierte Nutzer: -->
         {% if user.is_authenticated %}
           <button onclick="myFunction()" class="dropbtn">angemeldet als: {{ user.username }} </button>
           <div id="myDropdown" class="dropdown-content">
             <a href="#">Profil</a>
             <a href="{% url 'logout' %}">Ausloggen</a>
+          </div>
+          <div>
+            <a href="#">eigene Projekte</a>
           </div>
         <!-- nur für anonyme Nutzer:
         https://docs.djangoproject.com/en/2.1/ref/contrib/auth/#django.contrib.auth.models.AnonymousUser -->
@@ -31,8 +34,13 @@
             <a href="{% url 'register' %}">Registrierung</a>
         {% endif %}
     </div>
-    <p>Alle Projekte</p>
-
+    <h2>Dashboard</h2>
+    <!-- nur für authentifizierte Nutzer: -->
+    {% if user.is_authenticated %}
+      <div>
+        <a href="#">eigene Projekte</a>
+      </div>
+    {% endif %}
     <script src="{% static "js/build.js" %}"></script>
 </body>
 
