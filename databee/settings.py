@@ -160,6 +160,10 @@ LOGIN_REDIRECT_URL = 'projects'
 
 LANGUAGE_CODE = 'de'
 
+LOCALE_PATHS = [
+    'locale'
+]
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True

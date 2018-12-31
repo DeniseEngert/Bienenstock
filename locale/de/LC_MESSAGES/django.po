@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-31 16:32+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: templates/_parts/_navbar.html:20 templates/login.html:17
+#: templates/projects.html:33 templates/register.html:23
+msgid "Log In"
+msgstr "Anmelden"
+
+#: templates/_parts/_navbar.html:23 templates/projects.html:34
+#: templates/register.html:17
+msgid "Sign Up"
+msgstr "Konto erstellen"
+
+#: templates/_parts/_navbar.html:27 templates/projects.html:37
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: templates/_parts/_navbar.html:30
+msgid "Log Out"
+msgstr "Abmelden"
+
+#: templates/login.html:19
+msgid ""
+"Nutzername und Passwort passen nicht zusammen. Beide Felder beachten die "
+"Groß-/Kleinschreibung. Bitte nochmal versuchen."
+msgstr ""
+
+#: templates/login.html:26
+msgid "Bitte melden Sie sich an um diese Seite zu sehen."
+msgstr ""
+
+#: templates/login.html:43
+msgid "Log in"
+msgstr "Anmelden"
+
+#: templates/login.html:47 templates/register.html:21
+msgid "Create new account"
+msgstr "Neues Nutzerkonte anlegen"
+
+#: templates/pages/start.html:16
+msgid "Visualize and Share Datasets"
+msgstr "Messreihen kommentiern und teilen"
+
+#: templates/pages/start.html:22 templates/pages/start.html:29
+msgid "Latest Projects"
+msgstr "Die neusten Projekte"
+
+#: templates/pages/start.html:30
+msgid "No projects available"
+msgstr "Keine Projekte verfügbar"
+
+#: templates/projects.html:19
+msgid "Home"
+msgstr "Start"
+
+#: templates/projects.html:22
+msgid "Logged in as"
+msgstr "Angemeldet als"
+
+#: templates/projects.html:24
+msgid "Profile"
+msgstr "Profil"
+
+#: templates/projects.html:25
+msgid "Log out"
+msgstr "Abmelden"
+
+#: templates/projects.html:28 templates/projects.html:41
+msgid "Own projects"
+msgstr "Eigene Projekte"
+
+#: templates/projects/project_form.html:15
+msgid "Save"
+msgstr "Speichern"
+
+#: templates/projects/project_form.html:18
+msgid "Delete"
+msgstr "Löschen"
+
+#: templates/projects/project_list.html:5
+msgid "Projects"
+msgstr "Die neusten Projekte"
+
+#: templates/projects/project_list.html:7
+msgid "Projekt hinzufügen"
+msgstr "Add project"
+
+#: templates/projects/project_list.html:10
+msgid "Title"
+msgstr "Titel"

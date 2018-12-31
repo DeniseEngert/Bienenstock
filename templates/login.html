@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!doctype html>
 <html lang="">
@@ -14,16 +15,16 @@
 </head>
 
 <body>
-    <h2>Loginseite</h2>
+    <h2>{% trans "Log In" %}</h2>
     {% if form.errors %}
-        <p>Nutzername und Passwort passen nicht zusammen. Beide Felder beachten die Groß-/Kleinschreibung. Bitte nochmal versuchen.</p>
+        <p>{% trans "Nutzername und Passwort passen nicht zusammen. Beide Felder beachten die Groß-/Kleinschreibung. Bitte nochmal versuchen." %}</p>
     {% endif %}
 
     {% if next %}
         {% if user.is_authenticated %}
-        <p>Mit diesem Konto kann nicht auf die Seite zugegriffen werden. Um fortzufahren melden Sie sich bitte mit einem authentifizierten Konto an.</p>
+        <p>{% trans "Mit diesem Konto kann nicht auf die Seite zugegriffen werden. Um fortzufahren melden Sie sich bitte mit einem authentifizierten Konto an." }</p>
         {% else %}
-        <p>Bitte melden Sie sich an um diese Seite zu sehen.</p>
+        <p>{% trans "Bitte melden Sie sich an um diese Seite zu sehen." %}</p>
         {% endif %}
     {% endif %}
 
@@ -40,11 +41,11 @@
     </tr>
     </table>
 
-    <input type="submit" value="Einloggen">
+    <input type="submit" value="{% trans "Log in" %}">
     <input type="hidden" name="next" value="{{ next }}">
     </form>
 
-    <a href="{% url 'register' %}">Neues Konto erstellen </a>
+    <a href="{% url 'register' %}">{% trans "Create new account" %}</a>
     <script src="{% static "js/build.js" %}"></script>
 </body>
 

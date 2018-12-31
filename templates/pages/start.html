@@ -1,7 +1,6 @@
 {% extends 'base_start.html' %}
-
 {% load static %}
-
+{% load i18n %}
 
 {% block content %}
 
@@ -13,23 +12,21 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="c-startpage-hero__title c-t-start-title is-size-1-mobile">
-            Visualize and  Share Data Sets
+            {% trans "Visualize and Share Datasets" %}
           </h1>
-          <a class="button is-outlined is-medium c-startpage-hero__button" href="{% url 'register' %}">Sign Up</a>
+          <a class="button is-outlined is-medium c-startpage-hero__button" href="{% url 'register' %}">{% trans "Sign Up" %}</a>
         </div>
       </div>
       <div class="c-startpage-hero__latest-projects">
-        <p>Latest Projects</p>
-
-
+        <p>{% trans "Latest Projects" %}</p>
       </div>
     </section>
     {% endif %}
 
     <section class="section c-startpage-projects is-primary">
       <div class="container">
-        <h2 class="is-size-2 has-line-height-tight">Die neusten Projekte</h2>
-        <p>Momentan keine Projekte (Platzhalter)</p>
+        <h2 class="is-size-2 has-line-height-tight">{% trans "Latest Projects" %}</h2>
+        <p>{% trans "No projects available" %}</p>
       </div>
     </section>
 
