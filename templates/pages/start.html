@@ -1,7 +1,7 @@
 {% extends 'base_start.html' %}
 
 {% load static %}
-
+{% load i18n %}
 
 {% block content %}
 
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="c-startpage-hero__latest-projects">
-        <p>Latest Projects</p>
+        <p>{% trans "Latest Projects" %}</p>
 
 
       </div>
@@ -28,8 +28,8 @@
 
     <section class="section c-startpage-projects is-primary">
       <div class="container">
-        <h2 class="is-size-2 has-line-height-tight">Die neusten Projekte</h2>
-        <p>Momentan keine Projekte (Platzhalter)</p>
+        <h2 class="is-size-2 has-line-height-tight">{% trans "Latest Projects" %}</h2>
+        <p>{% trans "No projects available" %}</p>
       </div>
     </section>
 
