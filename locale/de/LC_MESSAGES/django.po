@@ -46,7 +46,7 @@ msgstr "Messreihen kommentiern und teilen"
 
 #: templates/pages/start.html:22 templates/pages/start.html:29
 msgid "Latest Projects"
-msgstr "Die neusten Projekte"
+msgstr "Die neuesten Projekte"
 
 #: templates/pages/start.html:30
 msgid "No projects available"
@@ -82,7 +82,7 @@ msgstr "Löschen"
 
 #: templates/projects/project_list.html:5
 msgid "Projects"
-msgstr "Die neusten Projekte"
+msgstr "Die neuesten Projekte"
 
 #: templates/projects/project_list.html:7
 msgid "Projekt hinzufügen"
