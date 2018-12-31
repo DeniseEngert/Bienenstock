@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 
-<h1 class="title is-1">Projects</h1>
+<h1 class="title is-1">{% trans "Projects" %}</h1>
 <div class="c-projects-list">
-    <a class="button is-primary" href="{% url 'addProject' %}">Add Project</a>
+    <a class="button is-primary" href="{% url 'addProject' %}">{% trans "Projekt hinzufügen" %}</a>
     <table class="table is-hoverable is-fullwidth">
             <tr>
-                <th>Titel</th>
+                <th>{% trans "Title" %}</th>
             </tr>
         {% for project in projects %}
             <tr>

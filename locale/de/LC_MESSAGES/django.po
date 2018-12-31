@@ -1,429 +1,93 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-31 16:32+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: templates/pages/start.html:22 templates/pages/start.html:31
+#: templates/_parts/_navbar.html:20 templates/login.html:17
+#: templates/projects.html:33 templates/register.html:23
+msgid "Log In"
+msgstr "Anmelden"
+
+#: templates/_parts/_navbar.html:23 templates/projects.html:34
+#: templates/register.html:17
+msgid "Sign Up"
+msgstr "Konto erstellen"
+
+#: templates/_parts/_navbar.html:27 templates/projects.html:37
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: templates/_parts/_navbar.html:30
+msgid "Log Out"
+msgstr "Abmelden"
+
+#: templates/login.html:19
+msgid ""
+"Nutzername und Passwort passen nicht zusammen. Beide Felder beachten die "
+"Groß-/Kleinschreibung. Bitte nochmal versuchen."
+msgstr ""
+
+#: templates/login.html:26
+msgid "Bitte melden Sie sich an um diese Seite zu sehen."
+msgstr ""
+
+#: templates/login.html:43
+msgid "Log in"
+msgstr "Anmelden"
+
+#: templates/login.html:47 templates/register.html:21
+msgid "Create new account"
+msgstr "Neues Nutzerkonte anlegen"
+
+#: templates/pages/start.html:16
+msgid "Visualize and Share Datasets"
+msgstr "Messreihen kommentiern und teilen"
+
+#: templates/pages/start.html:22 templates/pages/start.html:29
 msgid "Latest Projects"
 msgstr "Die neusten Projekte"
 
-#: templates/pages/start.html:32
+#: templates/pages/start.html:30
 msgid "No projects available"
-msgstr "Aktuell keine Projekte verfügbar"
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/account_inactive.html:5
-#: venv/lib/python3.7/site-packages/bulma/templates/account/account_inactive.html:6
-msgid "Account Inactive"
-msgstr "Nutzerkonto Inaktiv"
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/account_inactive.html:9
-msgid "This account is inactive."
-msgstr "Dieses Nutzerkonto ist inaktiv."
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email.html:5
-msgid "Account"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email.html:6
-msgid "E-mail Addresses"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email.html:11
-msgid "The following e-mail addresses are associated with your account:"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email.html:25
-msgid "Verified"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email.html:27
-msgid "Unverified"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email.html:29
-msgid "Primary"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email.html:36
-msgid "Make Primary"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email.html:37
-msgid "Re-send Verification"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email.html:38
-msgid "Remove"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email.html:45
-msgid "Warning:"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email.html:45
-msgid ""
-"You currently do not have any e-mail address set up. You should really add "
-"an e-mail address so you can receive notifications, reset your password, etc."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email.html:49
-msgid "Add E-mail Address"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email.html:53
-msgid "Add E-mail"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email_confirm.html:5
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email_confirm.html:6
-msgid "Confirm E-mail Address"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email_confirm.html:14
-#, python-format
-msgid ""
-"Please confirm that\n"
-"      <a href=\"mailto:%(email)s\">%(email)s</a> is an e-mail address for "
-"user %(user_display)s."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email_confirm.html:20
-msgid "Confirm"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/email_confirm.html:27
-#, python-format
-msgid ""
-"This e-mail confirmation link expired or is invalid. Please\n"
-"      <a href=\"%(email_url)s\">issue a new e-mail confirmation request</a>."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/login.html:6
-#: venv/lib/python3.7/site-packages/bulma/templates/account/login.html:7
-#: venv/lib/python3.7/site-packages/bulma/templates/account/login.html:42
-msgid "Sign In"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/login.html:14
-#, python-format
-msgid ""
-"Please sign in with one\n"
-"      of your existing third party accounts. Or, <a href=\"%(signup_url)s"
-"\">sign up</a>\n"
-"      for a %(site_name)s account and sign in below:"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/login.html:23
-msgid "or"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/login.html:31
-#, python-format
-msgid ""
-"If you have not created an account yet, then please <a href=\"%(signup_url)s"
-"\">sign up</a>\n"
-"        first."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/login.html:41
-msgid "Forgot Password?"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/logout.html:5
-#: venv/lib/python3.7/site-packages/bulma/templates/account/logout.html:6
-#: venv/lib/python3.7/site-packages/bulma/templates/account/logout.html:17
-msgid "Sign Out"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/logout.html:10
-msgid "Are you sure you want to sign out?"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_change.html:5
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_change.html:8
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_change.html:13
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset_from_key.html:4
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset_from_key.html:6
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset_from_key_done.html:4
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset_from_key_done.html:5
-msgid "Change Password"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset.html:5
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset.html:6
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset_done.html:5
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset_done.html:6
-msgid "Password Reset"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset.html:13
-msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll send you "
-"an e-mail allowing you to reset it."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset.html:18
-msgid "Reset My Password"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset.html:21
-msgid "Please contact us if you have any trouble resetting your password."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset_done.html:12
-msgid ""
-"We have sent you an e-mail. Please contact us if you do not receive it "
-"within a few\n"
-"    minutes."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset_from_key.html:5
-msgid "Bad Token"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset_from_key.html:11
-#, python-format
-msgid ""
-"The password reset link was invalid, possibly because it has already been "
-"used.  Please request a\n"
-"      <a href=\"%(passwd_reset_url)s\">new password reset</a>."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset_from_key.html:18
-msgid "change password"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset_from_key.html:21
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_reset_from_key_done.html:8
-msgid "Your password is now changed."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_set.html:5
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_set.html:6
-#: venv/lib/python3.7/site-packages/bulma/templates/account/password_set.html:12
-msgid "Set Password"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/signup.html:5
-msgid "Signup"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/signup.html:6
-#: venv/lib/python3.7/site-packages/bulma/templates/account/signup.html:19
-msgid "Sign Up"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/signup.html:10
-#, python-format
-msgid ""
-"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>\n"
-"    ."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/signup_closed.html:5
-#: venv/lib/python3.7/site-packages/bulma/templates/account/signup_closed.html:6
-msgid "Sign Up Closed"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/signup_closed.html:9
-msgid "We are sorry, but the sign up is currently closed."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/verification_sent.html:5
-#: venv/lib/python3.7/site-packages/bulma/templates/account/verification_sent.html:6
-#: venv/lib/python3.7/site-packages/bulma/templates/account/verified_email_required.html:5
-#: venv/lib/python3.7/site-packages/bulma/templates/account/verified_email_required.html:6
-msgid "Verify Your E-mail Address"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/verification_sent.html:9
-msgid ""
-"We have sent an e-mail to you for verification. Follow the link provided to "
-"finalize the signup\n"
-"    process. Please contact us if you do not receive it within a few minutes."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/verified_email_required.html:12
-msgid ""
-"This part of the site requires us to verify that\n"
-"      you are who you claim to be. For this purpose, we require that you\n"
-"      verify ownership of your e-mail address. "
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/verified_email_required.html:16
-msgid ""
-"We have sent an e-mail to you for\n"
-"      verification. Please click on the link inside this e-mail. Please\n"
-"      contact us if you do not receive it within a few minutes."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/account/verified_email_required.html:20
-#, python-format
-msgid ""
-"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your e-"
-"mail address</a>\n"
-"      ."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/pagination.html:7
-#: venv/lib/python3.7/site-packages/bulma/templates/pagination.html:9
-msgid "Previous"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/pagination.html:14
-#: venv/lib/python3.7/site-packages/bulma/templates/pagination.html:16
-msgid "Next"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/logged_out.html:5
-msgid "Thanks for spending some quality time with the Web site today."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/logged_out.html:6
-msgid "Log in again"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/login.html:7
-msgid "Your username and password didn't match. Please try again."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/login.html:14
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_complete.html:11
-msgid "Log in"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_change_done.html:7
-msgid "Your password was changed."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_change_form.html:13
-msgid "Please correct the error below."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_change_form.html:14
-msgid "Please correct the errors below."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_change_form.html:18
-msgid ""
-"Please enter your old password, for security's sake, and then enter your new "
-"password twice so we can verify you typed it in correctly."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_change_form.html:21
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_confirm.html:12
-msgid "Change my password"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_complete.html:9
-msgid "Your password has been set.  You may go ahead and log in now."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_confirm.html:9
-msgid ""
-"Please enter your new password twice so we can verify you typed it in "
-"correctly."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_confirm.html:15
-msgid ""
-"The password reset link was invalid, possibly because it has already been "
-"used.  Please request a new password reset."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_done.html:8
-msgid ""
-"We've emailed you instructions for setting your password, if an account "
-"exists with the email you entered. You should receive them shortly."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_done.html:9
-msgid ""
-"If you don't receive an email, please make sure you've entered the address "
-"you registered with, and check your spam folder."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_email.html:2
-#, python-format
-msgid ""
-"You're receiving this email because you requested a password reset for your "
-"user account at\n"
-"    %(site_name)s."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_email.html:5
-msgid "Please go to the following page and choose a new password:"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_email.html:9
-msgid "Your username, in case you've forgotten:"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_email.html:11
-msgid "Thanks for using our site!"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_email.html:13
-#, python-format
-msgid "The %(site_name)s team"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_form.html:7
-msgid ""
-"Forgotten your password? Enter your email address below, and we'll email "
-"instructions for setting a new one."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/bulma/templates/registration/password_reset_form.html:10
-msgid "Reset my password"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:6
-msgid "Django: the Web framework for perfectionists with deadlines."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:345
-#, python-format
-msgid ""
-"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
-"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:367
-msgid "The install worked successfully! Congratulations!"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:368
-#, python-format
-msgid ""
-"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
-"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
-"\">DEBUG=True</a> is in your settings file and you have not configured any "
-"URLs."
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:383
-msgid "Django Documentation"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:384
-msgid "Topics, references, &amp; how-to's"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:395
-msgid "Tutorial: A Polling App"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:396
-msgid "Get started with Django"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:407
-msgid "Django Community"
-msgstr ""
-
-#: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:408
-msgid "Connect, get help, or contribute"
-msgstr ""
-
-#~ msgid "welcome"
-#~ msgstr "herzlich willkommen"
+msgstr "Keine Projekte verfügbar"
+
+#: templates/projects.html:19
+msgid "Home"
+msgstr "Start"
+
+#: templates/projects.html:22
+msgid "Logged in as"
+msgstr "Angemeldet als"
+
+#: templates/projects.html:24
+msgid "Profile"
+msgstr "Profil"
+
+#: templates/projects.html:25
+msgid "Log out"
+msgstr "Abmelden"
+
+#: templates/projects.html:28 templates/projects.html:41
+msgid "Own projects"
+msgstr "Eigene Projekte"
+
+#: templates/projects/project_form.html:15
+msgid "Save"
+msgstr "Speichern"
+
+#: templates/projects/project_form.html:18
+msgid "Delete"
+msgstr "Löschen"
+
+#: templates/projects/project_list.html:5
+msgid "Projects"
+msgstr "Die neusten Projekte"
+
+#: templates/projects/project_list.html:7
+msgid "Projekt hinzufügen"
+msgstr "Add project"
+
+#: templates/projects/project_list.html:10
+msgid "Title"
+msgstr "Titel"
