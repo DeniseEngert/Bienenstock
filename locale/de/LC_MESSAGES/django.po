@@ -42,7 +42,7 @@ msgstr "Neues Nutzerkonte anlegen"
 
 #: templates/pages/start.html:16
 msgid "Visualize and Share Datasets"
-msgstr "Messreihen kommentiern und teilen"
+msgstr "Messreihen kommentieren und teilen"
 
 #: templates/pages/start.html:22 templates/pages/start.html:29
 msgid "Latest Projects"
