@@ -22,3 +22,7 @@ class SingletonModel(models.Model):
 class SiteSettings(SingletonModel):
     support = models.EmailField()
     about_text = models.CharField(max_length=4999)
+
+    def __str__(self):
+        return "Site Settings"
+git
