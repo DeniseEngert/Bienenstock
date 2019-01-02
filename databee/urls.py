@@ -31,9 +31,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 
-# only for hello world test
-from django.http import HttpResponse
-from django.template import loader
+# single pages
+from pages import views as pages_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -45,6 +44,7 @@ urlpatterns = [
     path('project/<int:pk>', projects_views.ProjectList.as_view(), name="editProject"),
     path('project/add', projects_views.ProjectCreate.as_view(), name="addProject"),
     path('project/<int:pk>/delete', projects_views.ProjectDelete.as_view(), name="deleteProject"),
+    path('<str:title>', pages_views.PageView.as_view(), name="showPage"),
 ]
 
 if not settings.ON_HEROKU:

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+
+<div class="c-page c-page__start">
+
+    <section class="section c-startpage-projects is-primary">
+      <div class="container">
+        <h2 class="c-page__title is-size-2 has-line-height-tight">{{ page.title }}</h2>
+
+        <div class="c-page__text">
+          {{ page.text }}
+        </div>
+
+      </div>
+    </section>
+</div>
+{% endblock %}

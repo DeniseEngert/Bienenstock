@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'pages',
     'common',
     'bulma',
+    'mptt',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'common.context_processors.settings',
+                'pages.context_processors.settings',
             ],
         },
     },
