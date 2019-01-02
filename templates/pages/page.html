@@ -9,12 +9,23 @@
 
     <section class="section c-startpage-projects is-primary">
       <div class="container">
-        <h2 class="c-page__title is-size-2 has-line-height-tight">{{ page.title }}</h2>
+        <div class="columns">
+          <div class="column is-8-tablet is-offset-2-tablet">
+            <h2 class="c-page__title is-size-2 has-line-height-tight">{{ page.title }}</h2>
 
-        <div class="c-page__text">
-          {{ page.text }}
+            <div class="c-page__image">
+              <img src="{{ page.image.url }}" alt="image">
+            </div>
+
+            <div class="c-page__teaser">
+              {{ page.teaser }}
+            </div>
+
+            <div class="c-page__text">
+              {{ page.text }}
+            </div>
+          </div>
         </div>
-
       </div>
     </section>
 </div>

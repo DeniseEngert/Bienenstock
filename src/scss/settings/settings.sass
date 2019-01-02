@@ -17,6 +17,20 @@ $secondary: #003B53
 $family-sans-serif: 'Inter UI', sans-serif
 $yellow: $primary
 
+// The container horizontal gap, which acts as the offset for breakpoints
+$gap: 64px !default
+// 960, 1152, and 1344 have been chosen because they are divisible by both 12 and 16
+$tablet: 769px !default
+// 960px container + 4rem
+$desktop: 960px + (2 * $gap) !default
+// 1152px container + 4rem
+$widescreen: 1152px + (2 * $gap) !default
+$widescreen-enabled: true !default
+// 1344px container + 4rem
+$fullhd: 1344px + (2 * $gap) !default
+$fullhd-enabled: true !default
+
+
 $black: hsl(0, 0%, 4%)
 $black-bis: hsl(0, 0%, 7%)
 $black-ter: hsl(0, 0%, 14%)
@@ -29,6 +43,8 @@ $white-ter: hsl(0, 0%, 96%)
 $white-bis: hsl(0, 0%, 98%)
 $white: hsl(0, 0%, 100%)
 
+
+// DERIVED VARS
 $link: $grey-darker
 $link-invert: $grey-darker
 $link-visited: $grey-darker
@@ -41,8 +57,8 @@ $link-active-border: $grey-darker
 
 // BULMA COMPONTEN VARS
 $control-border-width: 2px
-$input-border-color: transparent
 $input-shadow: none
+$navbar-breakpoint: $tablet
 
 // EXTRA VARS
 $blue-background: #EDF5F7

@@ -1,25 +1,39 @@
-.c-start-navbar
-  padding-top: 5px
+.c-navbar
+  padding-top: 0.5rem
   position: absolute
   width: 100%
-  display: flex
+
+.c-navbar--start
   background-color: transparent
-  top: 0
-  color: $white
 
-  a
+  .navbar-link:not(.is-arrowless):after
+    border-color: $white
+
+  .navbar-brand
+    background-color: transparent
+
+  .navbar-burger:hover
+    background-color: transparent
+
+  .navbar-burger
+    span
+      background-color: $white
+
+  +tablet
     color: $white
+    a
+      color: $white
 
-    &:hover
-      text-decoration: underline
+    .navbar-link,
+    .navbar-link.is-active,
+    .navbar-link:hover,
+    .navbar-item.has-dropdown:hover,
+    .navbar-item.has-dropdown.is-active
+      background-color: transparent !important
+      color: $white
 
-.c-start-navbar__menu
-  justify-content: flex-end
-  margin-left: auto
-  align-items: center
-  display: flex
-  margin-right: 1em
-
-  .navbar-item
-    display: flex
-
+    .navbar-dropdown
+      border-radius: 6px
+      border-top: 0px
+      a
+        color: #4a4a4a

@@ -1,48 +1,31 @@
+{% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load bulma_tags %}
 
-<!doctype html>
-<html lang="">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Databee</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="{% static "css/style.css" %}">
-  <link rel="apple-touch-icon" href="icon.png">
-</head>
-
-<body>
-
-    <div class="dropdown">
-        <a href="#">{% trans "Home" %}</a>
-        <!-- nur für authentifizierte Nutzer: -->
-        {% if user.is_authenticated %}
-          <button onclick="myFunction()" class="dropbtn">{% trans "Logged in as" %}: {{ user.username }} </button>
-          <div id="myDropdown" class="dropdown-content">
-            <a href="#">{% trans "Profile" %}</a>
-            <a href="{% url 'logout' %}">{% trans "Log out" %}</a>
+{% block content %}
+<div class="c-page c-dashboard">
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <h2 class="c-page__title is-size-2 has-line-height-tight">{% trans "Dashboard" %}</h2>
+            <!-- nur für authentifizierte Nutzer: -->
+            {% if user.is_authenticated %}
+              <div class="c-dashboard__login-info">
+              {% trans "Logged in as" %}: {{ user.username }} <a href="{% url 'profile' %}">{% trans "Profile" %}</a> <a href="{% url 'logout' %}">{% trans "Log out" %}</a>
+              </div>
+                <div class="c-projects-list columns is-multiline">
+                  {% for i in "xxx" %}
+                      {% include "projects/_parts/_project-card.html" %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
           </div>
-          <div>
-            <a href="#">{% trans "Own projects" %}</a>
-          </div>
-        <!-- nur für anonyme Nutzer:
-        https://docs.djangoproject.com/en/2.1/ref/contrib/auth/#django.contrib.auth.models.AnonymousUser -->
-        {% else %}
-            <a href="{% url 'login' %}">{% trans "Log In" %}</a>
-            <a href="{% url 'register' %}">{% trans "Sign Up" %}</a>
-        {% endif %}
-    </div>
-    <h2>{% trans "Dashboard" %}</h2>
-    <!-- nur für authentifizierte Nutzer: -->
-    {% if user.is_authenticated %}
-      <div>
-        <a href="#">{% trans "Own projects" %}</a>
+        </div>
       </div>
-    {% endif %}
-    <script src="{% static "js/build.js" %}"></script>
-</body>
+    </section>
+</div>
+{% endblock %}
 
-</html>
