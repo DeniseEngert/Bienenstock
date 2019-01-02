@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load bulma_tags %}
+
+{% block content %}
+<div class="c-page">
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
+             <h2 class="c-page__title is-size-2 has-line-height-tight">{% trans "Sign Up" %}</h2>
+
+              {% if next %}
+                  {% if user.is_authenticated %}
+                  <p>{% trans "Mit diesem Konto kann nicht auf die Seite zugegriffen werden. Um fortzufahren melden Sie sich bitte mit einem authentifizierten Konto an." }</p>
+                  {% else %}
+                  <p>{% trans "Bitte melden Sie sich an um diese Seite zu sehen." %}</p>
+                  {% endif %}
+              {% endif %}
+
+              <form action="" enctype="multipart/form-data" method="post" class="form-horizontal">
+              {% csrf_token %}
+              {{ form|bulma }}
+
+              <button type="submit" class="button is-primary">{% trans "Create new account" %}</button>
+              <input type="hidden" name="next" value="{{ next }}">
+              </form>
+              <a href="{% url 'register' %}"><br>{% trans "Create new account" %}</a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
+{% endblock %}
