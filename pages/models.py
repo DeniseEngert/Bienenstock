@@ -1,5 +1,5 @@
 from django.db import models
 
-# Create your models here.
+# model for basic pages
 class Page(models.Model):
-    about_text = models.TextField(max_length=4000)
+    text = models.TextField(max_length=4000)

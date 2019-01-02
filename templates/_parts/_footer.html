@@ -11,13 +11,19 @@
       </p>
     </div>
     <div class="column">
-      <p>
-        Menu (Platzhalter)
+      <h2 class="c-footer__headline">{% trans "About" %}</h2>
+      <p class="c-footer__text">
+        {% if settings.about_text %}
+          {{ settings.about_text }}
+        {% endif %}
       </p>
     </div>
     <div class="column">
-      <p>
-        Some extra info
+      <h2 class="c-footer__headline">{% trans "Support" %}</h2>
+      <p class="c-footer__text">
+        {% if settings.support %}
+          {{ settings.support }}
+        {% endif %}
       </p>
     </div>
   </div>
