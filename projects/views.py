@@ -8,12 +8,10 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormMi
 
 # Create your views here.
 
-def projects(request):
-    return render(request, 'projects.html')
-
 class ProjectList(ListView):
     model = Project
     context_object_name = 'projects'
+
 
 class ProjectCreate(CreateView):
     model = Project

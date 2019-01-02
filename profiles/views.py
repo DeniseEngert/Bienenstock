@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.contrib.auth import login
 from django.http import HttpResponseRedirect
 from profiles.forms import *
+from django.views import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -21,4 +23,15 @@ def register(request):
             pass
     else:
         form = RegistrationForm()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'profiles/signup.html', {'form': form})
+
+
+class Dashboard(LoginRequiredMixin, View):
+    login_url = '/login/'
+    def get(self, request):
+       return render(request, 'profiles/dashboard.html')
+
+class Profile(LoginRequiredMixin, View):
+    login_url = '/login/'
+    def get(self, request):
+       return render(request, 'profiles/profile.html')

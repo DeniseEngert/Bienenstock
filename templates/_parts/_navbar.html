@@ -1,21 +1,40 @@
 {% load static %}
 {% load i18n %}
+{% load mptt_tags %}
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar{% if request.get_full_path == "/" %} c-navbar c-navbar--start{% endif %}" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
       <img src="{% static "images/icon-logotype-yellow.svg" %}" alt="Databee Logo" width="160" height="28">
     </a>
 
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger burger js-navbar-burger" aria-label="menu" aria-expanded="false" data-target="js-navbar-menu">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div class="navbar-menu js-navbar-menu">
     <div class="navbar-end">
+      {% if pages %}
+        <div class="navbar-item has-dropdown">
+          <a class="navbar-link js-navbar-dropdown">
+            Info
+          </a>
+          <div class="navbar-dropdown">
+            {% recursetree pages %}
+              <li class="navbar-item{% if not node.is_leaf_node %} {% endif %}">
+                  <span><a href="http://{{ request.get_host }}/{{ node.title|lower }}">{{ node.title }}</a></span>
+                  {% if not node.is_leaf_node %}
+                          {{ children }}
+                  {% endif %}
+              </li>
+            {% endrecursetree %}
+          </div>
+        </div>
+      {% endif %}
+
     {% if not user.is_authenticated %}
       <div class="navbar-item">
         <a class="" href="{% url 'login' %}">{% trans "Log In" %}</a>
@@ -25,7 +44,7 @@
       </div>
     {% else %}
       <div class="navbar-item">
-        <a class="" href="{% url 'projects' %}">{% trans "Dashboard" %}</a>
+        <a class="" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
       </div>
       <div class="navbar-item">
         <a class="" href="{% url 'logout' %}">{% trans "Log Out" %}</a>

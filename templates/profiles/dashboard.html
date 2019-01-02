@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load bulma_tags %}
+
+{% block content %}
+<div class="c-page c-dashboard">
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <h2 class="c-page__title is-size-2 has-line-height-tight">{% trans "Dashboard" %}</h2>
+            <!-- nur für authentifizierte Nutzer: -->
+            {% if user.is_authenticated %}
+              <div class="c-dashboard__login-info">
+              {% trans "Logged in as" %}: {{ user.username }} <a href="{% url 'profile' %}">{% trans "Profile" %}</a> <a href="{% url 'logout' %}">{% trans "Log out" %}</a>
+              </div>
+                <div class="c-projects-list columns is-multiline">
+                  {% for i in "xxx" %}
+                      {% include "projects/_parts/_project-card.html" %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
+{% endblock %}
+
