@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'profiles',
     'pages',
     'common',
-    'sitetree',
     'bulma',
 ]
 

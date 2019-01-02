@@ -25,4 +25,3 @@ class SiteSettings(SingletonModel):
 
     def __str__(self):
         return "Site Settings"
-git
