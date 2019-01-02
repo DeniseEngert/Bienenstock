@@ -1,5 +1,8 @@
 {% load static %}
 {% load i18n %}
+{% load mptt_tags %}
+
+
 
 <footer class="c-footer footer">
   <div class="columns">
@@ -11,14 +14,38 @@
       </p>
     </div>
     <div class="column">
-      <p>
-        Menu (Platzhalter)
-      </p>
+      <nav class="c-footer__nav">
+        <ul>
+            {% recursetree pages %}
+                <li class="c-footer__nav-section{% if not node.is_leaf_node %} has-children {% endif %}">
+                    <span class="c-footer__nav-item--level-{{ node.level }}">{{ node.title }}</span>
+                    {% if not node.is_leaf_node %}
+                        <ul class="children">
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}
+        </ul>
+      </nav>
     </div>
     <div class="column">
-      <p>
-        Some extra info
-      </p>
+      <div class="c-footer__info-block">
+        <h2 class="c-footer__headline">{% trans "About" %}</h2>
+        <p class="c-footer__text">
+          {% if settings.about_text %}
+            {{ settings.about_text }}
+          {% endif %}
+        </p>
+      </div>
+      <div class="c-footer__info-block">
+        <h2 class="c-footer__headline">{% trans "Support" %}</h2>
+        <p class="c-footer__text">
+          {% if settings.support %}
+            {{ settings.support }}
+          {% endif %}
+        </p>
+      </div>
     </div>
   </div>
 </footer>
