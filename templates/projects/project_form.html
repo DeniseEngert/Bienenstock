@@ -3,27 +3,36 @@
 {% load i18n %}
 
 {% block content %}
-<div class="c-project">
-    <h1 class="title is-1">{% if project.title %}{{project.title}}{% else %}New Project{% endif %}</h1>
-
-    <div class="c-project-form">
-        <form action="" method="POST" enctype="multipart/form-data" class="c-project-form">
-            {% csrf_token %}
-            <input type="hidden" id="avatar-url" name="avatar-url">
-            {{ form|bulma }}
-            <div class="level">
-                <div class="level-left">
-                    <input class="button is-primary" type="submit" value="{% trans "Save" %}" >
+  <div class="c-page">
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
+            <h1 class="title is-1">{% if project.title %}{{ project.title }}{% else %}New Project{% endif %}</h1>
+            <div class="c-project-form">
+              <form action="" method="POST" enctype="multipart/form-data" class="c-project-form">
+                {% csrf_token %}
+                <input type="hidden" id="avatar-url" name="avatar-url">
+                {{ form|bulma }}
+                <div class="level">
+                  <div class="level-left">
+                    <input class="button is-primary" type="submit" value="{% trans "Save" %}">
+                  </div>
+                  <div class="level-right">
+                    <button class="button is-danger is-outlined" form="deleteForm" type="submit"
+                            value="Delete">{% trans "Delete" %}</button>
+                  </div>
                 </div>
-                <div class="level-right">
-                    <button class="button is-danger is-outlined" form="deleteForm" type="submit" value="Delete">{% trans "Delete" %}</button>
-                </div>
+              </form>
             </div>
-        </form>
-    </div>
-    {% if project.pk %}
-        <form id="deleteForm" action="{% url 'deleteProject' pk=project.pk %}" method="POST" class="c-form">
-            {% csrf_token %}
-        </form>
-    {% endif %}
+            {% if project.pk %}
+              <form id="deleteForm" action="{% url 'deleteProject' pk=project.pk %}" method="POST" class="c-form">
+                {% csrf_token %}
+              </form>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 {% endblock %}
