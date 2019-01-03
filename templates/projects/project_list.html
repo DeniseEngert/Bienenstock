@@ -12,7 +12,7 @@
             </tr>
         {% for project in projects %}
             <tr>
-                <td><a href="{% url 'editProject' pk=course.pk %}">{{project.title}}</a></td>
+                <td><a href="{% url 'editProject' pk=project.pk %}">{{project.title}}</a></td>
             </tr>
         {% endfor %}
   </table>
