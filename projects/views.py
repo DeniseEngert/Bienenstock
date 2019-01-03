@@ -18,6 +18,7 @@ class ProjectList(ListView):
 class ProjectCreate(CreateView):
     model = Project
     form_class = ProjectForm
+    success_url = reverse_lazy('projects')
 
 
 class ProjectUpdate(UpdateView):
