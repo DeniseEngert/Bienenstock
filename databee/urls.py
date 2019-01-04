@@ -23,8 +23,11 @@ from pages import views as pages_views
 from profiles import views as profiles_views
 from django.contrib.auth import views as auth_views
 
-# project sites (private and public or just one site ???)
+# for project sites
 from projects import views as projects_views
+
+# for comments
+from comments import views as comments_views
 
 # for serving media and static files
 from django.conf import settings
@@ -42,6 +45,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('dashboard/', profiles_views.Dashboard.as_view(), name='dashboard'),
     path('profile/', profiles_views.Profile.as_view(), name='profile'),
+    path('comments/<int:pk>', comments_views.CommentaryCreateView.as_view(), name='newProjectCommentary'),
     path('projects/', projects_views.ProjectList.as_view(), name='projects'),
     path('project/<int:pk>', projects_views.ProjectUpdate.as_view(), name="editProject"),
     path('project/add', projects_views.ProjectCreate.as_view(), name="addProject"),
