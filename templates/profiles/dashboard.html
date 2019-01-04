@@ -11,13 +11,13 @@
           <div class="column">
             <h2 class="c-page__title is-size-2 has-line-height-tight">{% trans "Dashboard" %}</h2>
             <!-- nur für authentifizierte Nutzer: -->
-            <a class="button is-outlined is-medium"
-               href="{% url 'addProject' %}">{% trans "New Project" %}</a>
             {% if user.is_authenticated %}
               <div class="c-dashboard__login-info">
-                {% trans "Logged in as" %}: {{ user.username }} <a href="{% url 'profile' %}">{% trans "Profile" %}</a>
-                <a href="{% url 'logout' %}">{% trans "Log out" %}</a>
+                {% trans "Logged in as" %}: {{ user.username }}
               </div>
+              <a class="button is-outlined is-medium" href="{% url 'profile' %}">{% trans "Profil" %}</a>
+              <a class="button is-outlined is-medium" href="{% url 'projects' %}">{% trans "Deine Projekte" %}</a>
+              <hr>
               <div class="c-projects-list columns is-multiline">
                 {% for i in "xxx" %}
                   {% include "projects/_parts/_project-card.html" %}
