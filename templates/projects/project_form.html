@@ -29,26 +29,6 @@
               <form id="deleteForm" action="{% url 'deleteProject' pk=project.pk %}" method="POST" class="c-form">
                 {% csrf_token %}
               </form>
-              <hr>
-              <h2 class="c-commentary__title is-size-2 has-line-height-tight">{% trans "Projektkommentare: " %}</h2>
-              {% if project.project_commentary.count > 0 %}
-                <p>{% trans "Gesamtzahl: " %}{{ project.project_commentary.count }}</p>
-                <table class="table is-hoverable is-fullwidth">
-                  <tr>
-                      <th>{% trans "Benutzer" %}</th>
-                      <th>{% trans "Datum" %}</th>
-                      <th>{% trans "Kommentartext" %}</th>
-                  </tr>
-                  {% for commentary in project.project_commentary.all %}
-                    <tr>
-                      <td>{{ commentary.user.username }}</td>
-                      <td>{{ commentary.time }}</td>
-                      <td>{{ commentary.text }}</td>
-                    </tr>
-                  {% endfor %}
-                </table>
-              {% endif %}
-              <a href="{% url 'newProjectCommentary' pk=project.pk %}">{% trans "Neuen Kommentar verfassen" %}</a>
             {% endif %}
           </div>
         </div>

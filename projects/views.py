@@ -25,6 +25,7 @@ class ProjectCreate(LoginRequiredMixin, CreateView):
 class ProjectUpdate(LoginRequiredMixin, UpdateView):
     model = Project
     form_class = ProjectForm
+    template_name = "projects/project_detail.html"
 
 
 class ProjectDelete(LoginRequiredMixin, DeleteView):
