@@ -18,7 +18,7 @@
         <ul>
             {% recursetree pages %}
                 <li class="c-footer__nav-section{% if not node.is_leaf_node %} has-children {% endif %}">
-                    <span class="c-footer__nav-item is-level-{{ node.level }}"><a href="http://{{ request.get_host }}/{{ node.title|lower }}">{{ node.title }}</a></span>
+                    <span class="c-footer__nav-item is-level-{{ node.level }}"><a href="http://{{ request.get_host }}/{{ node.slug }}">{{ node.title }}</a></span>
                     {% if not node.is_leaf_node %}
                         <ul class="children">
                             {{ children }}

@@ -25,7 +25,7 @@
           <div class="navbar-dropdown">
             {% recursetree pages %}
               <li class="navbar-item{% if not node.is_leaf_node %} {% endif %}">
-                  <span><a href="http://{{ request.get_host }}/{{ node.title|lower }}">{{ node.title }}</a></span>
+                  <span><a href="http://{{ request.get_host }}/{{ node.slug }}">{{ node.title }}</a></span>
                   {% if not node.is_leaf_node %}
                           {{ children }}
                   {% endif %}
