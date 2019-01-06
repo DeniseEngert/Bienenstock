@@ -17,7 +17,7 @@
                   <a href="{% url 'showDataset' pk=project.pk pk_dataset=dataset.pk %}">
                     {% trans "Datensatz: " %}{{ dataset.title }}
                   </a>
-                  <div id="dygraph" class="c-dygraph js-dygraph" data-csvurl="{{ dataset.data_file_link }}">
+                  <div id="dygraph" class="c-dygraph js-dygraph" data-csvurl="{{ dataset.data_file.url }}">
                     <span>Loading</span>
                   </div>
                 </div>

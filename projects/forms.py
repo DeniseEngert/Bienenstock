@@ -11,4 +11,4 @@ class ProjectForm(ModelForm):
 class DatasetForm(ModelForm):
     class Meta:
         model = Dataset
-        fields = {'title', 'data_file_link'}
+        fields = {'title', 'data_file'}

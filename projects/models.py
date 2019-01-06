@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+from .validators import validate_csv
 # Create your models here.
 
 
@@ -15,6 +15,7 @@ class Project(models.Model):
 class Dataset(models.Model):
     title = models.CharField(max_length=30, unique=True)
     data_file_link = models.URLField()
+    data_file = models.FileField(upload_to='csv/', blank=False, null=True, validators=[validate_csv])
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project_dataset')
 
     def get_absolute_url(self):
