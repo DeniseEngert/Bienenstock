@@ -36,4 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // init dygraphs
+  let dygraphs = [];
+  const dygraphDivs = document.querySelectorAll('.js-dygraph');
+
+  dygraphDivs.forEach((el) => {
+    const csvUrl = el.dataset.csvurl;
+    dygraphs.push(
+      new Dygraph(
+        el, // div
+        csvUrl, // path to CSV file
+        {}          // options
+      )
+    )
+  })
+
 })

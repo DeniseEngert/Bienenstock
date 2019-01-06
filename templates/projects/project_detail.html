@@ -11,10 +11,15 @@
             <h1 class="title is-1">{% trans "Titel: " %}{{ project.title }}</h1>
             {% if project.pk %}
               <hr>
-              <h2 class="c-commentary__title is-size-2 has-line-height-tight">{% trans "Datensätze: " %}</h2>
+              <h2 class="is-size-2 has-line-height-tight">{% trans "Datensätze: " %}</h2>
               {% for dataset in project.project_dataset.all %}
-                <div>
-                  <a href="{% url 'showDataset' pk=project.pk pk_dataset=dataset.pk %}">{% trans "Datensatz: " %}{{ dataset.title }}</a>
+                <div class="c-project__dygraph">
+                  <a href="{% url 'showDataset' pk=project.pk pk_dataset=dataset.pk %}">
+                    {% trans "Datensatz: " %}{{ dataset.title }}
+                  </a>
+                  <div id="dygraph" class="c-dygraph js-dygraph" data-csvurl="{{ dataset.data_file_link }}">
+                    <span>Loading</span>
+                  </div>
                 </div>
               {% endfor %}
               <a class="button is-outlined is-medium" href="{% url 'addDataset' pk=project.pk %}">{% trans "Datensatz hinzufügen" %}</a>
