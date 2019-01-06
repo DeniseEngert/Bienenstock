@@ -30,11 +30,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if ($navbarDropdowns.length > 0) {
     $navbarDropdowns.forEach(el => {
-      el.addEventListener('click', () =>{
+      el.addEventListener('click', (e) =>{
+        e.stopPropagation();
+        $navbarDropdowns.forEach((el) => {
+          el.parentNode.classList.remove('is-active')
+        })
         const target = el.parentNode;
         target.classList.toggle('is-active');
       });
     });
+
+  // hide dropdowns when clicking somewhere else
+  document.addEventListener('click', () => {
+    $navbarDropdowns.forEach((el) => {
+      el.parentNode.classList.remove('is-active')
+    })
+  })
+
   }
 
   // init dygraphs
