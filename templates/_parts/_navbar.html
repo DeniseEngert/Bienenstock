@@ -39,15 +39,22 @@
       <div class="navbar-item">
         <a class="" href="{% url 'login' %}">{% trans "Log In" %}</a>
       </div>
-      <div class="navbar-item">
-        <a class="" href="{% url 'register' %}">{% trans "Sign Up" %}</a>
-      </div>
     {% else %}
-      <div class="navbar-item">
-        <a class="" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
-      </div>
-      <div class="navbar-item">
-        <a class="" href="{% url 'logout' %}">{% trans "Log Out" %}</a>
+      <div class="navbar-item has-dropdown">
+        <a class="navbar-link js-navbar-dropdown">
+          {{ user.username }}
+        </a>
+        <div class="navbar-dropdown">
+            <li class="navbar-item">
+              <a class="" href="{% url 'profile' %}">{% trans "Profile" %}</a>
+            </li>
+            <li class="navbar-item">
+              <a class="" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
+            </li>
+            <li class="navbar-item">
+              <a class="" href="{% url 'logout' %}">{% trans "Log Out" %}</a>
+            </li>
+          </div>
       </div>
     {% endif %}
     </div>
