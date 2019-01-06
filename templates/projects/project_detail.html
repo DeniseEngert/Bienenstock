@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load bulma_tags %}
+{% load i18n %}
+
+{% block content %}
+  <div class="c-page">
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
+            <h1 class="title is-1">{% trans "Titel: " %}{{ project.title }}</h1>
+            {% if project.pk %}
+              <hr>
+              <h2 class="c-commentary__title is-size-2 has-line-height-tight">{% trans "Datensätze: " %}</h2>
+              {% for dataset in project.project_dataset.all %}
+                <div>
+                  <a href="{% url 'showDataset' pk=project.pk pk_dataset=dataset.pk %}">{% trans "Datensatz: " %}{{ dataset.title }}</a>
+                </div>
+              {% endfor %}
+              <a class="button is-outlined is-medium" href="{% url 'addDataset' pk=project.pk %}">{% trans "Datensatz hinzufügen" %}</a>
+              <hr>
+              <h2 class="c-commentary__title is-size-2 has-line-height-tight">{% trans "Projektkommentare: " %}</h2>
+              {% if project.project_commentary.count > 0 %}
+                <p>{% trans "Gesamtzahl: " %}{{ project.project_commentary.count }}</p>
+                <table class="table is-hoverable is-fullwidth">
+                  <tr>
+                      <th>{% trans "Benutzer" %}</th>
+                      <th>{% trans "Datum" %}</th>
+                      <th>{% trans "Kommentartext" %}</th>
+                  </tr>
+                  {% for commentary in project.project_commentary.all %}
+                    <tr>
+                      <td>{{ commentary.user.username }}</td>
+                      <td>{{ commentary.time }}</td>
+                      <td>{{ commentary.text }}</td>
+                      {% if commentary.user == user %}
+                      <td><a class="button is-outlined is-medium" href="dashboard">{% trans "editieren" %}</a></td>
+                      {% endif %}
+                    </tr>
+                  {% endfor %}
+                </table>
+              {% endif %}
+              <a class="button is-outlined is-medium" href="{% url 'newProjectCommentary' pk=project.pk %}">{% trans "Neuen Kommentar verfassen" %}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

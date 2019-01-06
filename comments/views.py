@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from projects.models import Project
 from django.urls import reverse_lazy
@@ -26,22 +25,3 @@ class CommentaryCreateView(LoginRequiredMixin,CreateView):
         commentary.user = self.request.user
         form.instance.project = self.project
         return super(CommentaryCreateView, self).form_valid(form)
-
-
-@login_required
-def new_project_commentary(request, pk):
-    project = get_object_or_404(Project, pk=pk)
-    user = request.user
-    # projects = Project.objects.all()
-    # project = Project.objects.first()
-    if request.method == 'POST':
-        form = CommentaryForm(request.POST)
-        if form.is_valid():
-            commentary = form.save(commit=False)
-            commentary.project = project
-            commentary.user = user
-            commentary.save()
-            return redirect('editProject', pk=project.pk)
-    else:
-        form = ProjectForm()
-    return render(request, 'comments/new_project_commentary.html', {'project':project})

@@ -11,4 +11,4 @@ class Commentary(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='project_commentary')
 
     def get_absolute_url(self):
-       return reverse('editProject', kwargs={'pk': self.project.pk})
+        return reverse('editProject', kwargs={'pk': self.project.pk})
