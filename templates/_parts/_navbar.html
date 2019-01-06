@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load mptt_tags %}
 
-<nav class="navbar{% if request.get_full_path == "/" %} c-navbar c-navbar--start{% endif %}" role="navigation" aria-label="main navigation">
+<nav class="navbar c-navbar{% if request.get_full_path == "/" %} c-navbar--start{% endif %}" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
       <img src="{% static "images/icon-logotype-yellow.svg" %}" alt="Databee Logo" width="160" height="28">
