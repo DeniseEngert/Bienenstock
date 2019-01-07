@@ -16,10 +16,12 @@
                 {% trans "Logged in as" %}: {{ user.username }}
               </div>
               <a class="button is-outlined is-medium" href="{% url 'profile' %}">{% trans "Profil" %}</a>
-              <a class="button is-outlined is-medium" href="{% url 'projects' %}">{% trans "Deine Projekte" %}</a>
+              <a class="button is-outlined is-medium" href="{% url 'addProject' %}">
+                <span class="icon"><i class="material-icons">add</i></span>
+                <span>{% trans "Add Project" %}</span></a>
               <hr>
               <div class="c-projects-list columns is-multiline">
-                {% for i in "xxx" %}
+                {% for project in projects %}
                   {% include "projects/_parts/_project-card.html" %}
                 {% endfor %}
               </div>

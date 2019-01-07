@@ -1,32 +1,38 @@
 {% load static %}
+{% load i18n %}
 
 <!-- Project template -->
 <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-  <div class="c-project-card">
-      <div class="c-project-card__image">
-        <figure class="image">
-          <img src="{% static "images/placeholder_project.png" %}" alt="Placeholder image">
-        </figure>
-      </div>
-      <div class="c-project-card__info">
-        <div class="c-project-card__header">
-          <div class="c-project-card__cat is-small">
-            Category
-          </div>
-          <div class="c-project-card__title">
-            Project Title
-          </div>
+  <a href="{% url 'editProject' pk=project.pk %}">
+    <div class="c-project-card">
+        <div class="c-project-card__image">
+          <figure class="image">
+            <img src="{% static "images/placeholder_project.png" %}" alt="Placeholder image">
+          </figure>
         </div>
-        <div class="c-project-card__meta">
-          <div class="level is-mobile">
-            <div class="level-left">
-              <div class="level-item c-project-card_user">User</div>
+        <div class="c-project-card__info">
+          <div class="c-project-card__header">
+            <div class="c-project-card__cat is-small">
+              Category
             </div>
-            <div class="level-right">
-              <div class="level-item c-project-card_last-update">Last Update</div>
+            <div class="c-project-card__title">
+              Project Title
             </div>
           </div>
+          <div class="c-project-card__meta">
+            <div class="level is-mobile">
+              <div class="level-left">
+                <div class="level-item c-project-card_user"><i class="material-icons">person</i> {% trans "User" %}</div>
+              </div>
+              <div class="level-right">
+                <div class="level-item c-project-card_last-update"><i class="material-icons">update</i> {% trans "Last Update" %}</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-  </div>
+        <div class="c-project-card__public-badge">
+          <span class="icon"><i class="material-icons">public</i></span>
+        </div>
+    </div>
+  </a>
 </div>

@@ -1,23 +1,19 @@
-<html>
-<head>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js"></script>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.css" />
-</head>
+{% extends 'base.html' %}
+{% load bulma_tags %}
+{% load i18n %}
 
-<body>
-
-<noscript><strong>Please enable JavaScript!</strong></noscript>
-<h1>"Datensatz: "{{ dataset.title }}</h1>
-<p>"Datenquelle:"{{ dataset.data_file_link }}</p>
-<div id="graphdiv"
-  style="width:500px; height:300px;"></div>
-<script type="text/javascript">
-  g = new Dygraph(
-    document.getElementById("graphdiv"),
-    "{{ dataset.data_file_link }}", // path to CSV file
-    {}          // options
-  );
-</script>
-</body>
-</html>
-
+{% block content %}
+  <div class="c-page">
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
+            <h1 class="title is-1">{% trans "Dataset: " %}{{ dataset.title }}</h1>
+            <p>Datenquelle: {{ dataset.data_file.url }}</p>
+            <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

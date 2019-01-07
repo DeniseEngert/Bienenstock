@@ -17,12 +17,13 @@
                   <a href="{% url 'showDataset' pk=project.pk pk_dataset=dataset.pk %}">
                     {% trans "Datensatz: " %}{{ dataset.title }}
                   </a>
-                  <div id="dygraph" class="c-dygraph js-dygraph" data-csvurl="{{ dataset.data_file.url }}">
-                    <span>Loading</span>
-                  </div>
+                  <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}"></div>
                 </div>
               {% endfor %}
-              <a class="button is-outlined is-medium" href="{% url 'addDataset' pk=project.pk %}">{% trans "Datensatz hinzufügen" %}</a>
+              <a class="button is-outlined" href="{% url 'addDataset' pk=project.pk %}">
+                <span class="icon"><i class="material-icons">add</i></span>
+                <span>{% trans "Add Dataset" %}</span>
+              </a>
               <hr>
               <h2 class="c-commentary__title is-size-2 has-line-height-tight">{% trans "Projektkommentare: " %}</h2>
               {% if project.project_commentary.count > 0 %}
@@ -39,13 +40,16 @@
                       <td>{{ commentary.time }}</td>
                       <td>{{ commentary.text }}</td>
                       {% if commentary.user == user %}
-                      <td><a class="button is-outlined is-medium" href="dashboard">{% trans "editieren" %}</a></td>
+                      <td><a class="button is-outlined" href="dashboard"><span class="icon"><i class="material-icons">edit</i></span></a></td>
                       {% endif %}
                     </tr>
                   {% endfor %}
                 </table>
               {% endif %}
-              <a class="button is-outlined is-medium" href="{% url 'newProjectCommentary' pk=project.pk %}">{% trans "Neuen Kommentar verfassen" %}</a>
+              <a class="button is-outlined" href="{% url 'newProjectCommentary' pk=project.pk %}">
+                <span class="icon"><i class="material-icons">add</i></span>
+                <span>{% trans "Neuen Kommentar verfassen" %}</span>
+              </a>
             {% endif %}
           </div>
         </div>

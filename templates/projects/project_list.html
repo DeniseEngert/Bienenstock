@@ -7,20 +7,13 @@
     <section class="section">
       <div class="container">
         <div class="columns">
-          <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
-            <h1 class="title is-2">{% trans "Projects" %}</h1>
-            <div class="c-projects-list">
-              <a class="button is-primary" href="{% url 'addProject' %}">{% trans "Projekt hinzufügen" %}</a>
-              <table class="table is-hoverable is-fullwidth">
-                <tr>
-                  <th>{% trans "Title" %}</th>
-                </tr>
-                {% for project in projects %}
-                  <tr>
-                    <td><a href="{% url 'editProject' pk=project.pk %}">{{ project.title }}</a></td>
-                  </tr>
-                {% endfor %}
-              </table>
+          <div class="column">
+            <h1 class="c-page__title c-t-page-headline">{% trans "Projects" %}</h1>
+            <!-- nur für authentifizierte Nutzer: -->
+            <div class="c-projects-list columns is-multiline">
+              {% for project in projects %}
+                {% include "projects/_parts/_project-card.html" %}
+              {% endfor %}
             </div>
           </div>
         </div>
