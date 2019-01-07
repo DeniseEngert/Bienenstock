@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from .validators import validate_csv
+from django.utils import timezone
 # Create your models here.
 
 
@@ -9,7 +10,9 @@ class Project(models.Model):
     picture_platzhalter = models.CharField(max_length=30)
     description = models.CharField(max_length=100)
     is_public = models.BooleanField()
+    updated = models.DateTimeField(default=timezone.now)
     tags = models.CharField(max_length=30)
+    category = models.CharField(max_length=30, default="Nature")
 
 
 class Dataset(models.Model):

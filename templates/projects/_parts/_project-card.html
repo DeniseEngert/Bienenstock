@@ -13,10 +13,10 @@
         <div class="c-project-card__info">
           <div class="c-project-card__header">
             <div class="c-project-card__cat is-small">
-              Category
+              {{ project.category }}
             </div>
             <div class="c-project-card__title">
-              Project Title
+              {{ project.title }}
             </div>
           </div>
           <div class="c-project-card__meta">
@@ -25,7 +25,7 @@
                 <div class="level-item c-project-card_user"><i class="material-icons">person</i> {% trans "User" %}</div>
               </div>
               <div class="level-right">
-                <div class="level-item c-project-card_last-update"><i class="material-icons">update</i> {% trans "Last Update" %}</div>
+                <div class="level-item c-project-card_last-update"><i class="material-icons">update</i> {% trans "Last Update" %}{{ project.updated }}</div>
               </div>
             </div>
           </div>

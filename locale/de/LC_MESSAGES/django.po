@@ -91,3 +91,7 @@ msgstr "Add project"
 #: templates/projects/project_list.html:10
 msgid "Title"
 msgstr "Titel"
+
+#: templates/profiles/dashboard.html:25
+msgid "List View"
+msgstr "Listenansicht"
