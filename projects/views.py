@@ -16,6 +16,8 @@ class ProjectList(ListView):
     model = Project
     context_object_name = 'projects'
 
+    def get_queryset(self):
+        return Project.objects.all().filter(is_public=True).order_by('-updated')
 
 class ProjectCreate(LoginRequiredMixin, CreateView):
     model = Project

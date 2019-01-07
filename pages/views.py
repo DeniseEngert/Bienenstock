@@ -7,7 +7,7 @@ from django.views import View
 def start(request):
     return render(request, 'pages/start.html', {
         "pages": Page.objects.all(),
-        "projects": Project.objects.all()[:3]
+        "projects": Project.objects.all().filter(is_public=True).order_by('-updated')[:3]
     })
 
 class PageView(View):
