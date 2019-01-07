@@ -30,9 +30,11 @@
             </div>
           </div>
         </div>
-        <div class="c-project-card__public-badge">
-          <span class="icon"><i class="material-icons">public</i></span>
-        </div>
+        {% if project.is_public %}
+          <div class="c-project-card__public-badge">
+            <span class="icon"><i class="material-icons">public</i></span>
+          </div>
+        {% endif %}
     </div>
   </a>
 </div>
