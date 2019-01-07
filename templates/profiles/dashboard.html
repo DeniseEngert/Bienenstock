@@ -12,23 +12,43 @@
             <h1 class="c-page__title c-t-page-headline">{% trans "Dashboard" %}</h1>
             <!-- nur für authentifizierte Nutzer: -->
             {% if user.is_authenticated %}
-              <div class="c-dashboard__login-info">
-                {% trans "Logged in as" %}: {{ user.username }}
+              <div class="level">
+                <div class="level-left">
+                  <a class="button level-item is-outlined" href="{% url 'profile' %}">{% trans "Profil" %}</a>
+                </div>
+                <div class="level-right">
+                  <a class="button level-item is-outlined" href="{% url 'addProject' %}">
+                    <span class="icon"><i class="material-icons">add</i></span>
+                    <span>{% trans "Add Project" %}</span>
+                  </a>
+                  <a class="button level-item is-outlined" href="{% url 'dashboardList' %}">
+                    <span class="icon"><i class="material-icons">list</i> </span>
+                    <span>{% trans "List View" %}</span>
+                  </a>
+                </div>
               </div>
-              <a class="button is-outlined is-medium" href="{% url 'profile' %}">{% trans "Profil" %}</a>
-              <a class="button is-outlined is-medium" href="{% url 'addProject' %}">
-                <span class="icon"><i class="material-icons">add</i></span>
-                <span>{% trans "Add Project" %}</span>
-              </a>
-              <a class="button is-outlined is-medium" href="{% url 'projects' %}">
-                <span class="icon"><i class="material-icons">list</i> </span>
-                <span>{% trans "List View" %}</span>
-              </a>
               <hr>
               <div class="c-projects-list columns is-multiline">
-                {% for project in projects %}
-                  {% include "projects/_parts/_project-card.html" %}
-                {% endfor %}
+                <table class="table is-fullwidth">
+                  <thead>
+                  <tr>
+                    <th>{% trans "Title" %}</th>
+                    <th>{% trans "Updated" %}</th>
+                    <th>{% trans "Category" %}</th>
+                    <th>{% trans "Public" %}</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {% for project in projects %}
+                        <tr>
+                          <td><a href="{% url 'editProject' pk=project.pk %}">{{ project.title }}</a></td>
+                          <td>{{ project.updated }}</td>
+                          <td>{{ project.category }}</td>
+                          <td>{% if project.is_public %}Yes{% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
               </div>
             {% endif %}
           </div>

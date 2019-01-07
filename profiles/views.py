@@ -32,6 +32,11 @@ class Dashboard(LoginRequiredMixin, View):
     def get(self, request):
        return render(request, 'profiles/dashboard.html', {"projects": Project.objects.all()})
 
+class DashboardList(LoginRequiredMixin, View):
+    login_url = '/login/'
+    def get(self, request):
+       return render(request, 'profiles/dashboard_list.html', {"projects": Project.objects.all()})
+
 class Profile(LoginRequiredMixin, View):
     login_url = '/login/'
     def get(self, request):
