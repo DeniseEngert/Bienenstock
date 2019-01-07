@@ -22,10 +22,10 @@
           <div class="c-project-card__meta">
             <div class="level is-mobile">
               <div class="level-left">
-                <div class="level-item c-project-card_user"><i class="material-icons">person</i> {% trans "User" %}</div>
+                <div class="level-item c-project-card_user"><i class="material-icons">person</i>{{ user.username }}</div>
               </div>
               <div class="level-right">
-                <div class="level-item c-project-card_last-update"><i class="material-icons">update</i> {% trans "Last Update" %}{{ project.updated }}</div>
+                <div class="level-item c-project-card_last-update"><i class="material-icons">update</i>{{ project.updated }}</div>
               </div>
             </div>
           </div>
