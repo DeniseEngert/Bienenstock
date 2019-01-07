@@ -8,6 +8,7 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 # Create your views here.
 
 
@@ -51,4 +52,3 @@ class DatasetCreateView(LoginRequiredMixin, CreateView):
 def showdataset(request, pk, pk_dataset):
     dataset = get_object_or_404(Dataset, pk=pk_dataset)
     return render(request, 'projects/dataset_detail.html', {'dataset': dataset})
-
