@@ -4,17 +4,31 @@
 {% load bulma_tags %}
 
 {% block content %}
-<div class="c-page">
+  <div class="c-page">
     <section class="section">
       <div class="container">
         <div class="columns">
           <div class="column">
             <h2 class="c-page__title is-size-2 has-line-height-tight">{% trans "Profile" %}</h2>
             <!-- nur für authentifizierte Nutzer: -->
+            {% if user.is_authenticated %}
+              <div>Brathering 1</div>
+              <div>{{ user.username }}</div>
+              <form action="" enctype="multipart/form-data" method="post" class="form-horizontal">
+                {% csrf_token %}
+                <input type="hidden" id="avatar-url" name="avatar-url">
+                {{ form|bulma }}
+
+                <button type="submit" class="button is-primary">{% trans "Update Profile" %}</button>
+                <input type="hidden" name="next" value="{{ next }}">
+              </form>
+            {% else %}
+              <div>Brathering 2</div>
+            {% endif %}
           </div>
         </div>
       </div>
     </section>
-</div>
+  </div>
 {% endblock %}
 
