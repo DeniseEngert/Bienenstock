@@ -19,10 +19,16 @@ class ProjectList(ListView):
     def get_queryset(self):
         return Project.objects.all().filter(is_public=True).order_by('-updated')
 
+
 class ProjectCreate(LoginRequiredMixin, CreateView):
     model = Project
     form_class = ProjectForm
-    success_url = reverse_lazy('projects')
+    success_url = reverse_lazy('dashboard')
+
+    def form_valid(self, form):
+        project = form.save(commit=False)
+        project.user = self.request.user
+        return super(ProjectCreate, self).form_valid(form)
 
 
 class ProjectUpdate(LoginRequiredMixin, UpdateView):
@@ -33,7 +39,7 @@ class ProjectUpdate(LoginRequiredMixin, UpdateView):
 
 class ProjectDelete(LoginRequiredMixin, DeleteView):
     model = Project
-    success_url = reverse_lazy('projects')
+    success_url = reverse_lazy('dashboard')
 
 
 class DatasetCreateView(LoginRequiredMixin, CreateView):
