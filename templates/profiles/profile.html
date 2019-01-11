@@ -11,17 +11,18 @@
           <div class="column">
             <h2 class="c-page__title is-size-2 has-line-height-tight">{% trans "Profile" %}</h2>
             <!-- nur für authentifizierte Nutzer: -->
-            {% if user.is_authenticated %}
-              {% for p in profiles %}
-                {% if p.user == user.pk %}
-                  <div>default: {{ p.areas_of_interest }}</div>
-                  <div>default: {{ p.address }}</div>
-                  <div>default: {{ p.phone_number }}</div>
-                {% endif %}
-              {% endfor %}
-            {% else %}
-              <div>You are not logged in. You need to be logged in to see the information about that user.</div>
-            {% endif %}
+            <h3>{{ user.get_full_name }}</h3>
+            <ul>
+              <li>User: {{ user.username }}</li>
+              <li>Location: {{ user.profile.address }}</li>
+              <li>Phone: {{ user.profile.phone_number }}</li>
+              <li>Geburtstag: {{ user.profile.birth_date }}</li>
+            </ul>
+            <p>Bio</p>
+            <p>{{ user.profile.bio }}</p>
+            <p></p>
+            <p>Hobbies</p>
+            <p>{{ user.profile.areas_of_interest }}</p>
           </div>
         </div>
       </div>

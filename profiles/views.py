@@ -8,6 +8,7 @@ from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from projects.models import Project
 from profiles.models import Profile as Filepro
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -28,10 +29,9 @@ def register(request):
         form = RegistrationForm()
     return render(request, 'profiles/signup.html', {'form': form})
 
-
+@login_required
 def ShowProfile(request):
-    profiles = Profile.objects.order_by('user')
-    return render(request, 'profiles/profile.html', {'profiles': profiles})
+    return render(request, 'profiles/profile.html')
 
 
 class Dashboard(LoginRequiredMixin, View):
