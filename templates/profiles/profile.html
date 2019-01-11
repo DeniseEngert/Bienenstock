@@ -12,16 +12,13 @@
             <h2 class="c-page__title is-size-2 has-line-height-tight">{% trans "Profile" %}</h2>
             <!-- nur für authentifizierte Nutzer: -->
             {% if user.is_authenticated %}
-              <div>Brathering 1</div>
-              <div>{{ user.username }}</div>
-              <form action="" enctype="multipart/form-data" method="post" class="form-horizontal">
-                {% csrf_token %}
-                <input type="hidden" id="avatar-url" name="avatar-url">
-                {{ form|bulma }}
-
-                <button type="submit" class="button is-primary">{% trans "Update Profile" %}</button>
-                <input type="hidden" name="next" value="{{ next }}">
-              </form>
+              {% for p in profiles %}
+                {% if p.user == user.pk %}
+                  <div>default: {{ p.areas_of_interest }}</div>
+                  <div>default: {{ p.address }}</div>
+                  <div>default: {{ p.phone_number }}</div>
+                {% endif %}
+              {% endfor %}
             {% else %}
               <div>Brathering 2</div>
             {% endif %}
