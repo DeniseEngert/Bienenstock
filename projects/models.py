@@ -16,6 +16,8 @@ class Project(models.Model):
     category = models.CharField(max_length=30, default="Nature")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='creator')
 
+    def get_absolute_url(self):
+        return reverse('editProject', kwargs={'pk': self.pk})
 
 class Dataset(models.Model):
     title = models.CharField(max_length=30, unique=True)

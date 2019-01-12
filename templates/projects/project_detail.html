@@ -9,52 +9,58 @@
         <div class="columns">
           <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
             {% if project.pk %}
-              <h1 class="title is-1">{% trans "Projekt: " %}</h1>
+              <p>{{ project.user }}</p>
+              <h1 class="title is-1">{{ project.title }}</h1>
               {% if project.user == user %}
-                <form id="deleteForm" action="{% url 'deleteProject' pk=project.pk %}" method="POST" class="c-form">
+                <form id="updateForm" action="{% url 'editProject' pk=project.pk %}" method="POST" class="c-form">
                   {% csrf_token %}
+                  {{ form|bulma }}
                 </form>
-                <div class="level-left">
-                      <button class="button is-danger is-outlined" form="deleteForm" type="submit"
+
+                <br>
+                <div class="level">
+                  <div class="level-left">
+                     <button class="button is-outlined" type="submit"
+                              value="Delete" form="updateForm" >{% trans "Speichern" %}</button>
+                  </div>
+                  <div class="level-right">
+                                <form id="deleteForm" action="{% url 'deleteProject' pk=project.pk %}" method="POST" class="c-form">
+                        {% csrf_token %}
+                      <button class="button is-danger is-outlined" type="submit"
                               value="Delete">{% trans "Delete" %}</button>
+                      </form>
+                  </div>
+                </div>
+              {% else %}
+                <div class="c-project_detail">
+                  <div class="c-project__description">{{ project.description }}</div>
                 </div>
               {% endif %}
-              <div class="c-project_detail">
-                <table class="table is-hoverable is-fullwidth">
-                <tr>
-                  <th>{% trans "Title:" %}</th>
-                  <td>{{ project.title }}</td>
-                  {% if project.user == user %}
-                  <td><a class="button is-outlined" href="dashboard"><span class="icon"><i class="material-icons">edit</i></span></a></td>
-                  {% endif %}
-                </tr>
-                <tr>
-                  <th>{% trans "Description:" %}</th>
-                  <td>{{ project.description }}</td>
-                  {% if project.user == user %}
-                  <td><a class="button is-outlined" href="dashboard"><span class="icon"><i class="material-icons">edit</i></span></a></td>
-                  {% endif %}
-                </tr>
-              </table>
-              </div>
-              <hr>
-              <h2 class="is-size-2 has-line-height-tight">{% trans "Datasets: " %}</h2>
-              {% for dataset in project.project_dataset.all %}
-                <div class="c-project__dygraph">
-                  <a href="{% url 'showDataset' pk=project.pk pk_dataset=dataset.pk %}">
-                    {% trans "Dataset: " %}{{ dataset.title }}
-                  </a>
-                  <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}"></div>
-                </div>
-              {% endfor %}
+
+              {% if project.project_dataset.all.count > 0 %}
+                              <hr>
+
+                 <h2 class="is-size-2 has-line-height-tight">{% trans "Datasets: " %}</h2>
+                {% for dataset in project.project_dataset.all %}
+                  <div class="c-project__dygraph">
+                    <a href="{% url 'showDataset' pk=project.pk pk_dataset=dataset.pk %}">
+                      {% trans "Dataset: " %}{{ dataset.title }}
+                    </a>
+                    <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}"></div>
+                  </div>
+                {% endfor %}
+              {% endif %}
+
+
+              {% if project.user == user %}
               <a class="button is-outlined" href="{% url 'addDataset' pk=project.pk %}">
                 <span class="icon"><i class="material-icons">add</i></span>
                 <span>{% trans "Add Dataset" %}</span>
               </a>
+              {% endif %}
               <hr>
-              <h2 class="c-commentary__title is-size-2 has-line-height-tight">{% trans "Project comments: " %}</h2>
+              <h2 class="c-commentary__title is-size-4 has-line-height-tight">{% trans "Project comments: " %}</h2>
               {% if project.project_commentary.count > 0 %}
-                <p>{% trans "Total number: " %}{{ project.project_commentary.count }}</p>
                 <table class="table is-hoverable is-fullwidth">
                   <tr>
                       <th>{% trans "User" %}</th>
