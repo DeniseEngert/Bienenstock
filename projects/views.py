@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from comments.forms import CommentaryForm
 
 # Create your views here.
 
@@ -35,6 +35,11 @@ class ProjectUpdate(LoginRequiredMixin, UpdateView):
     model = Project
     form_class = ProjectForm
     template_name = "projects/project_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['commentaryForm'] = CommentaryForm()
+        return context
 
 
 class ProjectDelete(LoginRequiredMixin, DeleteView):
