@@ -12,3 +12,6 @@ class Commentary(models.Model):
 
     def get_absolute_url(self):
         return reverse('editProject', kwargs={'pk': self.project.pk})
+
+    def __str__(self):
+        return self.text

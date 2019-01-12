@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from projects.models import Project
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from django.views.generic import ListView
 from .forms import CommentaryForm
 from .models import *
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.http import HttpResponseForbidden
 # Create your views here.
 
 
@@ -30,3 +30,20 @@ class CommentaryCreateView(LoginRequiredMixin,CreateView):
         commentary.user = self.request.user
         form.instance.project = self.project
         return super(CommentaryCreateView, self).form_valid(form)
+
+
+class CommentaryDeleteView(LoginRequiredMixin, DeleteView):
+    model = Commentary
+
+    def dispatch(self, request, *args, **kwargs):
+        comment = self.get_object()
+        project = comment.project
+
+        # check, if user is either project owner or comment author
+        if not (request.user.id == project.user.id or request.user.id == comment.user.id):
+            return HttpResponseForbidden("It is not yours ! You are not permitted !")
+
+        self.success_url = reverse_lazy('editProject', kwargs={'pk': project.pk})
+        return super().dispatch(request, *args, **kwargs)
+
+
