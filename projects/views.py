@@ -47,7 +47,8 @@ class ProjectDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('dashboard')
 
 
-class DatasetCreateView(LoginRequiredMixin, CreateView):
+
+class DatasetCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Dataset
     form_class = DatasetForm
     template_name = "projects/new_dataset.html"
@@ -60,8 +61,17 @@ class DatasetCreateView(LoginRequiredMixin, CreateView):
         form.instance.project = self.project
         return super(DatasetCreateView, self).form_valid(form)
 
+    def has_permission(self):
+        project = self.project
+        return project.user == self.request.user
 
-@login_required
-def showdataset(request, pk, pk_dataset):
-    dataset = get_object_or_404(Dataset, pk=pk_dataset)
-    return render(request, 'projects/dataset_detail.html', {'dataset': dataset})
+
+class DatasetDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
+    model = Dataset
+    template_name = 'projects/dataset_detail.html'
+
+    def has_permission(self):
+        project = self.get_object().project
+        return project.user == self.request.user
+
+

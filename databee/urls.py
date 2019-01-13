@@ -53,7 +53,7 @@ urlpatterns = [
     path('project/add', projects_views.ProjectCreate.as_view(), name="addProject"),
     path('project/<int:pk>/delete', projects_views.ProjectDelete.as_view(), name="deleteProject"),
     path('project/addDataset/<int:pk>', projects_views.DatasetCreateView.as_view(), name="addDataset"),
-    path('project/showDataset/<int:pk>/<int:pk_dataset>', projects_views.showdataset, name='showDataset'),
+    path('project/showDataset/<int:pk>', projects_views.DatasetDetailView.as_view(), name='showDataset'),
     path('<str:slug>', pages_views.PageView.as_view(), name="showPage"),
 ]
 
