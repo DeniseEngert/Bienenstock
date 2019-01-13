@@ -17,10 +17,10 @@ class CommentaryCreateView(LoginRequiredMixin,CreateView):
 
     def dispatch(self, request, *args, **kwargs):
         self.project = get_object_or_404(Project, pk=kwargs['pk'])
-        return super().dispatch(request, *args, **kwargs)
+        return super(CommentaryCreateView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(CommentaryCreateView, self).get_context_data(**kwargs)
         context['project'] = self.project
         context['commentaryForm'] = context.get('form')
         return context
