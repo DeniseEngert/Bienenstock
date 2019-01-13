@@ -40,6 +40,8 @@
                     <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}"></div>
                   </div>
                 {% endfor %}
+              {% else %}
+                <p>{% trans "No datasets submitted yet." %}</p>
               {% endif %}
               <a class="button is-outlined" href="{% url 'addDataset' pk=project.pk %}">
                 <span class="icon"><i class="material-icons">add</i></span>
@@ -65,6 +67,8 @@
                     </tr>
                   {% endfor %}
                 </table>
+              {% else %}
+                <p>{% trans "No comments submitted yet." %}</p>
               {% endif %}
               <form action="{% url "newProjectCommentary" pk=project.pk %}" method="POST">
                 {% csrf_token %}
