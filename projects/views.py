@@ -42,7 +42,21 @@ class ProjectUpdate(LoginRequiredMixin, UpdateView):
         return context
 
 
-class ProjectDelete(LoginRequiredMixin, DeleteView):
+class PublicProjectDetailView(PermissionRequiredMixin, DetailView):
+    model = Project
+    template_name = "projects/public_project_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(PublicProjectDetailView, self).get_context_data(**kwargs)
+        context['commentaryForm'] = CommentaryForm()
+        return context
+
+    def has_permission(self):
+        project = self.get_object()
+        return project.is_public
+
+
+class ProjectDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Project
     success_url = reverse_lazy('dashboard')
 

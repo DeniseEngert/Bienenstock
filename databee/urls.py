@@ -50,6 +50,7 @@ urlpatterns = [
     path('commentary/<int:pk>/delete', comments_views.CommentaryDeleteView.as_view(), name='deleteProjectCommentary'),
     path('projects/', projects_views.ProjectList.as_view(), name='projects'),
     path('project/<int:pk>', projects_views.ProjectUpdate.as_view(), name="editProject"),
+    path('project/public/<int:pk>', projects_views.PublicProjectDetailView.as_view(), name ="viewPublicProject"),
     path('project/add', projects_views.ProjectCreate.as_view(), name="addProject"),
     path('project/<int:pk>/delete', projects_views.ProjectDelete.as_view(), name="deleteProject"),
     path('project/addDataset/<int:pk>', projects_views.DatasetCreateView.as_view(), name="addDataset"),

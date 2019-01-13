@@ -3,7 +3,11 @@
 
 <!-- Project template -->
 <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-  <a href="{% url 'editProject' pk=project.pk %}">
+  {% if project.user == user %}
+    <a href="{% url 'editProject' pk=project.pk %}">
+  {% elif project.is_public %}
+    <a href="{% url 'viewPublicProject' pk=project.pk %}">
+  {% endif %}
     <div class="c-project-card">
         <div class="c-project-card__image">
           <figure class="image">
