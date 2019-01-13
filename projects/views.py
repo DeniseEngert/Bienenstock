@@ -6,7 +6,7 @@ from .forms import *
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormMixin
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from comments.forms import CommentaryForm
 
 # Create your views here.
@@ -31,10 +31,14 @@ class ProjectCreate(LoginRequiredMixin, CreateView):
         return super(ProjectCreate, self).form_valid(form)
 
 
-class ProjectUpdate(LoginRequiredMixin, UpdateView):
+class ProjectUpdate(PermissionRequiredMixin, UpdateView):
     model = Project
     form_class = ProjectForm
     template_name = "projects/project_detail.html"
+
+    def has_permission(self):
+        project = self.get_object()
+        return project.user == self.request.user
 
     def get_context_data(self, **kwargs):
         context = super(ProjectUpdate, self).get_context_data(**kwargs)
@@ -60,6 +64,9 @@ class ProjectDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Project
     success_url = reverse_lazy('dashboard')
 
+    def has_permission(self):
+        project = self.get_object()
+        return project.user == self.request.user
 
 
 class DatasetCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
