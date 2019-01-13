@@ -11,7 +11,10 @@ class Commentary(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='project_commentary')
 
     def get_absolute_url(self):
-        return reverse('editProject', kwargs={'pk': self.project.pk})
+        if self.project.user == self.user:
+            return reverse('editProject', kwargs={'pk': self.project.pk})
+        else:
+            return reverse('viewPublicProject', kwargs={'pk': self.project.pk})
 
     def __str__(self):
         return self.text

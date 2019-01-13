@@ -43,7 +43,10 @@ class CommentaryDeleteView(LoginRequiredMixin, DeleteView):
         if not (request.user.id == project.user.id or request.user.id == comment.user.id):
             return HttpResponseForbidden("It is not yours ! You are not permitted !")
 
-        self.success_url = reverse_lazy('editProject', kwargs={'pk': project.pk})
-        return super().dispatch(request, *args, **kwargs)
+        if project.user == request.user:
+            self.success_url = reverse_lazy('editProject', kwargs={'pk': project.pk})
+        else:
+            self.success_url = reverse_lazy('viewPublicProject', kwargs={'pk': project.pk})
+        return super(CommentaryDeleteView, self).dispatch(request, *args, **kwargs)
 
 
