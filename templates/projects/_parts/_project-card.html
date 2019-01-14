@@ -3,7 +3,11 @@
 
 <!-- Project template -->
 <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-  <a href="{% url 'editProject' pk=project.pk %}">
+  {% if project.user == user %}
+    <a href="{% url 'editProject' pk=project.pk %}">
+  {% elif project.is_public %}
+    <a href="{% url 'viewPublicProject' pk=project.pk %}">
+  {% endif %}
     <div class="c-project-card">
         <div class="c-project-card__image">
           <figure class="image">
@@ -22,7 +26,7 @@
           <div class="c-project-card__meta">
             <div class="level is-mobile">
               <div class="level-left">
-                <div class="level-item c-project-card_user"><i class="material-icons">person</i>{{ user.username }}</div>
+                <div class="level-item c-project-card_user"><i class="material-icons">person</i>{{ project.user }}</div>
               </div>
               <div class="level-right">
                 <div class="level-item c-project-card_last-update"><i class="material-icons">update</i>{{ project.updated }}</div>

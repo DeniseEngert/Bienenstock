@@ -60,14 +60,16 @@ class Dashboard(LoginRequiredMixin, View):
     login_url = '/login/'
 
     def get(self, request):
-        return render(request, 'profiles/dashboard.html', {"projects": Project.objects.all()})
+        projects = Project.objects.filter(user=request.user)
+        return render(request, 'profiles/dashboard.html', {"projects": projects})
 
 
 class DashboardList(LoginRequiredMixin, View):
     login_url = '/login/'
 
     def get(self, request):
-        return render(request, 'profiles/dashboard_list.html', {"projects": Project.objects.all()})
+        projects = Project.objects.filter(user=request.user)
+        return render(request, 'profiles/dashboard_list.html', {"projects": projects})
 
 
 class Profile(LoginRequiredMixin, View):

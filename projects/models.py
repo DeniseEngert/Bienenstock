@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from .validators import validate_csv
 from django.utils import timezone
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -13,7 +14,10 @@ class Project(models.Model):
     updated = models.DateTimeField(default=timezone.now)
     tags = models.CharField(max_length=30)
     category = models.CharField(max_length=30, default="Nature")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='creator')
 
+    def get_absolute_url(self):
+        return reverse('editProject', kwargs={'pk': self.pk})
 
 class Dataset(models.Model):
     title = models.CharField(max_length=30, unique=True)

@@ -8,45 +8,29 @@
       <div class="container">
         <div class="columns">
           <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
-            {% if project.user == user %}
-              <h1 class="title is-1">{% trans "Project: " %}</h1>
-              <form id="updateForm" action="{% url 'editProject' pk=project.pk %}" method="POST" class="c-form">
-                {% csrf_token %}
-                {{ form|bulma }}
-              </form>
-              <br>
-              <div class="level">
-                <div class="level-left">
-                   <button class="button is-outlined" type="submit"
-                            value="Save" form="updateForm" >{% trans "Save Changes" %}</button>
-                </div>
-                <div class="level-right">
-                  <form id="deleteForm" action="{% url 'deleteProject' pk=project.pk %}" method="POST" class="c-form">
-                      {% csrf_token %}
-                    <button class="button is-danger is-outlined" type="submit"
-                            value="Delete">{% trans "Delete Project" %}</button>
-                  </form>
-                </div>
+            {% if project.is_public %}
+              <div class="c-public_project_detail">
+                <div class="c-public_project__description">{{ project.user }}</div>
+                <h1 class="title is-1">{% trans "Project: " %}{{ project.title }}</h1>
+                <div class="c-public_project__description">{{ project.description }}</div>
               </div>
-
+            {% endif %}
+            {% if project.is_public or project.user == user %}
               <hr>
               <h2 class="is-size-2 has-line-height-tight">{% trans "Datasets: " %}</h2>
               {% if project.project_dataset.all.count > 0 %}
                 {% for dataset in project.project_dataset.all %}
                   <div class="c-project__dygraph">
-                    <a href="{% url 'showDataset' pk=dataset.pk %}">
                       {% trans "Dataset: " %}{{ dataset.title }}
-                    </a>
                     <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}"></div>
                   </div>
                 {% endfor %}
               {% else %}
                 <p>{% trans "No datasets submitted yet." %}</p>
               {% endif %}
-              <a class="button is-outlined" href="{% url 'addDataset' pk=project.pk %}">
-                <span class="icon"><i class="material-icons">add</i></span>
-                <span>{% trans "Add Dataset" %}</span>
-              </a>
+            {% endif %}
+
+            {% if project.is_public or project.user == user %}
               <hr>
               <h2 class="c-commentary__title is-size-4 has-line-height-tight">{% trans "Project comments: " %}</h2>
               {% if project.project_commentary.count > 0 %}
@@ -70,11 +54,13 @@
               {% else %}
                 <p>{% trans "No comments submitted yet." %}</p>
               {% endif %}
-              <form action="{% url "newProjectCommentary" pk=project.pk %}" method="POST">
-                {% csrf_token %}
-                {{ commentaryForm|bulma }}
-                <input class="button is-outlined" type="submit" value="Add new comment" />
-              </form>
+              {% if user.is_authenticated %}
+                <form action="{% url "newProjectCommentary" pk=project.pk %}" method="POST">
+                  {% csrf_token %}
+                  {{ commentaryForm|bulma }}
+                  <input class="button is-outlined" type="submit" value="Add new comment" />
+                </form>
+              {% endif %}
             {% endif %}
           </div>
         </div>

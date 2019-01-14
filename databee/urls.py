@@ -46,14 +46,15 @@ urlpatterns = [
     path('dashboard/', profiles_views.Dashboard.as_view(), name='dashboard'),
     path('dashboard/list', profiles_views.DashboardList.as_view(), name='dashboardList'),
     path('profile/', profiles_views.update_profile, name='profile'),  # hier ändern/ löschen
-
-    path('comments/<int:pk>', comments_views.CommentaryCreateView.as_view(), name='newProjectCommentary'),
+    path('project/<int:pk>/comment', comments_views.CommentaryCreateView.as_view(), name='newProjectCommentary'),
+    path('commentary/<int:pk>/delete', comments_views.CommentaryDeleteView.as_view(), name='deleteProjectCommentary'),
     path('projects/', projects_views.ProjectList.as_view(), name='projects'),
     path('project/<int:pk>', projects_views.ProjectUpdate.as_view(), name="editProject"),
+    path('project/public/<int:pk>', projects_views.PublicProjectDetailView.as_view(), name ="viewPublicProject"),
     path('project/add', projects_views.ProjectCreate.as_view(), name="addProject"),
     path('project/<int:pk>/delete', projects_views.ProjectDelete.as_view(), name="deleteProject"),
     path('project/addDataset/<int:pk>', projects_views.DatasetCreateView.as_view(), name="addDataset"),
-    path('project/showDataset/<int:pk>/<int:pk_dataset>', projects_views.showdataset, name='showDataset'),
+    path('project/showDataset/<int:pk>', projects_views.DatasetDetailView.as_view(), name='showDataset'),
     path('<str:slug>', pages_views.PageView.as_view(), name="showPage"),
 ]
 
