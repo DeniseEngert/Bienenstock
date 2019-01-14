@@ -45,7 +45,8 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('dashboard/', profiles_views.Dashboard.as_view(), name='dashboard'),
     path('dashboard/list', profiles_views.DashboardList.as_view(), name='dashboardList'),
-    path('profile/', profiles_views.Profile.as_view(), name='profile'), # hier ändern/ löschen
+    path('profile/', profiles_views.update_profile, name='profile'),  # hier ändern/ löschen
+
     path('comments/<int:pk>', comments_views.CommentaryCreateView.as_view(), name='newProjectCommentary'),
     path('projects/', projects_views.ProjectList.as_view(), name='projects'),
     path('project/<int:pk>', projects_views.ProjectUpdate.as_view(), name="editProject"),
