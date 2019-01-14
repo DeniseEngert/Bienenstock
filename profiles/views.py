@@ -30,10 +30,6 @@ def register(request):
         form = RegistrationForm()
     return render(request, 'profiles/signup.html', {'form': form})
 
-# @login_required
-# def ShowProfile(request):
-#     return render(request, 'profiles/profile.html')
-
 @login_required
 @transaction.atomic
 def update_profile(request):
@@ -43,10 +39,10 @@ def update_profile(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, _('Successful updated!'))
+            messages.success(request, u'Successfully updated!')
             return HttpResponseRedirect(reverse('profile'))
         else:
-            messages.error(request, _('Please correct error below.'))
+            messages.error(request, u'Please correct error below.')
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileView(instance=request.user.profile)
