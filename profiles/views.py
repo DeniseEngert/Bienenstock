@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from projects.models import Project
 from profiles.models import Profile as Filepro
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
 
 
 # Create your views here.
@@ -29,9 +30,30 @@ def register(request):
         form = RegistrationForm()
     return render(request, 'profiles/signup.html', {'form': form})
 
+# @login_required
+# def ShowProfile(request):
+#     return render(request, 'profiles/profile.html')
+
 @login_required
-def ShowProfile(request):
-    return render(request, 'profiles/profile.html')
+@transaction.atomic
+def update_profile(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileView(request.POST, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, _('Successful updated!'))
+            return HttpResponseRedirect(reverse('profile'))
+        else:
+            messages.error(request, _('Please correct error below.'))
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = ProfileView(instance=request.user.profile)
+    return render(request, 'profiles/profile.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+    })
 
 
 class Dashboard(LoginRequiredMixin, View):
