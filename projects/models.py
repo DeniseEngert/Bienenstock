@@ -12,8 +12,8 @@ class Project(models.Model):
     description = models.CharField(max_length=100)
     is_public = models.BooleanField()
     updated = models.DateTimeField(default=timezone.now)
-    tags = models.CharField(max_length=30)
-    category = models.CharField(max_length=30, default="Nature")
+    tags = models.CharField(max_length=30, blank=True)
+    category = models.CharField(max_length=30, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='creator')
 
     def get_absolute_url(self):
