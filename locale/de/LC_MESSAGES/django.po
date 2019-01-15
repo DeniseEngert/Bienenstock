@@ -1,97 +1,201 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-31 16:32+0100\n"
+"POT-Creation-Date: 2019-01-13 10:06+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: templates/_parts/_navbar.html:20 templates/login.html:17
-#: templates/projects.html:33 templates/register.html:23
+#: templates/_parts/_footer.html:41
+msgid "Support"
+msgstr ""
+
+#: templates/_parts/_navbar.html:21
+msgid "Explore"
+msgstr ""
+
+#: templates/_parts/_navbar.html:43 templates/auth/login.html:12
 msgid "Log In"
 msgstr "Anmelden"
 
-#: templates/_parts/_navbar.html:23 templates/projects.html:34
-#: templates/register.html:17
-msgid "Sign Up"
-msgstr "Konto erstellen"
+#: templates/_parts/_navbar.html:52 templates/profiles/profile.html:12
+msgid "Profile"
+msgstr "Profil"
 
-#: templates/_parts/_navbar.html:27 templates/projects.html:37
+#: templates/_parts/_navbar.html:55 templates/profiles/dashboard.html:12
+#: templates/profiles/dashboard_list.html:12
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: templates/_parts/_navbar.html:30
+#: templates/_parts/_navbar.html:58
 msgid "Log Out"
 msgstr "Abmelden"
 
-#: templates/login.html:19
-msgid ""
-"Nutzername und Passwort passen nicht zusammen. Beide Felder beachten die "
-"Groß-/Kleinschreibung. Bitte nochmal versuchen."
-msgstr ""
-
-#: templates/login.html:26
+#: templates/auth/login.html:18 templates/profiles/signup.html:18
 msgid "Bitte melden Sie sich an um diese Seite zu sehen."
 msgstr ""
 
-#: templates/login.html:43
+#: templates/auth/login.html:26
 msgid "Log in"
 msgstr "Anmelden"
 
-#: templates/login.html:47 templates/register.html:21
+#: templates/auth/login.html:29 templates/profiles/signup.html:26
+#: templates/profiles/signup.html:29
 msgid "Create new account"
 msgstr "Neues Nutzerkonte anlegen"
+
+#: templates/comments/commentary_confirm_delete.html:15
+msgid "Are you sure you want to delete the comment "
+msgstr ""
+
+#: templates/comments/new_project_commentary.html:12
+msgid "Neuer Kommentar zum Projekt"
+msgstr ""
+
+#: templates/comments/new_project_commentary.html:22
+msgid "Kommentar speichern"
+msgstr ""
+
+#: templates/comments/new_project_commentary.html:25
+msgid "Kommentar l&ouml;schen"
+msgstr ""
+
+#: templates/comments/new_project_commentary.html:30
+msgid "Diese Seite kann nur von eingeloggten Nutzern angezeigt werden."
+msgstr ""
 
 #: templates/pages/start.html:16
 msgid "Visualize and Share Datasets"
 msgstr "Messreihen kommentieren und teilen"
 
-#: templates/pages/start.html:22 templates/pages/start.html:29
+#: templates/pages/start.html:21 templates/profiles/signup.html:12
+msgid "Sign Up"
+msgstr "Konto erstellen"
+
+#: templates/pages/start.html:26 templates/pages/start.html:32
 msgid "Latest Projects"
 msgstr "Die neuesten Projekte"
 
-#: templates/pages/start.html:30
-msgid "No projects available"
-msgstr "Keine Projekte verfügbar"
-
-#: templates/projects.html:19
-msgid "Home"
-msgstr "Start"
-
-#: templates/projects.html:22
-msgid "Logged in as"
-msgstr "Angemeldet als"
-
-#: templates/projects.html:24
-msgid "Profile"
-msgstr "Profil"
-
-#: templates/projects.html:25
-msgid "Log out"
-msgstr "Abmelden"
-
-#: templates/projects.html:28 templates/projects.html:41
-msgid "Own projects"
+#: templates/pages/start.html:43
+#, fuzzy
+#| msgid "Own projects"
+msgid "Show more projects"
 msgstr "Eigene Projekte"
 
-#: templates/projects/project_form.html:15
-msgid "Save"
-msgstr "Speichern"
+#: templates/profiles/dashboard.html:17
+#: templates/profiles/dashboard_list.html:17
+#, fuzzy
+#| msgid "Profile"
+msgid "Profil"
+msgstr "Profil"
 
-#: templates/projects/project_form.html:18
-msgid "Delete"
-msgstr "Löschen"
-
-#: templates/projects/project_list.html:5
-msgid "Projects"
+#: templates/profiles/dashboard.html:22
+#: templates/profiles/dashboard_list.html:22
+#, fuzzy
+#| msgid "Projects"
+msgid "Add Project"
 msgstr "Die neuesten Projekte"
 
-#: templates/projects/project_list.html:7
-msgid "Projekt hinzufügen"
-msgstr "Add project"
+#: templates/profiles/dashboard.html:26
+msgid "List View"
+msgstr "Listenansicht"
 
-#: templates/projects/project_list.html:10
+#: templates/profiles/dashboard_list.html:26
+#, fuzzy
+#| msgid "List View"
+msgid "Tile View"
+msgstr "Listenansicht"
+
+#: templates/profiles/dashboard_list.html:35
+#: templates/projects/projects_listview.html:16
 msgid "Title"
 msgstr "Titel"
 
-#: templates/profiles/dashboard.html:25
-msgid "List View"
-msgstr "Listenansicht"
+#: templates/profiles/dashboard_list.html:36
+msgid "Updated"
+msgstr ""
+
+#: templates/profiles/dashboard_list.html:37
+msgid "Category"
+msgstr ""
+
+#: templates/profiles/dashboard_list.html:38
+msgid "Public"
+msgstr ""
+
+#: templates/projects/dataset_detail.html:11
+#: templates/projects/project_detail.html:47
+msgid "Dataset: "
+msgstr ""
+
+#: templates/projects/new_dataset.html:12
+#, fuzzy
+#| msgid "Projekt hinzufügen"
+msgid "Datensatz hinzufügen"
+msgstr "Add project"
+
+#: templates/projects/new_dataset.html:22
+msgid "speichern"
+msgstr ""
+
+#: templates/projects/new_dataset.html:27
+msgid "Diese Seite kann nur von authentifizierten Nutzern angezeigt werden."
+msgstr ""
+
+#: templates/projects/project_detail.html:24
+msgid "Speichern"
+msgstr ""
+
+#: templates/projects/project_detail.html:30
+#: templates/projects/project_form.html:23
+msgid "Delete"
+msgstr "Löschen"
+
+#: templates/projects/project_detail.html:43
+msgid "Datasets: "
+msgstr ""
+
+#: templates/projects/project_detail.html:58
+msgid "Add Dataset"
+msgstr ""
+
+#: templates/projects/project_detail.html:62
+#, fuzzy
+#| msgid "Projects"
+msgid "Project comments: "
+msgstr "Die neuesten Projekte"
+
+#: templates/projects/project_detail.html:66
+msgid "User"
+msgstr ""
+
+#: templates/projects/project_detail.html:67
+msgid "Date"
+msgstr ""
+
+#: templates/projects/project_detail.html:68
+msgid "Commentary text"
+msgstr ""
+
+#: templates/projects/project_form.html:19
+msgid "Save"
+msgstr "Speichern"
+
+#: templates/projects/project_list.html:11
+#: templates/projects/projects_listview.html:11
+msgid "Projects"
+msgstr "Die neuesten Projekte"
+
+#: templates/projects/projects_listview.html:13
+msgid "Projekt hinzufügen"
+msgstr "Add project"
+
+#~ msgid "No projects available"
+#~ msgstr "Keine Projekte verfügbar"
+
+#~ msgid "Home"
+#~ msgstr "Start"
+
+#~ msgid "Logged in as"
+#~ msgstr "Angemeldet als"
+
+#~ msgid "Log out"
+#~ msgstr "Abmelden"
