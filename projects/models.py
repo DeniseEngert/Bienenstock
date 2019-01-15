@@ -14,10 +14,11 @@ class Project(models.Model):
     updated = models.DateTimeField(default=timezone.now)
     tags = models.CharField(max_length=30, blank=True)
     category = models.CharField(max_length=30, blank=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='creator')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, db_column='user', related_name='creator')
 
     def get_absolute_url(self):
         return reverse('editProject', kwargs={'pk': self.pk})
+
 
 class Dataset(models.Model):
     title = models.CharField(max_length=30, unique=True)
