@@ -1,16 +1,13 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from projects.models import Project
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView
-from django.views.generic import ListView
 from .forms import CommentaryForm
 from .models import *
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseForbidden
-# Create your views here.
 
 
-class CommentaryCreateView(LoginRequiredMixin,CreateView):
+class CommentaryCreateView(LoginRequiredMixin, CreateView):
     model = Commentary
     template_name = 'projects/project_detail.html'
     form_class = CommentaryForm
@@ -48,5 +45,3 @@ class CommentaryDeleteView(LoginRequiredMixin, DeleteView):
         else:
             self.success_url = reverse_lazy('viewPublicProject', kwargs={'pk': project.pk})
         return super(CommentaryDeleteView, self).dispatch(request, *args, **kwargs)
-
-

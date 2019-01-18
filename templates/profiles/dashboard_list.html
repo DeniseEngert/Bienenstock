@@ -10,7 +10,6 @@
         <div class="columns">
           <div class="column">
             <h1 class="c-page__title c-t-page-headline">{% trans "Dashboard" %}</h1>
-            <!-- nur für authentifizierte Nutzer: -->
             {% if user.is_authenticated %}
               <div class="level">
                 <div class="level-left">
@@ -39,14 +38,14 @@
                   </tr>
                   </thead>
                   <tbody>
-                    {% for project in projects %}
-                        <tr>
-                          <td><a href="{% url 'editProject' pk=project.pk %}">{{ project.title }}</a></td>
-                          <td>{{ project.updated }}</td>
-                          <td>{{ project.category }}</td>
-                          <td>{% if project.is_public %}public{% endif %}</td>
-                        </tr>
-                    {% endfor %}
+                  {% for project in projects %}
+                    <tr>
+                      <td><a href="{% url 'editProject' pk=project.pk %}">{{ project.title }}</a></td>
+                      <td>{{ project.updated }}</td>
+                      <td>{{ project.category }}</td>
+                      <td>{% if project.is_public %}public{% endif %}</td>
+                    </tr>
+                  {% endfor %}
                   </tbody>
                 </table>
               </div>

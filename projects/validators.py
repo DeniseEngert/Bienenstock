@@ -2,6 +2,7 @@ from django.core.exceptions import ValidationError
 import os
 import csv
 
+
 def validate_csv(value):
     # check if extension is correct
     ext = os.path.splitext(value.name)[1]  # [0] returns path+filename
@@ -17,4 +18,3 @@ def validate_csv(value):
         csv.reader(value.file)
     except:
         raise ValidationError(u'Wrong format.')
-

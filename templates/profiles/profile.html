@@ -10,27 +10,13 @@
         <div class="columns">
           <div class="column">
             <h2 class="c-page__title is-size-2 has-line-height-tight">{% trans "Profile" %}</h2>
-            <!-- nur für authentifizierte Nutzer: -->
             <h3>{{ user.get_full_name }}</h3>
-                        <form method="post">
-                          {% csrf_token %}
-                          {{ user_form|bulma }}
-                          {{ profile_form|bulma }}
-                          <button type="submit">Save changes</button>
-                        </form>
-
-
-{#            <ul>#}
-            {#              <li>User: {{ user.username }}</li>#}
-            {#              <li>Location: {{ user.profile.address }}</li>#}
-            {#              <li>Phone: {{ user.profile.phone_number }}</li>#}
-            {#              <li>Geburtstag: {{ user.profile.birth_date }}</li>#}
-            {#            </ul>#}
-            {#            <p>Bio</p>#}
-            {#            <p>{{ user.profile.bio }}</p>#}
-            {#            <p></p>#}
-            {#            <p>Hobbies</p>#}
-            {#            <p>{{ user.profile.areas_of_interest }}</p>#}
+            <form method="post">
+              {% csrf_token %}
+              {{ user_form|bulma }}
+              {{ profile_form|bulma }}
+              <button type="submit">Save changes</button>
+            </form>
           </div>
         </div>
       </div>

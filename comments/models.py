@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from projects.models import Project
 from django.urls import reverse
 
-# Create your models here.
+
 class Commentary(models.Model):
     text = models.TextField(max_length=4000)
     time = models.DateTimeField(auto_now_add=True)

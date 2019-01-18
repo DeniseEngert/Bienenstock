@@ -12,9 +12,6 @@ from django.contrib.auth.decorators import login_required
 from django.db import transaction
 
 
-# Create your views here.
-
-
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -29,6 +26,7 @@ def register(request):
     else:
         form = RegistrationForm()
     return render(request, 'profiles/signup.html', {'form': form})
+
 
 @login_required
 @transaction.atomic

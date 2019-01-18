@@ -4,27 +4,26 @@
 {% load bulma_tags %}
 
 {% block content %}
-<div class="c-comments">
-  <section class="section">
+  <div class="c-comments">
+    <section class="section">
       <div class="container">
         <div class="columns">
           <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
             <h1 class="title is-1">{% trans "Neuer Kommentar zum Projekt" %}:{{ project.title }}</h1>
-
             <div class="c-comments-form">
-              <!-- nur für authentifizierte Nutzer: -->
               {% if user.is_authenticated %}
                 <form action="" method="POST" enctype="multipart/form-data" class="c-comments-form">
-                    {% csrf_token %}
-                    {{ form|bulma }}
-                    <div class="level">
-                        <div class="level-left">
-                            <input class="button" type="submit" value="{% trans "Kommentar speichern" %}" >
-                        </div>
-                        <div class="level-right">
-                            <button class="button is-danger is-outlined" form="deleteForm" type="submit" value="Delete">{% trans "Kommentar l&ouml;schen" %}</button>
-                        </div>
+                  {% csrf_token %}
+                  {{ form|bulma }}
+                  <div class="level">
+                    <div class="level-left">
+                      <input class="button" type="submit" value="{% trans "Kommentar speichern" %}">
                     </div>
+                    <div class="level-right">
+                      <button class="button is-danger is-outlined" form="deleteForm" type="submit"
+                              value="Delete">{% trans "Kommentar l&ouml;schen" %}</button>
+                    </div>
+                  </div>
                 </form>
               {% else %}
                 <p>{% trans "Diese Seite kann nur von eingeloggten Nutzern angezeigt werden." %}</p>
@@ -32,9 +31,9 @@
               {% endif %}
             </div>
           </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-</div>
+  </div>
 {% endblock %}

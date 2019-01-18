@@ -4,22 +4,21 @@
 {% load bulma_tags %}
 
 {% block content %}
-<div class="c-page">
-  <section class="section">
+  <div class="c-page">
+    <section class="section">
       <div class="container">
         <div class="columns">
           <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
             <div class="c-comments-form">
-              <!-- nur für authentifizierte Nutzer: -->
               <form method="post">{% csrf_token %}
                 <p>{% trans "Are you sure you want to delete the comment " %} "{{ object }}"?</p>
                 <input class="button" type="submit" value="Confirm">
               </form>
             </div>
           </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-</div>
+  </div>
 {% endblock %}
