@@ -16,11 +16,11 @@
 
 <body>
 
-    {% include "_parts/_navbar.html" %}
-    {% block content %}{% endblock %}
-    {% include "_parts/_footer.html" %}
+{% include "_parts/_navbar.html" %}
+{% block content %}{% endblock %}
+{% include "_parts/_footer.html" %}
 
-    <script src="{% static "js/build.js" %}"></script>
-    <script src="{% static "js/app.js" %}"></script>
+<script src="{% static "js/build.js" %}"></script>
+<script src="{% static "js/app.js" %}"></script>
 </body>
 </html>

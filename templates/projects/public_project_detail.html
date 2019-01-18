@@ -21,7 +21,7 @@
               {% if project.project_dataset.all.count > 0 %}
                 {% for dataset in project.project_dataset.all %}
                   <div class="c-project__dygraph">
-                      {% trans "Dataset: " %}{{ dataset.title }}
+                    {% trans "Dataset: " %}{{ dataset.title }}
                     <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}"></div>
                   </div>
                 {% endfor %}
@@ -36,9 +36,9 @@
               {% if project.project_commentary.count > 0 %}
                 <table class="table is-hoverable is-fullwidth">
                   <tr>
-                      <th>{% trans "User" %}</th>
-                      <th>{% trans "Date" %}</th>
-                      <th>{% trans "Commentary text" %}</th>
+                    <th>{% trans "User" %}</th>
+                    <th>{% trans "Date" %}</th>
+                    <th>{% trans "Commentary text" %}</th>
                   </tr>
                   {% for commentary in project.project_commentary.all %}
                     <tr>
@@ -46,7 +46,9 @@
                       <td>{{ commentary.time }}</td>
                       <td>{{ commentary.text }}</td>
                       {% if commentary.user == user or project.user == user %}
-                        <td><a class="button is-outlined" href="{% url "deleteProjectCommentary" pk=commentary.pk %}"><span class="icon"><i class="material-icons">delete</i></span></a></td>
+                        <td><a class="button is-outlined"
+                               href="{% url "deleteProjectCommentary" pk=commentary.pk %}"><span class="icon"><i
+                          class="material-icons">delete</i></span></a></td>
                       {% endif %}
                     </tr>
                   {% endfor %}
@@ -58,7 +60,7 @@
                 <form action="{% url "newProjectCommentary" pk=project.pk %}" method="POST">
                   {% csrf_token %}
                   {{ commentaryForm|bulma }}
-                  <input class="button is-outlined" type="submit" value="Add new comment" />
+                  <input class="button is-outlined" type="submit" value="Add new comment"/>
                 </form>
               {% endif %}
             {% endif %}

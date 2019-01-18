@@ -4,7 +4,6 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 
 
-# Create your models here.
 class Profile(models.Model):
     areas_of_interest = models.CharField(max_length=100, blank=True)
     address = models.CharField(max_length=100, blank=True)

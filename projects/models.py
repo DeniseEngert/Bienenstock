@@ -3,7 +3,6 @@ from django.urls import reverse
 from .validators import validate_csv
 from django.utils import timezone
 from django.contrib.auth.models import User
-# Create your models here.
 
 
 class Project(models.Model):
@@ -12,7 +11,6 @@ class Project(models.Model):
     description = models.CharField(max_length=100)
     is_public = models.BooleanField()
     updated = models.DateTimeField(default=timezone.now)
-    tags = models.CharField(max_length=30, blank=True)
     category = models.CharField(max_length=30, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, db_column='user', related_name='creator')
 
@@ -28,8 +26,3 @@ class Dataset(models.Model):
 
     def get_absolute_url(self):
         return reverse('editProject', kwargs={'pk': self.project.pk})
-
-
-# class SeriesOfMeasurement(models.Model):
-    #title = models.CharField(max_length=30)
-    #dataset = models.ForeignKey(Dataset, on_delete=models.CASCADE, related_name='dataset_series')

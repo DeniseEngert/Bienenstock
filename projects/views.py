@@ -1,15 +1,10 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from .models import *
+from django.shortcuts import get_object_or_404
 from .forms import *
-
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormMixin
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from comments.forms import CommentaryForm
-
-# Create your views here.
 
 
 class ProjectList(ListView):
@@ -94,5 +89,3 @@ class DatasetDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView)
     def has_permission(self):
         project = self.get_object().project
         return project.user == self.request.user
-
-

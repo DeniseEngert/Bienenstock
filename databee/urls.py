@@ -16,9 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 
-# for generale pages (start, info, etc)
-from pages import views as pages_views
-
 # for user management (registration, profiles and login)
 from profiles import views as profiles_views
 from django.contrib.auth import views as auth_views
@@ -45,12 +42,12 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('dashboard/', profiles_views.Dashboard.as_view(), name='dashboard'),
     path('dashboard/list', profiles_views.DashboardList.as_view(), name='dashboardList'),
-    path('profile/', profiles_views.update_profile, name='profile'),  # hier ändern/ löschen
+    path('profile/', profiles_views.update_profile, name='profile'),
     path('project/<int:pk>/comment', comments_views.CommentaryCreateView.as_view(), name='newProjectCommentary'),
     path('commentary/<int:pk>/delete', comments_views.CommentaryDeleteView.as_view(), name='deleteProjectCommentary'),
     path('projects/', projects_views.ProjectList.as_view(), name='projects'),
     path('project/<int:pk>', projects_views.ProjectUpdate.as_view(), name="editProject"),
-    path('project/public/<int:pk>', projects_views.PublicProjectDetailView.as_view(), name ="viewPublicProject"),
+    path('project/public/<int:pk>', projects_views.PublicProjectDetailView.as_view(), name="viewPublicProject"),
     path('project/add', projects_views.ProjectCreate.as_view(), name="addProject"),
     path('project/<int:pk>/delete', projects_views.ProjectDelete.as_view(), name="deleteProject"),
     path('project/addDataset/<int:pk>', projects_views.DatasetCreateView.as_view(), name="addDataset"),

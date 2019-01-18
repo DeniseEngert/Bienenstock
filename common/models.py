@@ -1,6 +1,6 @@
 from django.db import models
 
-# model for common content fields
+
 class SingletonModel(models.Model):
 
     class Meta:

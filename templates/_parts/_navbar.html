@@ -2,13 +2,15 @@
 {% load i18n %}
 {% load mptt_tags %}
 
-<nav class="navbar c-navbar{% if request.get_full_path == "/" %} is-transparent c-navbar--start{% endif %}" role="navigation" aria-label="main navigation">
+<nav class="navbar c-navbar{% if request.get_full_path == "/" %} is-transparent c-navbar--start{% endif %}"
+     role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
       <img src="{% static "images/icon-logotype-yellow.svg" %}" alt="Databee Logo" width="160" height="28">
     </a>
 
-    <a role="button" class="navbar-burger burger js-navbar-burger" aria-label="menu" aria-expanded="false" data-target="js-navbar-menu">
+    <a role="button" class="navbar-burger burger js-navbar-burger" aria-label="menu" aria-expanded="false"
+       data-target="js-navbar-menu">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -28,26 +30,26 @@
           <div class="navbar-dropdown">
             {% recursetree pages %}
               <li class="navbar-item{% if not node.is_leaf_node %} {% endif %}">
-                  <span><a href="http://{{ request.get_host }}/{{ node.slug }}">{{ node.title }}</a></span>
-                  {% if not node.is_leaf_node %}
-                          {{ children }}
-                  {% endif %}
+                <span><a href="http://{{ request.get_host }}/{{ node.slug }}">{{ node.title }}</a></span>
+                {% if not node.is_leaf_node %}
+                  {{ children }}
+                {% endif %}
               </li>
             {% endrecursetree %}
           </div>
         </div>
       {% endif %}
 
-    {% if not user.is_authenticated %}
-      <div class="navbar-item">
-        <a class="" href="{% url 'login' %}">{% trans "Log In" %}</a>
-      </div>
-    {% else %}
-      <div class="navbar-item has-dropdown is-unselectable">
-        <a class="navbar-link js-navbar-dropdown">
-          {{ user.username }}
-        </a>
-        <div class="navbar-dropdown">
+      {% if not user.is_authenticated %}
+        <div class="navbar-item">
+          <a class="" href="{% url 'login' %}">{% trans "Log In" %}</a>
+        </div>
+      {% else %}
+        <div class="navbar-item has-dropdown is-unselectable">
+          <a class="navbar-link js-navbar-dropdown">
+            {{ user.username }}
+          </a>
+          <div class="navbar-dropdown">
             <li class="navbar-item">
               <a class="" href="{% url 'profile' %}">{% trans "Profile" %}</a>
             </li>
@@ -58,8 +60,8 @@
               <a class="" href="{% url 'logout' %}">{% trans "Log Out" %}</a>
             </li>
           </div>
-      </div>
-    {% endif %}
+        </div>
+      {% endif %}
     </div>
   </div>
 </nav>
