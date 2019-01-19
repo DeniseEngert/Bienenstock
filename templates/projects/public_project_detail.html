@@ -14,9 +14,9 @@
           <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
             {% if project.is_public %}
               <div class="c-public_project_detail">
-                <div class="c-public_project__description">{{ project.user }}</div>
+                <div class="c-public_project__user">{{ project.user }}</div>
                 <h1 class="title is-1">{% trans "Project: " %}{{ project.title }}</h1>
-                <div class="c-public_project__description">{{ project.description }}</div>
+                <div class="content c-public_project__description">{{ project.description }}</div>
               </div>
             {% endif %}
             {% if project.is_public or project.user == user %}

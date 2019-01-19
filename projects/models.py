@@ -3,12 +3,13 @@ from django.urls import reverse
 from .validators import validate_csv
 from django.utils import timezone
 from django.contrib.auth.models import User
+from markupfield.fields import MarkupField
 
 
 class Project(models.Model):
     title = models.CharField(max_length=30, unique=True)
     picture_platzhalter = models.CharField(max_length=30)
-    description = models.CharField(max_length=100)
+    description = MarkupField(markup_type='markdown', escape_html=True)
     is_public = models.BooleanField()
     updated = models.DateTimeField(default=timezone.now)
     category = models.CharField(max_length=30, blank=True)
