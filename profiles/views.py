@@ -10,6 +10,7 @@ from projects.models import Project
 from profiles.models import Profile as Filepro
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
+from django.views.generic import ListView
 
 
 def register(request):
@@ -50,20 +51,18 @@ def update_profile(request):
     })
 
 
-class Dashboard(LoginRequiredMixin, View):
-    login_url = '/login/'
+class Dashboard(LoginRequiredMixin, ListView):
+    model = Project
+    context_object_name = 'projects'
+    template_name = 'profiles/dashboard.html'
 
-    def get(self, request):
-        projects = Project.objects.filter(user=request.user)
-        return render(request, 'profiles/dashboard.html', {"projects": projects})
+    def get_queryset(self):
+        return Project.objects.filter(user=self.request.user)
 
-
-class DashboardList(LoginRequiredMixin, View):
-    login_url = '/login/'
-
-    def get(self, request):
-        projects = Project.objects.filter(user=request.user)
-        return render(request, 'profiles/dashboard_list.html', {"projects": projects})
+    def dispatch(self, request, *args, **kwargs):
+        if self.kwargs and self.kwargs['view'] == 'list':
+            self.template_name = 'profiles/dashboard_list.html'
+        return super(Dashboard, self).dispatch(request, *args, **kwargs)
 
 
 class Profile(LoginRequiredMixin, View):

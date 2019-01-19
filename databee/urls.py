@@ -41,7 +41,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='auth/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('dashboard/', profiles_views.Dashboard.as_view(), name='dashboard'),
-    path('dashboard/list', profiles_views.DashboardList.as_view(), name='dashboardList'),
+    path('dashboard/list', profiles_views.Dashboard.as_view(), {'view': 'list'}, name='dashboardList'),
     path('profile/', profiles_views.update_profile, name='profile'),
     path('project/<int:pk>/comment', comments_views.CommentaryCreateView.as_view(), name='newProjectCommentary'),
     path('commentary/<int:pk>/delete', comments_views.CommentaryDeleteView.as_view(), name='deleteProjectCommentary'),
