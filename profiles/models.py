@@ -11,6 +11,7 @@ class Profile(models.Model):
     bio = models.CharField(max_length=4000, blank=True)
     birth_date = models.CharField(max_length=30, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images', blank=True, null=True)
 
     def __str__(self):
         return self.bio
