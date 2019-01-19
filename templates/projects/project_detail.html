@@ -2,6 +2,10 @@
 {% load bulma_tags %}
 {% load i18n %}
 
+{% block title %}
+  {{ project.user }}/{{ project.title }}
+{% endblock %}
+
 {% block content %}
   <div class="c-page">
     <section class="section">

@@ -7,9 +7,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Databee</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% block head %}
+    <link rel="stylesheet" href="style.css" />
+    <title>{% block title %}{% endblock %} - Databee</title>
+  {% endblock %}
   <link rel="stylesheet" href="{% static "css/style.css" %}">
   <link rel="apple-touch-icon" href="{% static "images/icon.png" %}">
 </head>
