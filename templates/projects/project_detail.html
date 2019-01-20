@@ -79,7 +79,7 @@
               <form action="{% url "newProjectCommentary" pk=project.pk %}" method="POST">
                 {% csrf_token %}
                 {{ commentaryForm|bulma }}
-                <input class="button is-outlined" type="submit" value="Add new comment"/>
+                <input class="button is-outlined" type="submit" value="{% trans "Add new comment" %}"/>
               </form>
             {% endif %}
           </div>

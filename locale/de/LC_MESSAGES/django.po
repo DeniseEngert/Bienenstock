@@ -1,192 +1,288 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-13 10:06+0000\n"
+"POT-Creation-Date: 2019-01-20 21:00+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: templates/_parts/_footer.html:41
+#: .\comments\models.py:9
+msgid "text"
+msgstr "Text"
+
+#: .\common\models.py:24
+msgid "about_text"
+msgstr "Urheber"
+
+#: .\profiles\models.py:8
+msgid "areas_of_interest"
+msgstr "Interessensgebiete"
+
+#: .\profiles\models.py:9
+msgid "address"
+msgstr "Adresse"
+
+#: .\profiles\models.py:10
+msgid "phone_number"
+msgstr "Telefonnummer"
+
+#: .\profiles\models.py:11
+msgid "bio"
+msgstr "Biografie"
+
+#: .\profiles\models.py:12
+msgid "birth_date"
+msgstr "Geburtsdatum"
+
+#: .\profiles\models.py:14
+msgid "image"
+msgstr "Bilddatei"
+
+#: .\projects\models.py:10 .\projects\models.py:23
+msgid "title"
+msgstr "Titel"
+
+#: .\projects\models.py:12
+msgid "description"
+msgstr "Beschreibung"
+
+#: .\projects\models.py:13
+msgid "is_public"
+msgstr "veröffentlichen"
+
+#: .\projects\models.py:15
+msgid "category"
+msgstr "Kategorie"
+
+#: .\projects\models.py:25
+msgid "data_file"
+msgstr "Datensatz Datei"
+
+#: .\templates\_parts\_footer.html:41
 msgid "Support"
-msgstr ""
+msgstr "Support"
 
-#: templates/_parts/_navbar.html:21
+#: .\templates\_parts\_navbar.html:23
 msgid "Explore"
-msgstr ""
+msgstr "Erkunden"
 
-#: templates/_parts/_navbar.html:43 templates/auth/login.html:12
+#: .\templates\_parts\_navbar.html:45 .\templates\auth\login.html:7
+#: .\templates\auth\login.html:16
 msgid "Log In"
 msgstr "Anmelden"
 
-#: templates/_parts/_navbar.html:52 templates/profiles/profile.html:12
+#: .\templates\_parts\_navbar.html:54
+#: .\templates\profiles\dashboard_list.html:20
+#: .\templates\profiles\profile.html:16
 msgid "Profile"
 msgstr "Profil"
 
-#: templates/_parts/_navbar.html:55 templates/profiles/dashboard.html:12
-#: templates/profiles/dashboard_list.html:12
+#: .\templates\_parts\_navbar.html:57 .\templates\profiles\dashboard.html:7
+#: .\templates\profiles\dashboard.html:16
+#: .\templates\profiles\dashboard_list.html:7
+#: .\templates\profiles\dashboard_list.html:16
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: templates/_parts/_navbar.html:58
+#: .\templates\_parts\_navbar.html:60
 msgid "Log Out"
 msgstr "Abmelden"
 
-#: templates/auth/login.html:18 templates/profiles/signup.html:18
-msgid "Bitte melden Sie sich an um diese Seite zu sehen."
-msgstr ""
+#: .\templates\auth\login.html:22 .\templates\profiles\signup.html:22
+msgid "Please login in order to see this site."
+msgstr "Bitte anmelden um die Seite zu sehen."
 
-#: templates/auth/login.html:26
+#: .\templates\auth\login.html:30
 msgid "Log in"
 msgstr "Anmelden"
 
-#: templates/auth/login.html:29 templates/profiles/signup.html:26
-#: templates/profiles/signup.html:29
+#: .\templates\auth\login.html:33 .\templates\profiles\signup.html:30
 msgid "Create new account"
-msgstr "Neues Nutzerkonte anlegen"
+msgstr "Neues Benutzerkonto anlegen"
 
-#: templates/comments/commentary_confirm_delete.html:15
+#: .\templates\comments\commentary_confirm_delete.html:7
+msgid "Confirm deletion"
+msgstr "Löschen bestätigen"
+
+#: .\templates\comments\commentary_confirm_delete.html:18
 msgid "Are you sure you want to delete the comment "
-msgstr ""
+msgstr "Sind Sie sicher, dass Sie den folgenden Kommentar löschen wollen: "
 
-#: templates/comments/new_project_commentary.html:12
-msgid "Neuer Kommentar zum Projekt"
-msgstr ""
+#: .\templates\comments\commentary_confirm_delete.html:19
+msgid "Confirm"
+msgstr "Löschen bestätigen"
 
-#: templates/comments/new_project_commentary.html:22
-msgid "Kommentar speichern"
-msgstr ""
+#: .\templates\comments\new_project_commentary.html:7
+msgid "New comment"
+msgstr "Neuer Kommentar"
 
-#: templates/comments/new_project_commentary.html:25
-msgid "Kommentar l&ouml;schen"
-msgstr ""
+#: .\templates\comments\new_project_commentary.html:16
+msgid "New comment to the project"
+msgstr "Neuer Kommentar zum Projekt"
 
-#: templates/comments/new_project_commentary.html:30
-msgid "Diese Seite kann nur von eingeloggten Nutzern angezeigt werden."
-msgstr ""
+#: .\templates\comments\new_project_commentary.html:24
+msgid "Save comment"
+msgstr "Kommentar Speichern"
 
-#: templates/pages/start.html:16
+#: .\templates\comments\new_project_commentary.html:28
+msgid "Delete comment"
+msgstr "Kommentar Löschen"
+
+#: .\templates\comments\new_project_commentary.html:33
+#: .\templates\projects\new_dataset.html:30
+msgid "This page can only be viewed by authenticated users."
+msgstr "Diese Seite kann nur von authentifizierten Nutzern gesehen werden."
+
+#: .\templates\pages\start.html:6
+msgid "Start"
+msgstr "Start"
+
+#: .\templates\pages\start.html:19
 msgid "Visualize and Share Datasets"
 msgstr "Messreihen kommentieren und teilen"
 
-#: templates/pages/start.html:21 templates/profiles/signup.html:12
+#: .\templates\pages\start.html:25 .\templates\profiles\signup.html:7
+#: .\templates\profiles\signup.html:16
 msgid "Sign Up"
 msgstr "Konto erstellen"
 
-#: templates/pages/start.html:26 templates/pages/start.html:32
+#: .\templates\pages\start.html:30 .\templates\pages\start.html:36
 msgid "Latest Projects"
 msgstr "Die neuesten Projekte"
 
-#: templates/pages/start.html:43
-#, fuzzy
-#| msgid "Own projects"
+#: .\templates\pages\start.html:47
 msgid "Show more projects"
-msgstr "Eigene Projekte"
+msgstr "Mehr Projekte zeigen"
 
-#: templates/profiles/dashboard.html:17
-#: templates/profiles/dashboard_list.html:17
-#, fuzzy
-#| msgid "Profile"
+#: .\templates\profiles\dashboard.html:20
 msgid "Profil"
 msgstr "Profil"
 
-#: templates/profiles/dashboard.html:22
-#: templates/profiles/dashboard_list.html:22
-#, fuzzy
-#| msgid "Projects"
+#: .\templates\profiles\dashboard.html:25
+#: .\templates\profiles\dashboard_list.html:25
 msgid "Add Project"
-msgstr "Die neuesten Projekte"
+msgstr "Projekt hinzufügen"
 
-#: templates/profiles/dashboard.html:26
+#: .\templates\profiles\dashboard.html:29
 msgid "List View"
 msgstr "Listenansicht"
 
-#: templates/profiles/dashboard_list.html:26
-#, fuzzy
-#| msgid "List View"
+#: .\templates\profiles\dashboard_list.html:29
 msgid "Tile View"
-msgstr "Listenansicht"
+msgstr "Kachelansicht"
 
-#: templates/profiles/dashboard_list.html:35
-#: templates/projects/projects_listview.html:16
+#: .\templates\profiles\dashboard_list.html:38
 msgid "Title"
 msgstr "Titel"
 
-#: templates/profiles/dashboard_list.html:36
+#: .\templates\profiles\dashboard_list.html:39
 msgid "Updated"
-msgstr ""
+msgstr "Aktualisiert"
 
-#: templates/profiles/dashboard_list.html:37
+#: .\templates\profiles\dashboard_list.html:40
 msgid "Category"
-msgstr ""
+msgstr "Kategorie"
 
-#: templates/profiles/dashboard_list.html:38
+#: .\templates\profiles\dashboard_list.html:41
 msgid "Public"
-msgstr ""
+msgstr "Öffentlich"
 
-#: templates/projects/dataset_detail.html:11
-#: templates/projects/project_detail.html:47
+#: .\templates\profiles\profile.html:22
+msgid "Save changes"
+msgstr "Änderungen Speichern"
+
+#: .\templates\projects\dataset_detail.html:15
+#: .\templates\projects\project_detail.html:42
+#: .\templates\projects\public_project_detail.html:28
 msgid "Dataset: "
-msgstr ""
+msgstr "Datensatz: "
 
-#: templates/projects/new_dataset.html:12
-#, fuzzy
-#| msgid "Projekt hinzufügen"
-msgid "Datensatz hinzufügen"
-msgstr "Add project"
+#: .\templates\projects\dataset_detail.html:16
+msgid "Dataset Source"
+msgstr "Datensatz Quelle"
 
-#: templates/projects/new_dataset.html:22
-msgid "speichern"
-msgstr ""
-
-#: templates/projects/new_dataset.html:27
-msgid "Diese Seite kann nur von authentifizierten Nutzern angezeigt werden."
-msgstr ""
-
-#: templates/projects/project_detail.html:24
-msgid "Speichern"
-msgstr ""
-
-#: templates/projects/project_detail.html:30
-#: templates/projects/project_form.html:23
-msgid "Delete"
-msgstr "Löschen"
-
-#: templates/projects/project_detail.html:43
-msgid "Datasets: "
-msgstr ""
-
-#: templates/projects/project_detail.html:58
+#: .\templates\projects\new_dataset.html:7
+#: .\templates\projects\new_dataset.html:16
+#: .\templates\projects\project_detail.html:52
 msgid "Add Dataset"
-msgstr ""
+msgstr "Datensatz hinzufügen"
 
-#: templates/projects/project_detail.html:62
-#, fuzzy
-#| msgid "Projects"
-msgid "Project comments: "
-msgstr "Die neuesten Projekte"
-
-#: templates/projects/project_detail.html:66
-msgid "User"
-msgstr ""
-
-#: templates/projects/project_detail.html:67
-msgid "Date"
-msgstr ""
-
-#: templates/projects/project_detail.html:68
-msgid "Commentary text"
-msgstr ""
-
-#: templates/projects/project_form.html:19
+#: .\templates\projects\new_dataset.html:25
+#: .\templates\projects\project_form.html:23
 msgid "Save"
 msgstr "Speichern"
 
-#: templates/projects/project_list.html:11
-#: templates/projects/projects_listview.html:11
-msgid "Projects"
-msgstr "Die neuesten Projekte"
+#: .\templates\projects\project_detail.html:16
+#: .\templates\projects\public_project_detail.html:18
+msgid "Project: "
+msgstr "Projekt:"
 
-#: templates/projects/projects_listview.html:13
-msgid "Projekt hinzufügen"
-msgstr "Add project"
+#: .\templates\projects\project_detail.html:25
+msgid "Save Changes"
+msgstr "Änderungen Speichern"
+
+#: .\templates\projects\project_detail.html:31
+msgid "Delete Project"
+msgstr "Projekt löschen"
+
+#: .\templates\projects\project_detail.html:37
+#: .\templates\projects\public_project_detail.html:24
+msgid "Datasets: "
+msgstr "Datensätze: "
+
+#: .\templates\projects\project_detail.html:48
+#: .\templates\projects\public_project_detail.html:33
+msgid "No datasets submitted yet."
+msgstr "Noch keine Datensätze vorhanden."
+
+#: .\templates\projects\project_detail.html:55
+#: .\templates\projects\public_project_detail.html:39
+msgid "Project comments: "
+msgstr "Projektkommentare: "
+
+#: .\templates\projects\project_detail.html:59
+#: .\templates\projects\public_project_detail.html:43
+msgid "User"
+msgstr "Nutzer"
+
+#: .\templates\projects\project_detail.html:60
+#: .\templates\projects\public_project_detail.html:44
+msgid "Date"
+msgstr "Datum"
+
+#: .\templates\projects\project_detail.html:61
+#: .\templates\projects\public_project_detail.html:45
+msgid "Commentary text"
+msgstr "Kommentartext"
+
+#: .\templates\projects\project_detail.html:77
+#: .\templates\projects\public_project_detail.html:61
+msgid "No comments submitted yet."
+msgstr "Noch keine Kommentare vorhanden."
+
+#: .\templates\projects\project_detail.html:82
+#: .\templates\projects\public_project_detail.html:67
+msgid "Add new comment"
+msgstr "Neuer Kommentar"
+
+#: .\templates\projects\project_form.html:6
+#: .\templates\projects\project_form.html:15
+msgid "New Project"
+msgstr "Neues Projekt"
+
+#: .\templates\projects\project_list.html:6
+#: .\templates\projects\project_list.html:15
+msgid "Projects"
+msgstr "Projekte"
+
+#, fuzzy
+#~| msgid "Projekt hinzufügen"
+#~ msgid "Datensatz hinzufügen"
+#~ msgstr "Add project"
+
+#~ msgid "Delete"
+#~ msgstr "Löschen"
+
+#~ msgid "Projekt hinzufügen"
+#~ msgstr "Add project"
 
 #~ msgid "No projects available"
 #~ msgstr "Keine Projekte verfügbar"

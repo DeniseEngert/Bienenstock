@@ -16,7 +16,7 @@
             <div class="c-comments-form">
               <form method="post">{% csrf_token %}
                 <p>{% trans "Are you sure you want to delete the comment " %} "{{ object }}"?</p>
-                <input class="button" type="submit" value="Confirm">
+                <input class="button" type="submit" value="{% trans "Confirm" %}">
               </form>
             </div>
           </div>

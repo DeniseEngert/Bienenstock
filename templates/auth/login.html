@@ -17,9 +17,9 @@
 
             {% if next %}
               {% if user.is_authenticated %}
-                <p>{% trans "Mit diesem Konto kann nicht auf die Seite zugegriffen werden. Um fortzufahren melden Sie sich bitte mit einem authentifizierten Konto an." }</p>
+                <p>{% trans "You can't access this site with your current account. To proceed please login to an authorized account." }</p>
                   {% else %}
-                <p>{% trans "Bitte melden Sie sich an um diese Seite zu sehen." %}</p>
+                <p>{% trans "Please login in order to see this site." %}</p>
               {% endif %}
             {% endif %}
 

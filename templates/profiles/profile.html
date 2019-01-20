@@ -19,7 +19,7 @@
               {% csrf_token %}
               {{ user_form|bulma }}
               {{ profile_form|bulma }}
-              <button type="submit">Save changes</button>
+              <button type="submit">{% trans "Save changes" %}</button>
             </form>
           </div>
         </div>

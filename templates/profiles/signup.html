@@ -17,9 +17,9 @@
 
             {% if next %}
               {% if user.is_authenticated %}
-                <p>{% trans "Mit diesem Konto kann nicht auf die Seite zugegriffen werden. Um fortzufahren melden Sie sich bitte mit einem authentifizierten Konto an." }</p>
-                  {% else %}
-                <p>{% trans "Bitte melden Sie sich an um diese Seite zu sehen." %}</p>
+                <p>{% trans "You can't access this site with your current account. To proceed please login to an authorized account." }</p>
+              {% else %}
+                <p>{% trans "Please login in order to see this site." %}</p>
               {% endif %}
             {% endif %}
 
@@ -30,8 +30,6 @@
               <button type="submit" class="button is-primary">{% trans "Create new account" %}</button>
               <input type="hidden" name="next" value="{{ next }}">
             </form>
-            <a href="{% url 'register' %}"><br>{% trans "Create new account" %}</a>
-
           </div>
         </div>
       </div>

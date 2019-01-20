@@ -13,7 +13,7 @@
       <div class="container">
         <div class="columns">
           <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
-            <h1 class="title is-1">{% trans "Neuer Kommentar zum Projekt" %}:{{ project.title }}</h1>
+            <h1 class="title is-1">{% trans "New comment to the project" %}:{{ project.title }}</h1>
             <div class="c-comments-form">
               {% if user.is_authenticated %}
                 <form action="" method="POST" enctype="multipart/form-data" class="c-comments-form">
@@ -21,16 +21,16 @@
                   {{ form|bulma }}
                   <div class="level">
                     <div class="level-left">
-                      <input class="button" type="submit" value="{% trans "Kommentar speichern" %}">
+                      <input class="button" type="submit" value="{% trans "Save comment" %}">
                     </div>
                     <div class="level-right">
                       <button class="button is-danger is-outlined" form="deleteForm" type="submit"
-                              value="Delete">{% trans "Kommentar l&ouml;schen" %}</button>
+                              value="Delete">{% trans "Delete comment" %}</button>
                     </div>
                   </div>
                 </form>
               {% else %}
-                <p>{% trans "Diese Seite kann nur von eingeloggten Nutzern angezeigt werden." %}</p>
+                <p>{% trans "This page can only be viewed by authenticated users." %}</p>
                 <br>
               {% endif %}
             </div>
