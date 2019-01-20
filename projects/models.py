@@ -4,15 +4,15 @@ from .validators import validate_csv
 from django.utils import timezone
 from django.contrib.auth.models import User
 from markupfield.fields import MarkupField
-
+from django.utils.translation import gettext_lazy as _
 
 class Project(models.Model):
-    title = models.CharField(max_length=30, unique=True)
+    title = models.CharField(_('title'), max_length=30, unique=True)
     picture_platzhalter = models.CharField(max_length=30)
-    description = MarkupField(markup_type='markdown', escape_html=True)
-    is_public = models.BooleanField()
+    description = MarkupField(_('description'), markup_type='markdown', escape_html=True)
+    is_public = models.BooleanField(_('is_public'))
     updated = models.DateTimeField(default=timezone.now)
-    category = models.CharField(max_length=30, blank=True)
+    category = models.CharField(_('category'), max_length=30, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, db_column='user', related_name='creator')
 
     def get_absolute_url(self):
@@ -20,9 +20,9 @@ class Project(models.Model):
 
 
 class Dataset(models.Model):
-    title = models.CharField(max_length=30, unique=True)
+    title = models.CharField(_('title'), max_length=30, unique=True)
     data_file_link = models.URLField()
-    data_file = models.FileField(upload_to='csv/', blank=False, null=True, validators=[validate_csv])
+    data_file = models.FileField(_('data_file'), upload_to='csv/', blank=False, null=True, validators=[validate_csv])
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project_dataset')
 
     def get_absolute_url(self):

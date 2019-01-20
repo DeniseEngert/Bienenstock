@@ -2,10 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 from projects.models import Project
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 
 
 class Commentary(models.Model):
-    text = models.TextField(max_length=4000)
+    text = models.TextField(_('text'), max_length=4000)
     time = models.DateTimeField(auto_now_add=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project_commentary')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='project_commentary')
