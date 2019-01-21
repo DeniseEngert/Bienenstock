@@ -6,9 +6,10 @@ from django.contrib.auth.models import User
 from markupfield.fields import MarkupField
 from django.utils.translation import gettext_lazy as _
 
+
 class Project(models.Model):
     title = models.CharField(_('title'), max_length=30, unique=True)
-    picture_platzhalter = models.CharField(max_length=30)
+    picture = models.ImageField(upload_to='images/', default='images/None/placeProject.png')
     description = MarkupField(_('description'), markup_type='markdown', escape_html=True)
     is_public = models.BooleanField(_('is_public'))
     updated = models.DateTimeField(default=timezone.now)
@@ -17,6 +18,9 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse('editProject', kwargs={'pk': self.pk})
+
+    def uploadImage(self, filename):
+        return 'post/{}/{}'.format(self.title, filename)
 
 
 class Dataset(models.Model):

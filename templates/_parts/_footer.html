@@ -38,12 +38,12 @@
         {% endif %}
       </div>
       <div class="c-footer__info-block">
-        <h2 class="c-footer__headline">{% trans "Support" %}</h2>
-        <p class="c-footer__text">
-          {% if settings.support %}
+        {% if settings.support %}
+          <h2 class="c-footer__headline">{% trans "Support" %}</h2>
+          <p class="c-footer__text">
             {{ settings.support }}
-          {% endif %}
-        </p>
+          </p>
+        {% endif %}
       </div>
     </div>
   </div>
