@@ -38,7 +38,7 @@
               {% if project.project_dataset.all.count > 0 %}
                 {% for dataset in project.project_dataset.all %}
                   <div class="c-project__dygraph">
-                    <a href="{% url 'showDataset' pk=dataset.pk %}">
+                    <a href="{% url 'showDataset' pk=dataset.pk project_pk=dataset.project.pk %}">
                       {% trans "Dataset: " %}{{ dataset.title }}
                     </a>
                     <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}"></div>
