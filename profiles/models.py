@@ -18,7 +18,7 @@ class Profile(models.Model):
         return 'post/{}/{}'.format(self.user.username, filename)
 
     def __str__(self):
-        return self.bio
+        return "{} ({})".format(self.user.username, self.user.get_full_name())
 
 
 @receiver(post_save, sender=User)

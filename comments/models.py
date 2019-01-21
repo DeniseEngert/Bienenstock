@@ -18,4 +18,4 @@ class Commentary(models.Model):
             return reverse('viewPublicProject', kwargs={'pk': self.project.pk})
 
     def __str__(self):
-        return self.text
+        return "{}: {}".format(self.user, self.text)
