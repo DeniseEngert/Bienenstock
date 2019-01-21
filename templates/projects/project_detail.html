@@ -14,7 +14,7 @@
           <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
             {% if project.user == user %}
               <h1 class="title is-1">{% trans "Project: " %}</h1>
-              <form id="updateForm" action="{% url 'editProject' pk=project.pk %}" method="POST" class="c-form">
+              <form id="updateForm" action="{% url 'editProject' pk=project.pk %}" method="POST" enctype="multipart/form-data" class="c-form">
                 {% csrf_token %}
                 {{ form|bulma }}
               </form>

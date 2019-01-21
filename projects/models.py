@@ -19,9 +19,6 @@ class Project(models.Model):
     def get_absolute_url(self):
         return reverse('editProject', kwargs={'pk': self.pk})
 
-    def uploadImage(self, filename):
-        return 'post/{}/{}'.format(self.title, filename)
-
 
 class Dataset(models.Model):
     title = models.CharField(_('title'), max_length=30, unique=True)
