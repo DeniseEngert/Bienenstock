@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView
 from .forms import CommentaryForm
 from .models import *
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.http import HttpResponseForbidden
 
 
@@ -29,17 +29,16 @@ class CommentaryCreateView(LoginRequiredMixin, CreateView):
         return super(CommentaryCreateView, self).form_valid(form)
 
 
-class CommentaryDeleteView(LoginRequiredMixin, DeleteView):
+class CommentaryDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Commentary
+
+    def has_permission(self):
+        commentary = self.get_object()
+        return commentary.user == self.request.user
 
     def dispatch(self, request, *args, **kwargs):
         comment = self.get_object()
         project = comment.project
-
-        # check, if user is either project owner or comment author
-        if not (request.user.id == project.user.id or request.user.id == comment.user.id):
-            return HttpResponseForbidden("It is not yours ! You are not permitted !")
-
         if project.user == request.user:
             self.success_url = reverse_lazy('editProject', kwargs={'pk': project.pk})
         else:
