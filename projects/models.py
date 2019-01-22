@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 
 class Project(models.Model):
     title = models.CharField(_('title'), max_length=30, unique=True)
-    picture = models.ImageField(upload_to='images/', default='images/None/placeProject.png')
+    picture = models.ImageField(_('picture'),upload_to='images/', default='images/None/placeProject.png')
     description = MarkupField(_('description'), markup_type='markdown', escape_html=True)
     is_public = models.BooleanField(_('is_public'))
     updated = models.DateTimeField(default=timezone.now)

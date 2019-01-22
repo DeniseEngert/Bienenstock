@@ -26,7 +26,7 @@ class ProjectCreate(LoginRequiredMixin, CreateView):
         return super(ProjectCreate, self).form_valid(form)
 
 
-class ProjectUpdate(PermissionRequiredMixin, UpdateView):
+class ProjectUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Project
     form_class = ProjectForm
     template_name = "projects/project_detail.html"
