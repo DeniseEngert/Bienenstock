@@ -34,8 +34,12 @@ from django.views.static import serve
 # single pages
 from pages import views as pages_views
 
+#translation
+from django.conf.urls import include
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('i18n/', include('django.conf.urls.i18n')),
     path('', pages_views.StartPage.as_view(), name='start'),
     path('register/', profiles_views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='auth/login.html'), name='login'),

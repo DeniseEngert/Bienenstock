@@ -20,6 +20,22 @@
   <div class="navbar-menu js-navbar-menu">
     <div class="navbar-end">
       <div class="navbar-item">
+        <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+          <input name="next" type="hidden" value="{{ redirect_to }}">
+          <select name="language">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              {% for language in languages %}
+                  <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                      {{ language.name_local }}
+                  </option>
+              {% endfor %}
+          </select>
+          <input type="submit" value="OK">
+        </form>
+      </div>
+      <div class="navbar-item">
         <a class="" href="{% url 'projects' %}">{% trans "Explore" %}</a>
       </div>
       {% if pages %}
