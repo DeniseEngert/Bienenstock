@@ -34,6 +34,9 @@
               {% if project.project_dataset.count > 0 %}
                 {% for dataset in project.project_dataset.all %}
                   <div class="c-project__dygraph">
+                    <div class="level-right">
+                      <a class="button is-danger is-outlined" href="{% url "deleteDataset" pk=dataset.pk project_pk=dataset.project.pk %}">{% trans "Delete Dataset" %}</a>
+                    </div>
                     <a href="{% url 'showDataset' pk=dataset.pk project_pk=dataset.project.pk %}">
                       {% trans "Dataset: " %}{{ dataset.title }}
                     </a>
@@ -41,8 +44,10 @@
                   </div>
                 {% endfor %}
               {% else %}
+                <br>
                 <p>{% trans "No datasets submitted yet." %}</p>
               {% endif %}
+              <br>
               <a class="button is-outlined" href="{% url 'addDataset' pk=project.pk %}">
                 <span class="icon"><i class="material-icons">add</i></span>
                 <span>{% trans "Add Dataset" %}</span>
@@ -70,8 +75,10 @@
                   {% endfor %}
                 </table>
               {% else %}
+                <br>
                 <p>{% trans "No comments submitted yet." %}</p>
               {% endif %}
+              <br>
               <form action="{% url "newProjectCommentary" pk=project.pk %}" method="POST">
                 {% csrf_token %}
                 {{ commentaryForm|bulma }}
