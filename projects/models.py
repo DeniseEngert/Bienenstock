@@ -25,7 +25,6 @@ class Project(models.Model):
 
 class Dataset(models.Model):
     title = models.CharField(_('title'), max_length=30, unique=True)
-    data_file_link = models.URLField()
     data_file = models.FileField(_('data_file'), upload_to='csv/', blank=False, null=True, validators=[validate_csv])
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project_dataset')
 
