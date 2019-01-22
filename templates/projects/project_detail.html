@@ -18,7 +18,7 @@
                    <h1 class="title is-1">{{ project.title }}</h1>
                 </div>
                 <div class="level-right">
-                  {% if project.user == user %} <a class="button is-small is-outlined js-project-form-toggle">{% trans "Edit Details" %}</a>{% endif %}
+                  {% if project.user == user %} <a class="button is-small is-outlined js-project-form-toggle">{% trans "Edit Project Details" %}</a>{% endif %}
                 </div>
               </div>
               {% if project.user == user %}
@@ -86,23 +86,26 @@
                   {% endif %}
                 {% endif %}
             </div>
-            <div class="columns">
-              <div class="column">
-                  <div class="c-project__description">
-                    <div class="content">{{ project.description }}</div>
-                  </div>
-                  {% if project.picture %}
-                    <div class="c-project__image">
-                      <img class="image" src="{{ project.picture.url }}" alt="{{ project.title }}" />
-                    </div>
-                  {% endif %}
-
-              </div>
-              <div class="column">
-                 {% include "projects/_parts/_commentaries.html" %}
-              </div>
-            </div>
           </div>
+        </div>
+      </div>
+    </section>
+    <section class="section c-project__info">
+      <div class="container">
+          <div class="columns">
+            <div class="column">
+                <div class="c-project__description">
+                  <div class="content">{{ project.description }}</div>
+                </div>
+                {% if project.picture %}
+                  <div class="c-project__image">
+                    <img class="image" src="{{ project.picture.url }}" alt="{{ project.title }}" />
+                  </div>
+                {% endif %}
+            </div>
+            <div class="column">
+               {% include "projects/_parts/_commentaries.html" %}
+            </div>
         </div>
       </div>
     </section>

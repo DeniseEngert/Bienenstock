@@ -40,7 +40,7 @@ class ProjectUpdate(PermissionRequiredMixin, UpdateView):
         context['commentaryForm'] = CommentaryForm()
         if self.get_object().project_dataset:
             context['dataset'] = self.get_object().project_dataset.first()
-        context['datasetForm'] = DatasetForm(instance=context['dataset'])
+            context['datasetForm'] = DatasetForm(instance=context['dataset'])
         return context
 
 

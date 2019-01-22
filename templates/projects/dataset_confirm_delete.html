@@ -13,11 +13,18 @@
       <div class="container">
         <div class="columns">
           <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
+            <article class="message">
+              <div class="message-header">
+                <p>{% trans "Confirm deletion" %}</p>
+              </div>
+              <div class="message-body">
+                <form method="post">{% csrf_token %}
+                  <p>{% trans "Are you sure you want to delete the dataset " %}"{{ object.title }}"?</p>
+                  <input class="button" type="submit" value="{% trans "Confirm" %}">
+                </form>
+              </div>
+            </article>
             <div class="c-comments-form">
-              <form method="post">{% csrf_token %}
-                <p>{% trans "Are you sure you want to delete the dataset " %}"{{ object.title }}"?</p>
-                <input class="button" type="submit" value="{% trans "Confirm" %}">
-              </form>
             </div>
           </div>
         </div>

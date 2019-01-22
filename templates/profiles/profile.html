@@ -12,14 +12,12 @@
     <section class="section">
       <div class="c-profile">
         <div class="container">
-          <h2 class="c-page__title is-size-2 has-line-height-tight">{% trans "Profile" %}</h2>
+          <h2 class="c-page__title c-t-page-headline">{{ user.username }}</h2>
           <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="columns is-8">
-              <div class="column is-half-tablet">
+            <div class="columns">
+              <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
                 {{ user_form|bulma }}
-              </div>
-              <div class="column is-half-tablet">
                 {% if user.profile.image %}
                   <div class="c-profile__image-wrapper">
                     <div class="c-profile__image">
@@ -28,9 +26,10 @@
                   </div>
                 {% endif %}
                 {{ profile_form|bulma }}
+                <br>
+               <button class="button is-outlined" type="submit">{% trans "Save changes" %}</button>
               </div>
             </div>
-            <button class="button is-outlined" type="submit">{% trans "Save changes" %}</button>
           </form>
         </div>
       </div>
