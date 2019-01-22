@@ -14,9 +14,6 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(_('image'), upload_to='images/', default='images/None/placeUser.png')
 
-    def uploadImage(self, filename):
-        return 'post/{}/{}'.format(self.user.username, filename)
-
     def __str__(self):
         return "{} ({})".format(self.user.username, self.user.get_full_name())
 
