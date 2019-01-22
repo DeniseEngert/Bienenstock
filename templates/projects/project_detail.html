@@ -25,13 +25,13 @@
                           value="Save" form="updateForm">{% trans "Save Changes" %}</button>
                 </div>
                 <div class="level-right">
-                  <a class="button is-danger is-outlined" href="{% url "deleteProject" pk=project.pk %}">Delete Project</a>
+                  <a class="button is-danger is-outlined" href="{% url "deleteProject" pk=project.pk %}">{% trans "Delete Project" %}</a>
                 </div>
               </div>
 
               <hr>
               <h2 class="is-size-2 has-line-height-tight">{% trans "Datasets: " %}</h2>
-              {% if project.project_dataset.all.count > 0 %}
+              {% if project.project_dataset.count > 0 %}
                 {% for dataset in project.project_dataset.all %}
                   <div class="c-project__dygraph">
                     <a href="{% url 'showDataset' pk=dataset.pk project_pk=dataset.project.pk %}">

@@ -14,46 +14,44 @@
         <div class="columns">
           <div class="column">
             <h1 class="c-page__title c-t-page-headline">{% trans "Dashboard" %}</h1>
-            {% if user.is_authenticated %}
-              <div class="level">
-                <div class="level-left">
-                  <a class="button level-item is-outlined" href="{% url 'profile' %}">{% trans "Profile" %}</a>
-                </div>
-                <div class="level-right">
-                  <a class="button level-item is-outlined" href="{% url 'addProject' %}">
-                    <span class="icon"><i class="material-icons">add</i></span>
-                    <span>{% trans "Add Project" %}</span>
-                  </a>
-                  <a class="button level-item is-outlined" href="{% url 'dashboard' %}">
-                    <span class="icon"><i class="material-icons">border_all</i> </span>
-                    <span>{% trans "Tile View" %}</span>
-                  </a>
-                </div>
+            <div class="level">
+              <div class="level-left">
+                <a class="button level-item is-outlined" href="{% url 'profile' %}">{% trans "Profile" %}</a>
               </div>
-              <hr>
-              <div class="c-projects-list columns is-multiline">
-                <table class="table is-fullwidth">
-                  <thead>
+              <div class="level-right">
+                <a class="button level-item is-outlined" href="{% url 'addProject' %}">
+                  <span class="icon"><i class="material-icons">add</i></span>
+                  <span>{% trans "Add Project" %}</span>
+                </a>
+                <a class="button level-item is-outlined" href="{% url 'dashboard' %}">
+                  <span class="icon"><i class="material-icons">border_all</i> </span>
+                  <span>{% trans "Tile View" %}</span>
+                </a>
+              </div>
+            </div>
+            <hr>
+            <div class="c-projects-list columns is-multiline">
+              <table class="table is-fullwidth">
+                <thead>
+                <tr>
+                  <th>{% trans "Title" %}</th>
+                  <th>{% trans "Updated" %}</th>
+                  <th>{% trans "Category" %}</th>
+                  <th>{% trans "Public" %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for project in projects %}
                   <tr>
-                    <th>{% trans "Title" %}</th>
-                    <th>{% trans "Updated" %}</th>
-                    <th>{% trans "Category" %}</th>
-                    <th>{% trans "Public" %}</th>
+                    <td><a href="{% url 'editProject' pk=project.pk %}">{{ project.title }}</a></td>
+                    <td>{{ project.updated }}</td>
+                    <td>{{ project.category }}</td>
+                    <td>{% if project.is_public %}{% trans "Public" %}{% endif %}</td>
                   </tr>
-                  </thead>
-                  <tbody>
-                  {% for project in projects %}
-                    <tr>
-                      <td><a href="{% url 'editProject' pk=project.pk %}">{{ project.title }}</a></td>
-                      <td>{{ project.updated }}</td>
-                      <td>{{ project.category }}</td>
-                      <td>{% if project.is_public %}public{% endif %}</td>
-                    </tr>
-                  {% endfor %}
-                  </tbody>
-                </table>
-              </div>
-            {% endif %}
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

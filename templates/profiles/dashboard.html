@@ -14,29 +14,27 @@
         <div class="columns">
           <div class="column">
             <h1 class="c-page__title c-t-page-headline">{% trans "Dashboard" %}</h1>
-            {% if user.is_authenticated %}
-              <div class="level">
-                <div class="level-left">
-                  <a class="button is-outlined" href="{% url 'profile' %}">{% trans "Profil" %}</a>
-                </div>
-                <div class="level-right">
-                  <a class="button level-item is-outlined" href="{% url 'addProject' %}">
-                    <span class="icon"><i class="material-icons">add</i></span>
-                    <span>{% trans "Add Project" %}</span>
-                  </a>
-                  <a class="button level-item is-outlined" href="{% url 'dashboardList' %}">
-                    <span class="icon"><i class="material-icons">list</i> </span>
-                    <span>{% trans "List View" %}</span>
-                  </a>
-                </div>
+            <div class="level">
+              <div class="level-left">
+                <a class="button is-outlined" href="{% url 'profile' %}">{% trans "Profile" %}</a>
               </div>
-              <hr>
-              <div class="c-projects-list columns is-multiline">
-                {% for project in projects %}
-                  {% include "projects/_parts/_project-card.html" %}
-                {% endfor %}
+              <div class="level-right">
+                <a class="button level-item is-outlined" href="{% url 'addProject' %}">
+                  <span class="icon"><i class="material-icons">add</i></span>
+                  <span>{% trans "Add Project" %}</span>
+                </a>
+                <a class="button level-item is-outlined" href="{% url 'dashboardList' %}">
+                  <span class="icon"><i class="material-icons">list</i> </span>
+                  <span>{% trans "List View" %}</span>
+                </a>
               </div>
-            {% endif %}
+            </div>
+            <hr>
+            <div class="c-projects-list columns is-multiline">
+              {% for project in projects %}
+                {% include "projects/_parts/_project-card.html" %}
+              {% endfor %}
+            </div>
           </div>
         </div>
       </div>

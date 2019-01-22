@@ -18,7 +18,7 @@
             {% if next %}
               {% if user.is_authenticated %}
                 <p>{% trans "You can't access this site with your current account. To proceed please login to an authorized account." }</p>
-                  {% else %}
+              {% else %}
                 <p>{% trans "Please login in order to see this site." %}</p>
               {% endif %}
             {% endif %}
