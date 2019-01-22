@@ -92,19 +92,21 @@
     </section>
     <section class="section c-project__info">
       <div class="container">
-          <div class="columns">
-            <div class="column">
+          <div class="columns is-variable is-8">
+            <div class="column c-project__info-column">
                 <div class="c-project__description">
                   <div class="content">{{ project.description }}</div>
+                  {% if project.picture %}
+                    <div class="c-project__image">
+                      <img class="image" src="{{ project.picture.url }}" alt="{{ project.title }}" />
+                    </div>
+                  {% endif %}
                 </div>
-                {% if project.picture %}
-                  <div class="c-project__image">
-                    <img class="image" src="{{ project.picture.url }}" alt="{{ project.title }}" />
-                  </div>
-                {% endif %}
             </div>
             <div class="column">
-               {% include "projects/_parts/_commentaries.html" %}
+              <div class="c-project__comments">
+                {% include "projects/_parts/_commentaries.html" %}
+              </div>
             </div>
         </div>
       </div>
