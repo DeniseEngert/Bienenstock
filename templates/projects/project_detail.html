@@ -7,80 +7,105 @@
 {% endblock %}
 
 {% block content %}
-  <div class="c-page">
+  <div class="c-page c-project">
     <section class="section">
       <div class="container">
         <div class="columns">
-          <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
-            {% if project.user == user %}
-              <h1 class="title is-1">{% trans "Project: " %}</h1>
-              <form id="updateForm" action="{% url 'editProject' pk=project.pk %}" method="POST" enctype="multipart/form-data" class="c-form">
-                {% csrf_token %}
-                {{ form|bulma }}
-              </form>
-              <br>
+          <div class="column">
+              <p>{{ project.user.username }}</p>
               <div class="level">
                 <div class="level-left">
-                  <button class="button is-outlined" type="submit"
-                          value="Save" form="updateForm">{% trans "Save Changes" %}</button>
+                   <h1 class="title is-1">{{ project.title }}</h1>
                 </div>
                 <div class="level-right">
-                  <a class="button is-danger is-outlined" href="{% url "deleteProject" pk=project.pk %}">Delete Project</a>
+                  {% if project.user == user %} <a class="button is-small is-outlined js-project-form-toggle">{% trans "Edit Details" %}</a>{% endif %}
                 </div>
               </div>
-
-              <hr>
-              <h2 class="is-size-2 has-line-height-tight">{% trans "Datasets: " %}</h2>
-              {% if project.project_dataset.all.count > 0 %}
-                {% for dataset in project.project_dataset.all %}
-                  <div class="c-project__dygraph">
-                    <a href="{% url 'showDataset' pk=dataset.pk project_pk=dataset.project.pk %}">
-                      {% trans "Dataset: " %}{{ dataset.title }}
-                    </a>
-                    <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}"></div>
+              {% if project.user == user %}
+                <div class="c-form-wrapper c-form-wrapper--hidden js-project-form-container">
+                  <form id="updateForm" action="{% url 'editProject' pk=project.pk %}" method="POST" enctype="multipart/form-data" class="c-form">
+                    {% csrf_token %}
+                    {{ form|bulma }}
+                  </form>
+                  <br>
+                  <div class="level">
+                    <div class="level-left">
+                      <button class="button is-outlined" type="submit" value="Save" form="updateForm">{% trans "Save Changes" %}</button>
+                    </div>
+                    <div class="level-right">
+                      <a class="button is-danger is-outlined" href="{% url "deleteProject" pk=project.pk %}">Delete Project</a>
+                    </div>
                   </div>
-                {% endfor %}
-              {% else %}
-                <p>{% trans "No datasets submitted yet." %}</p>
+                </div>
               {% endif %}
-              <a class="button is-outlined" href="{% url 'addDataset' pk=project.pk %}">
-                <span class="icon"><i class="material-icons">add</i></span>
-                <span>{% trans "Add Dataset" %}</span>
-              </a>
-              <hr>
-              <h2 class="c-commentary__title is-size-4 has-line-height-tight">{% trans "Project comments: " %}</h2>
-              {% if project.project_commentary.count > 0 %}
-                <table class="table is-hoverable is-fullwidth">
-                  <tr>
-                    <th>{% trans "User" %}</th>
-                    <th>{% trans "Date" %}</th>
-                    <th>{% trans "Commentary text" %}</th>
-                  </tr>
-                  {% for commentary in project.project_commentary.all %}
-                    <tr>
-                      <td>{{ commentary.user.username }}</td>
-                      <td>{{ commentary.time }}</td>
-                      <td>{{ commentary.text }}</td>
-                      {% if commentary.user == user or project.user == user %}
-                        <td><a class="button is-outlined"
-                               href="{% url "deleteProjectCommentary" pk=commentary.pk %}"><span class="icon"><i
-                          class="material-icons">delete</i></span></a></td>
-                      {% endif %}
-                    </tr>
+              <div class="c-project__datasets">
+                {% if project.project_dataset.all.count > 0 %}
+                  <div class="tabs">
+                    <ul>
+                  {% for tdataset in project.project_dataset.all %}
+                      <li class="{% if dataset.pk == tdataset.pk %}is-active{% endif %}">
+                        {% if project.user == user %}
+                         <a href="{% url "editDataset" pk=tdataset.pk project_pk=project.pk %}">{{ tdataset.title }}</a>
+                        {% else %}
+                           <a href="{% url "showDataset" pk=tdataset.pk project_pk=project.pk %}">{{ tdataset.title }}</a>
+                        {% endif %}
+                      </li>
                   {% endfor %}
-                </table>
-              {% else %}
-                <p>{% trans "No comments submitted yet." %}</p>
-              {% endif %}
-              <form action="{% url "newProjectCommentary" pk=project.pk %}" method="POST">
-                {% csrf_token %}
-                {{ commentaryForm|bulma }}
-                <input class="button is-outlined" type="submit" value="{% trans "Add new comment" %}"/>
-              </form>
-            {% endif %}
+                  {% if project.user == user %}
+                     <li class=""><a href="{% url 'addDataset' pk=project.pk %}"><span class="icon"><i class="material-icons">add</i></span></a></li>
+                  {% endif %}
+                    </ul>
+                  </div>
+                  <div class="c-project__dygraph">
+                    <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}"></div>
+                    {% if project.user == user %}
+                      <div class="c-form-wrapper">
+                        <form id="datasetForm"action="{% url 'editDataset' project_pk=project.pk pk=dataset.pk %}" method="POST" enctype="multipart/form-data" class="c-form">
+                          {% csrf_token %}
+                          {{ datasetForm|bulma }}
+                          <br>
+                        </form>
+                        <div class="level">
+                          <div class="level-left">
+                            <button class="button is-outlined" type="submit" value="Save" form="datasetForm">{% trans "Save Changes" %}</button>
+                          </div>
+                          <div class="level-right">
+                            <a class="button is-danger is-outlined" href="{% url "deleteDataset" project_pk=dataset.pk pk=dataset.pk %}">Delete Dataset</a>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  </div>
+                {% else %}
+                  <p>{% trans "No datasets submitted yet." %}</p>
+                  {% if project.user == user %}
+                     <a class="button is-outlined" href="{% url 'addDataset' pk=project.pk %}">
+                      <span class="icon"><i class="material-icons">add</i></span>
+                      <span>{% trans "Add Dataset" %}</span>
+                    </a>
+                  {% endif %}
+                {% endif %}
+            </div>
+            <div class="columns">
+              <div class="column">
+                  <div class="c-project__description">
+                    <div class="content">{{ project.description }}</div>
+                  </div>
+                  {% if project.picture %}
+                    <div class="c-project__image">
+                      <img class="image" src="{{ project.picture.url }}" alt="{{ project.title }}" />
+                    </div>
+                  {% endif %}
+
+              </div>
+              <div class="column">
+                 {% include "projects/_parts/_commentaries.html" %}
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </div>
 {% endblock %}
+

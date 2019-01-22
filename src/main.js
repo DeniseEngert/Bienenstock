@@ -62,8 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
       dygraphs.push(
         new Dygraph(
           el, // div
-          csvUrl, // path to CSV file
-          {}          // options
+          csvUrl, {
+            colors: ['#388e3c', '#607d8b', '#ff5722', '#ffc107 ', '#5c6bc0'],
+            showRangeSelector: true,
+            title: 'T and RH in a nuc bee hive',
+            titleHeight: 20,
+            xlabel: 'Date/Time',
+            xLabelHeight: 18,
+            ylabel: 'T[°C] / RH [%]',
+            yLabelWidth: 18,
+            labelsSeparateLines: true,
+          }
         )
       )
       el.classList.remove('is-loading')
@@ -72,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 500)
     }, 500)
   })
+
 
 
   // init file input fields
@@ -97,4 +107,14 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
 
-})
+  // init project form toggle
+
+  const projectFormToggle = document.querySelector('.js-project-form-toggle');
+  const projectFormContainer = document.querySelector('.js-project-form-container');
+
+  if (projectFormToggle && projectFormContainer) {
+    projectFormToggle.addEventListener('click', () => {
+      projectFormContainer.classList.toggle('is-active');
+    })
+  }}
+)

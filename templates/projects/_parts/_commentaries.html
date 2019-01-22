@@ -1,0 +1,37 @@
+{% load static %}
+{% load i18n %}
+{% load bulma_tags %}
+
+<div class="c-commentaries">
+  {% if project.project_commentary.count > 0 %}
+    {% for commentary in project.project_commentary.all %}
+    <article class="media c-commentary">
+      <figure class="media-left">
+        <p class="image is-64x64 is-square">
+          <img src="{{ commentary.user.profile.image.url }}" alt="{{ commentary.user.username }}">
+        </p>
+      </figure>
+      <div class="media-content">
+        {% if commentary.user == user or project.user == user %}
+          <a class=" c-commentary__delete button is-outlined is-danger"
+                 href="{% url "deleteProjectCommentary" pk=commentary.pk %}"><span class="icon"><i
+            class="material-icons">delete</i></span></a>
+        {% endif %}
+        <p class="is-size-7 has-text-grey-light">{{ commentary.user.username }}, {{ commentary.time }}</p>
+        <p>{{ commentary.text }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  {% else %}
+    <p>{% trans "No comments submitted yet." %}</p>
+  {% endif %}
+  {% if user.is_authenticated %}
+    <div class="c-commentaries__form">
+      <form action="{% url "newProjectCommentary" pk=project.pk %}" method="POST">
+        {% csrf_token %}
+        {{ commentaryForm|bulma }}
+        <input class="button is-outlined" type="submit" value="{% trans "Add new comment" %}"/>
+      </form>
+    </div>
+  {% endif %}
+</div>

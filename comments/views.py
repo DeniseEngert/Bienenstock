@@ -5,7 +5,7 @@ from .forms import CommentaryForm
 from .models import *
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseForbidden
-
+from projects.forms import DatasetForm, ProjectForm
 
 class CommentaryCreateView(LoginRequiredMixin, CreateView):
     model = Commentary
@@ -18,8 +18,11 @@ class CommentaryCreateView(LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(CommentaryCreateView, self).get_context_data(**kwargs)
-        context['project'] = self.project
         context['commentaryForm'] = context.get('form')
+        context['project'] = self.project
+        context['form'] = ProjectForm(instance=context['project'])
+        context['dataset'] = context['project'].project_dataset.first()
+        context['datasetForm'] = DatasetForm(instance=context['dataset'])
         return context
 
     def form_valid(self, form):

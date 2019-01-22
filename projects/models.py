@@ -30,8 +30,14 @@ class Dataset(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project_dataset')
 
     def get_absolute_url(self):
-        return reverse('editProject', kwargs={'pk': self.project.pk})
+        if self.project.user == self.user:
+            return reverse('editProject', kwargs={'pk': self.project.pk})
+        else:
+            return reverse('viewPublicProject', kwargs={'pk': self.project.pk})
 
     def __str__(self):
         return "{} / {} / {}".format(self.project.user.username, self.project.title, self.title)
+
+
+
 
