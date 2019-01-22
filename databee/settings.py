@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import environ
 import dj_database_url
+from django.utils.translation import ugettext_lazy as _
 
 # default env vars
 env = environ.Env(
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'user_language_middleware.UserLanguageMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -163,7 +165,15 @@ LOGIN_URL = 'login'
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'de'
+LANGUAGES = (
+    ('en-us', _('English')),
+    ('de', _('German')),
+)
+
+# Internationalization
+# https://docs.djangoproject.com/en/2.1/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
 
 LOCALE_PATHS = [
     'locale'
