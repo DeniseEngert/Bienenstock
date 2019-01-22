@@ -10,18 +10,28 @@
 {% block content %}
   <div class="c-page">
     <section class="section">
-      <div class="container">
-        <div class="columns">
-          <div class="column">
-            <h2 class="c-page__title is-size-2 has-line-height-tight">{% trans "Profile" %}</h2>
-            <h3>{{ user.get_full_name }}</h3>
-            <form action="" method="post" enctype="multipart/form-data">
-              {% csrf_token %}
-              {{ user_form|bulma }}
-              {{ profile_form|bulma }}
-              <button type="submit">{% trans "Save changes" %}</button>
-            </form>
-          </div>
+      <div class="c-profile">
+        <div class="container">
+          <h2 class="c-page__title is-size-2 has-line-height-tight">{% trans "Profile" %}</h2>
+          <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="columns is-8">
+              <div class="column is-half-tablet">
+                {{ user_form|bulma }}
+              </div>
+              <div class="column is-half-tablet">
+                {% if user.profile.image %}
+                  <div class="c-profile__image-wrapper">
+                    <div class="c-profile__image">
+                      <img src="{{ user.profile.image.url }}" alt="{{ user.username }}"/>
+                    </div>
+                  </div>
+                {% endif %}
+                {{ profile_form|bulma }}
+              </div>
+            </div>
+            <button class="button is-outlined" type="submit">{% trans "Save changes" %}</button>
+          </form>
         </div>
       </div>
     </section>

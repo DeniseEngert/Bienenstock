@@ -35,17 +35,23 @@
       <div class="container">
         <h2 class="c-startpage-projects__headline is-size-2 has-line-height-tight">{% trans "Latest Projects" %}</h2>
 
-        <div class="c-startpage-projects__list">
-          <div class="c-projects-list columns is-multiline">
-            {% for project in projects %}
-              {% include "projects/_parts/_project-card.html" %}
-            {% endfor %}
-          </div>
-        </div>
+            {% if projects %}
+              <div class="c-startpage-projects__list">
+                <div class="c-projects-list columns is-multiline">
+                  {% for project in projects %}
+                    {% include "projects/_parts/_project-card.html" %}
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="c-startpage-projects__more">
+                    <a class="button is-dark is-outlined " href="{% url 'projects' %}">{% trans "Show more projects" %}</a>
+              </div>
+            {% else %}
+              <p>{% trans "No public projects avaliable." %}</p>
+            {% endif %}
 
-        <div class="c-startpage-projects__more">
-          <a class="button is-dark is-outlined " href="{% url 'projects' %}">{% trans "Show more projects" %}</a>
-        </div>
+
+
 
       </div>
     </section>

@@ -14,7 +14,7 @@
           <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
             {% if project.user == user %}
               <h1 class="title is-1">{% trans "Project: " %}</h1>
-              <form id="updateForm" action="{% url 'editProject' pk=project.pk %}" method="POST" class="c-form">
+              <form id="updateForm" action="{% url 'editProject' pk=project.pk %}" method="POST" enctype="multipart/form-data" class="c-form">
                 {% csrf_token %}
                 {{ form|bulma }}
               </form>
@@ -25,11 +25,7 @@
                           value="Save" form="updateForm">{% trans "Save Changes" %}</button>
                 </div>
                 <div class="level-right">
-                  <form id="deleteForm" action="{% url 'deleteProject' pk=project.pk %}" method="POST" class="c-form">
-                    {% csrf_token %}
-                    <button class="button is-danger is-outlined" type="submit"
-                            value="Delete">{% trans "Delete Project" %}</button>
-                  </form>
+                  <a class="button is-danger is-outlined" href="{% url "deleteProject" pk=project.pk %}">Delete Project</a>
                 </div>
               </div>
 
@@ -38,7 +34,7 @@
               {% if project.project_dataset.all.count > 0 %}
                 {% for dataset in project.project_dataset.all %}
                   <div class="c-project__dygraph">
-                    <a href="{% url 'showDataset' pk=dataset.pk %}">
+                    <a href="{% url 'showDataset' pk=dataset.pk project_pk=dataset.project.pk %}">
                       {% trans "Dataset: " %}{{ dataset.title }}
                     </a>
                     <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}"></div>

@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fileInputFields.forEach((el) => {
     // remove font awesome icon
     const icon = el.parentNode.getElementsByClassName('file-icon')[0]
-    icon.innerHTML = "<span class='icon'><i class='material-icons'>insert_chart</i></span>";
+    icon.innerHTML = "<span class='icon'><i class='material-icons'>cloud_upload</i></span>";
 
     const fileCta = el.parentNode.getElementsByClassName('file-cta')[0]
 

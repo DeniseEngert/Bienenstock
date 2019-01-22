@@ -50,8 +50,10 @@ urlpatterns = [
     path('project/public/<int:pk>/', projects_views.PublicProjectDetailView.as_view(), name="viewPublicProject"),
     path('project/add/', projects_views.ProjectCreate.as_view(), name="addProject"),
     path('project/<int:pk>/delete/', projects_views.ProjectDelete.as_view(), name="deleteProject"),
-    path('project/addDataset/<int:pk>/', projects_views.DatasetCreateView.as_view(), name="addDataset"),
-    path('project/showDataset/<int:pk>/', projects_views.DatasetDetailView.as_view(), name='showDataset'),
+    path('project/<int:pk>/dataset/add/', projects_views.DatasetCreate.as_view(), name="addDataset"),
+    path('project/<int:project_pk>/dataset/<int:pk>/', projects_views.DatasetDetail.as_view(), name="showDataset"),
+    path('project/<int:project_pk>/dataset/<int:pk>/edit/', projects_views.DatasetUpdate.as_view(), name="editDataset"),
+    path('project/<int:project_pk>/dataset/<int:pk>/delete/', projects_views.DatasetDelete.as_view(), name="deleteDataset"),
     path('<str:slug>/', pages_views.PageView.as_view(), name="showPage"),
 ]
 

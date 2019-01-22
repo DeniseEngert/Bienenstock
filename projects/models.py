@@ -19,8 +19,8 @@ class Project(models.Model):
     def get_absolute_url(self):
         return reverse('editProject', kwargs={'pk': self.pk})
 
-    def uploadImage(self, filename):
-        return 'post/{}/{}'.format(self.title, filename)
+    def __str__(self):
+        return "{} / {}".format(self.user.username, self.title)
 
 
 class Dataset(models.Model):
@@ -31,3 +31,7 @@ class Dataset(models.Model):
 
     def get_absolute_url(self):
         return reverse('editProject', kwargs={'pk': self.project.pk})
+
+    def __str__(self):
+        return "{} / {} / {}".format(self.project.user.username, self.project.title, self.title)
+

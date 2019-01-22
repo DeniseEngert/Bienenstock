@@ -64,28 +64,57 @@ class ProjectDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
         return project.user == self.request.user
 
 
-class DatasetCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class DatasetCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Dataset
     form_class = DatasetForm
-    template_name = "projects/new_dataset.html"
 
     def dispatch(self, request, *args, **kwargs):
         self.project = get_object_or_404(Project, pk=kwargs['pk'])
-        return super(DatasetCreateView, self).dispatch(request, *args, **kwargs)
+        return super(DatasetCreate, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
         form.instance.project = self.project
-        return super(DatasetCreateView, self).form_valid(form)
+        return super(DatasetCreate, self).form_valid(form)
 
     def has_permission(self):
         project = self.project
         return project.user == self.request.user
 
 
-class DatasetDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
+class DatasetDetail(PermissionRequiredMixin, DetailView):
     model = Dataset
     template_name = 'projects/dataset_detail.html'
 
     def has_permission(self):
         project = self.get_object().project
-        return project.user == self.request.user
+        return project.user == self.request.user or project.is_public
+
+
+class DatasetUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+    model = Dataset
+    form_class = DatasetForm
+
+    def dispatch(self, request, *args, **kwargs):
+        self.project = get_object_or_404(Project, pk=kwargs['project_pk'])
+        return super(DatasetUpdate, self).dispatch(request, *args, **kwargs)
+
+    def has_permission(self):
+        dataset = self.get_object()
+        return dataset.project.user == self.request.user
+
+    def get_context_data(self, **kwargs):
+        context = super(DatasetUpdate, self).get_context_data(**kwargs)
+        context['commentaryForm'] = CommentaryForm()
+        return context
+
+
+class DatasetDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+    model = Dataset
+
+    def has_permission(self):
+        dataset = self.get_object()
+        return dataset.project.user == self.request.user
+
+    def get_success_url(self):
+        dataset = self.get_object()
+        return reverse_lazy('editProject', kwargs={'pk': dataset.project.pk})
