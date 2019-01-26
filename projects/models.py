@@ -10,6 +10,7 @@ from django.utils.translation import gettext_lazy as _
 class Project(models.Model):
     class Meta:
         unique_together = (("title", "user"),)
+        ordering = ('updated', )
 
     title = models.CharField(_('title'), max_length=30)
     picture = models.ImageField(_('picture'),upload_to='images/', default='images/None/placeProject.png')
@@ -29,6 +30,7 @@ class Project(models.Model):
 class Dataset(models.Model):
     class Meta:
         unique_together = (("title", "project"),)
+        ordering = ('title',)
 
     title = models.CharField(_('title'), max_length=30)
     data_file = models.FileField(_('data_file'), upload_to='csv/', blank=False, null=True, validators=[validate_csv])
