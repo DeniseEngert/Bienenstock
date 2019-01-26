@@ -1,312 +1,312 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-22 20:53+0100\n"
+"POT-Creation-Date: 2019-01-26 14:35+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: .\comments\models.py:9
+#: comments/models.py:9
 msgid "text"
 msgstr "Text"
 
-#: .\common\models.py:24
+#: common/models.py:24
 msgid "about_text"
 msgstr "About Text"
 
-#: .\databee\settings.py:169
+#: databee/settings.py:169
 msgid "English"
 msgstr "Englisch"
 
-#: .\databee\settings.py:170
+#: databee/settings.py:170
 msgid "German"
 msgstr "Deutsch"
 
-#: .\profiles\forms.py:18
+#: profiles/forms.py:18
 msgid "First name"
 msgstr "Vorname"
 
-#: .\profiles\forms.py:19
+#: profiles/forms.py:19
 msgid "Last name"
 msgstr "Nachname"
 
-#: .\profiles\forms.py:28
+#: profiles/forms.py:28
 msgid "Areas of interest"
 msgstr "Interessensgebiete"
 
-#: .\profiles\forms.py:29
+#: profiles/forms.py:29
 msgid "Phone number"
 msgstr "Telefonnummer"
 
-#: .\profiles\forms.py:30
+#: profiles/forms.py:30
 msgid "Birth date"
 msgstr "Geburtsdatum"
 
-#: .\profiles\models.py:9
+#: profiles/models.py:9
 msgid "areas_of_interest"
 msgstr "Interessensgebiete"
 
-#: .\profiles\models.py:10
+#: profiles/models.py:10
 msgid "address"
 msgstr "Adresse"
 
-#: .\profiles\models.py:11
+#: profiles/models.py:11
 msgid "phone_number"
 msgstr "Telefonnummer"
 
-#: .\profiles\models.py:12
+#: profiles/models.py:12
 msgid "bio"
 msgstr "Biografie"
 
-#: .\profiles\models.py:13
+#: profiles/models.py:13
 msgid "birth_date"
 msgstr "Geburtsdatum"
 
-#: .\profiles\models.py:15
+#: profiles/models.py:15
 msgid "image"
 msgstr "Bild"
 
-#: .\projects\forms.py:11
+#: projects/forms.py:11
 msgid "is public"
 msgstr "veröffentlichen"
 
-#: .\projects\models.py:11 .\projects\models.py:27
+#: projects/models.py:11 projects/models.py:27
 msgid "title"
 msgstr "Titel"
 
-#: .\projects\models.py:12
+#: projects/models.py:12
 msgid "picture"
 msgstr "Bild"
 
-#: .\projects\models.py:13
+#: projects/models.py:13
 msgid "description"
 msgstr "Beschreibung"
 
-#: .\projects\models.py:14
+#: projects/models.py:14
 msgid "is_public"
 msgstr "veröffentlichen"
 
-#: .\projects\models.py:16
+#: projects/models.py:16
 msgid "category"
 msgstr "Kategorie"
 
-#: .\projects\models.py:29
+#: projects/models.py:28
 msgid "data_file"
 msgstr "Datensatz Datei"
 
-#: .\templates\_parts\_footer.html:42
+#: templates/_parts/_footer.html:42
 msgid "Support"
 msgstr "Support"
 
-#: .\templates\_parts\_navbar.html:39
+#: templates/_parts/_navbar.html:44
 msgid "Explore"
 msgstr "Erkunden"
 
-#: .\templates\_parts\_navbar.html:61 .\templates\auth\login.html:7
-#: .\templates\auth\login.html:16
+#: templates/_parts/_navbar.html:66 templates/auth/login.html:7
+#: templates/auth/login.html:16
 msgid "Log In"
 msgstr "Anmelden"
 
-#: .\templates\_parts\_navbar.html:70 .\templates\profiles\dashboard.html:19
-#: .\templates\profiles\dashboard_list.html:19
-#: .\templates\profiles\profile.html:15
+#: templates/_parts/_navbar.html:75 templates/profiles/dashboard.html:19
+#: templates/profiles/dashboard_list.html:19
 msgid "Profile"
 msgstr "Profil"
 
-#: .\templates\_parts\_navbar.html:73 .\templates\profiles\dashboard.html:7
-#: .\templates\profiles\dashboard.html:16
-#: .\templates\profiles\dashboard_list.html:7
-#: .\templates\profiles\dashboard_list.html:16
+#: templates/_parts/_navbar.html:78 templates/profiles/dashboard.html:7
+#: templates/profiles/dashboard.html:16
+#: templates/profiles/dashboard_list.html:7
+#: templates/profiles/dashboard_list.html:16
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: .\templates\_parts\_navbar.html:76
+#: templates/_parts/_navbar.html:81
 msgid "Log Out"
 msgstr "Abmelden"
 
-#: .\templates\auth\login.html:22 .\templates\profiles\signup.html:22
+#: templates/auth/login.html:22 templates/profiles/signup.html:22
 msgid "Please login in order to see this site."
 msgstr "Bitte anmelden um die Seite zu sehen."
 
-#: .\templates\auth\login.html:30
+#: templates/auth/login.html:30
 msgid "Log in"
 msgstr "Anmelden"
 
-#: .\templates\auth\login.html:33 .\templates\profiles\signup.html:30
+#: templates/auth/login.html:33 templates/profiles/signup.html:30
 msgid "Create new account"
 msgstr "Neues Benutzerkonto anlegen"
 
-#: .\templates\comments\commentary_confirm_delete.html:7
-#: .\templates\projects\dataset_confirm_delete.html:7
-#: .\templates\projects\project_confirm_delete.html:7
+#: templates/comments/commentary_confirm_delete.html:7
+#: templates/comments/commentary_confirm_delete.html:18
+#: templates/projects/dataset_confirm_delete.html:7
+#: templates/projects/dataset_confirm_delete.html:18
+#: templates/projects/project_confirm_delete.html:7
+#: templates/projects/project_confirm_delete.html:18
 msgid "Confirm deletion"
 msgstr "Löschen bestätigen"
 
-#: .\templates\comments\commentary_confirm_delete.html:18
+#: templates/comments/commentary_confirm_delete.html:22
 msgid "Are you sure you want to delete the comment "
 msgstr "Sind Sie sicher, dass Sie den folgenden Kommentar löschen wollen: "
 
-#: .\templates\comments\commentary_confirm_delete.html:19
-#: .\templates\projects\dataset_confirm_delete.html:19
-#: .\templates\projects\project_confirm_delete.html:19
+#: templates/comments/commentary_confirm_delete.html:23
+#: templates/projects/dataset_confirm_delete.html:23
+#: templates/projects/project_confirm_delete.html:23
 msgid "Confirm"
 msgstr "Bestätigen"
 
-#: .\templates\pages\start.html:6
+#: templates/pages/start.html:6
 msgid "Start"
 msgstr "Start"
 
-#: .\templates\pages\start.html:19
+#: templates/pages/start.html:20
 msgid "Visualize and Share Datasets"
 msgstr "Messreihen kommentieren und teilen"
 
-#: .\templates\pages\start.html:25 .\templates\profiles\signup.html:7
-#: .\templates\profiles\signup.html:16
+#: templates/pages/start.html:26 templates/profiles/signup.html:7
+#: templates/profiles/signup.html:16
 msgid "Sign Up"
 msgstr "Konto erstellen"
 
-#: .\templates\pages\start.html:30 .\templates\pages\start.html:36
+#: templates/pages/start.html:31 templates/pages/start.html:37
 msgid "Latest Projects"
 msgstr "Die neuesten Projekte"
 
-#: .\templates\pages\start.html:46
+#: templates/pages/start.html:47
 msgid "Show more projects"
 msgstr "Mehr Projekte zeigen"
 
-#: .\templates\pages\start.html:49 .\templates\projects\project_list.html:23
+#: templates/pages/start.html:50 templates/projects/project_list.html:23
 msgid "No public projects avaliable."
 msgstr "Keine öffentlichen Projekte verfügbar."
 
-#: .\templates\profiles\dashboard.html:24
-#: .\templates\profiles\dashboard_list.html:24
+#: templates/profiles/dashboard.html:24
+#: templates/profiles/dashboard_list.html:24
 msgid "Add Project"
 msgstr "Projekt hinzufügen"
 
-#: .\templates\profiles\dashboard.html:28
+#: templates/profiles/dashboard.html:28
 msgid "List View"
 msgstr "Listenansicht"
 
-#: .\templates\profiles\dashboard_list.html:28
+#: templates/profiles/dashboard_list.html:28
 msgid "Tile View"
 msgstr "Kachelansicht"
 
-#: .\templates\profiles\dashboard_list.html:37
+#: templates/profiles/dashboard_list.html:37
 msgid "Title"
 msgstr "Titel"
 
-#: .\templates\profiles\dashboard_list.html:38
+#: templates/profiles/dashboard_list.html:38
 msgid "Updated"
 msgstr "Aktualisiert"
 
-#: .\templates\profiles\dashboard_list.html:39
+#: templates/profiles/dashboard_list.html:39
 msgid "Category"
 msgstr "Kategorie"
 
-#: .\templates\profiles\dashboard_list.html:40
-#: .\templates\profiles\dashboard_list.html:49
+#: templates/profiles/dashboard_list.html:40
+#: templates/profiles/dashboard_list.html:49
 msgid "Public"
 msgstr "Öffentlich"
 
-#: .\templates\profiles\profile.html:33
+#: templates/profiles/profile.html:30
 msgid "Save changes"
 msgstr "Änderungen Speichern"
 
-#: .\templates\projects\dataset_confirm_delete.html:18
-msgid "Are you sure you want to delete the dataset "
-msgstr "Sind Sie sicher, dass Sie den folgenden Datensatz löschen wollen: "
-
-#: .\templates\projects\dataset_detail.html:15
-#: .\templates\projects\project_detail.html:41
-#: .\templates\projects\public_project_detail.html:25
-msgid "Dataset: "
-msgstr "Datensatz: "
-
-#: .\templates\projects\dataset_detail.html:16
-msgid "Dataset Source"
-msgstr "Datensatz Quelle"
-
-#: .\templates\projects\dataset_form.html:7
-#: .\templates\projects\dataset_form.html:16
-msgid "New Dataset"
-msgstr "Datensatz hinzufügen"
-
-#: .\templates\projects\dataset_form.html:23
-#: .\templates\projects\project_form.html:23
-msgid "Save"
-msgstr "Speichern"
-
-#: .\templates\projects\project_confirm_delete.html:18
-msgid "Are you sure you want to delete the project "
-msgstr "Sind Sie sicher, dass Sie das folgende Projekt löschen wollen: "
-
-#: .\templates\projects\project_detail.html:16
-#: .\templates\projects\public_project_detail.html:17
-msgid "Project: "
-msgstr "Projekt:"
-
-#: .\templates\projects\project_detail.html:25
-msgid "Save Changes"
-msgstr "Änderungen Speichern"
-
-#: .\templates\projects\project_detail.html:28
-msgid "Delete Project"
-msgstr "Projekt löschen"
-
-#: .\templates\projects\project_detail.html:33
-#: .\templates\projects\public_project_detail.html:21
-msgid "Datasets: "
-msgstr "Datensätze: "
-
-#: .\templates\projects\project_detail.html:38
-msgid "Delete Dataset"
-msgstr "Datensatz Löschen"
-
-#: .\templates\projects\project_detail.html:48
-#: .\templates\projects\public_project_detail.html:31
-msgid "No datasets submitted yet."
-msgstr "Noch keine Datensätze vorhanden."
-
-#: .\templates\projects\project_detail.html:53
-msgid "Add Dataset"
-msgstr "Datensatz hinzufügen"
-
-#: .\templates\projects\project_detail.html:56
-#: .\templates\projects\public_project_detail.html:34
-msgid "Project comments: "
-msgstr "Projektkommentare: "
-
-#: .\templates\projects\project_detail.html:60
-#: .\templates\projects\public_project_detail.html:38
-msgid "User"
-msgstr "Nutzer"
-
-#: .\templates\projects\project_detail.html:61
-#: .\templates\projects\public_project_detail.html:39
-msgid "Date"
-msgstr "Datum"
-
-#: .\templates\projects\project_detail.html:62
-#: .\templates\projects\public_project_detail.html:40
-msgid "Commentary text"
-msgstr "Kommentartext"
-
-#: .\templates\projects\project_detail.html:79
-#: .\templates\projects\public_project_detail.html:57
+#: templates/projects/_parts/_commentaries.html:26
+#: templates/projects/public_project_detail.html:57
 msgid "No comments submitted yet."
 msgstr "Noch keine Kommentare vorhanden."
 
-#: .\templates\projects\project_detail.html:85
-#: .\templates\projects\public_project_detail.html:64
+#: templates/projects/_parts/_commentaries.html:33
+#: templates/projects/public_project_detail.html:64
 msgid "Add new comment"
 msgstr "Neuer Kommentar"
 
-#: .\templates\projects\project_form.html:6
-#: .\templates\projects\project_form.html:15
+#: templates/projects/dataset_confirm_delete.html:22
+msgid "Are you sure you want to delete the dataset "
+msgstr "Sind Sie sicher, dass Sie den folgenden Datensatz löschen wollen: "
+
+#: templates/projects/dataset_detail.html:15
+#: templates/projects/public_project_detail.html:25
+msgid "Dataset: "
+msgstr "Datensatz: "
+
+#: templates/projects/dataset_detail.html:16
+msgid "Dataset Source"
+msgstr "Datensatz Quelle"
+
+#: templates/projects/dataset_form.html:7
+#: templates/projects/dataset_form.html:17
+msgid "New Dataset"
+msgstr "Datensatz hinzufügen"
+
+#: templates/projects/dataset_form.html:24
+#: templates/projects/project_form.html:23
+msgid "Save"
+msgstr "Speichern"
+
+#: templates/projects/project_confirm_delete.html:22
+msgid "Are you sure you want to delete the project "
+msgstr "Sind Sie sicher, dass Sie das folgende Projekt löschen wollen: "
+
+#: templates/projects/project_detail.html:21
+msgid "Edit Project Details"
+msgstr "Projektdetails bearbeiten"
+
+#: templates/projects/project_detail.html:33
+#: templates/projects/project_detail.html:70
+msgid "Save Changes"
+msgstr "Änderungen Speichern"
+
+#: templates/projects/project_detail.html:36
+msgid "Delete Project"
+msgstr "Projekt löschen"
+
+#: templates/projects/project_detail.html:73
+msgid "Delete Dataset"
+msgstr "Datensatz Löschen"
+
+#: templates/projects/project_detail.html:80
+#: templates/projects/public_project_detail.html:31
+msgid "No datasets submitted yet."
+msgstr "Noch keine Datensätze vorhanden."
+
+#: templates/projects/project_detail.html:84
+msgid "Add Dataset"
+msgstr "Datensatz hinzufügen"
+
+#: templates/projects/project_form.html:6
+#: templates/projects/project_form.html:15
 msgid "New Project"
 msgstr "Neues Projekt"
 
-#: .\templates\projects\project_list.html:6
-#: .\templates\projects\project_list.html:15
+#: templates/projects/project_list.html:6
+#: templates/projects/project_list.html:15
 msgid "Projects"
 msgstr "Projekte"
+
+#: templates/projects/public_project_detail.html:17
+msgid "Project: "
+msgstr "Projekt:"
+
+#: templates/projects/public_project_detail.html:21
+msgid "Datasets: "
+msgstr "Datensätze: "
+
+#: templates/projects/public_project_detail.html:34
+msgid "Project comments: "
+msgstr "Projektkommentare: "
+
+#: templates/projects/public_project_detail.html:38
+msgid "User"
+msgstr "Nutzer"
+
+#: templates/projects/public_project_detail.html:39
+msgid "Date"
+msgstr "Datum"
+
+#: templates/projects/public_project_detail.html:40
+msgid "Commentary text"
+msgstr "Kommentartext"
 
 #~ msgid "New comment"
 #~ msgstr "Neuer Kommentar"

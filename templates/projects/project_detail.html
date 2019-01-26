@@ -33,7 +33,7 @@
                       <button class="button is-outlined" type="submit" value="Save" form="updateForm">{% trans "Save Changes" %}</button>
                     </div>
                     <div class="level-right">
-                      <a class="button is-danger is-outlined" href="{% url "deleteProject" pk=project.pk %}">Delete Project</a>
+                      <a class="button is-danger is-outlined" href="{% url "deleteProject" pk=project.pk %}">{% trans "Delete Project" %}</a>
                     </div>
                   </div>
                 </div>
@@ -70,7 +70,7 @@
                             <button class="button is-outlined" type="submit" value="Save" form="datasetForm">{% trans "Save Changes" %}</button>
                           </div>
                           <div class="level-right">
-                            <a class="button is-danger is-outlined" href="{% url "deleteDataset" project_pk=dataset.pk pk=dataset.pk %}">Delete Dataset</a>
+                            <a class="button is-danger is-outlined" href="{% url "deleteDataset" project_pk=dataset.pk pk=dataset.pk %}">{% trans "Delete Dataset" %}</a>
                           </div>
                         </div>
                       </div>
