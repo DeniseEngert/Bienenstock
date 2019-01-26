@@ -18,4 +18,5 @@ class Commentary(models.Model):
             return reverse('viewPublicProject', kwargs={'pk': self.project.pk})
 
     def __str__(self):
-        return "{}: {}".format(self.user, self.text)
+        excerpt = (self.text[:20] + '...') if len(self.text) > 20 else self.text
+        return "{}: {}".format(self.user, excerpt)

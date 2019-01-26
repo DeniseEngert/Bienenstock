@@ -8,7 +8,10 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Project(models.Model):
-    title = models.CharField(_('title'), max_length=30, unique=True)
+    class Meta:
+        unique_together = (("title", "user"),)
+
+    title = models.CharField(_('title'), max_length=30)
     picture = models.ImageField(_('picture'),upload_to='images/', default='images/None/placeProject.png')
     description = MarkupField(_('description'), markup_type='markdown', escape_html=True)
     is_public = models.BooleanField(_('is_public'))
@@ -24,7 +27,10 @@ class Project(models.Model):
 
 
 class Dataset(models.Model):
-    title = models.CharField(_('title'), max_length=30, unique=True)
+    class Meta:
+        unique_together = (("title", "project"),)
+
+    title = models.CharField(_('title'), max_length=30)
     data_file = models.FileField(_('data_file'), upload_to='csv/', blank=False, null=True, validators=[validate_csv])
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project_dataset')
     label_x = models.CharField(_('Label X'), max_length=30, blank=True)
