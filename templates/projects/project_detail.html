@@ -57,7 +57,7 @@
                     </ul>
                   </div>
                   <div class="c-project__dygraph">
-                    <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}"></div>
+                    <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}" data-labelx="{{ dataset.label_x }}" data-labely="{{ dataset.label_y }}"></div>
                     {% if project.user == user %}
                       <div class="c-form-wrapper">
                         <form id="datasetForm"action="{% url 'editDataset' project_pk=project.pk pk=dataset.pk %}" method="POST" enctype="multipart/form-data" class="c-form">

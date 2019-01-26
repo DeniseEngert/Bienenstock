@@ -10,8 +10,7 @@
   },
   "dependencies": {
     "bulma": "^0.7.2",
-    "dygraphs": "^2.1.0",
-    "vue": "^2.5.11"
+    "dygraphs": "^2.1.0"
   },
   "browserslist": [
     "> 1%",

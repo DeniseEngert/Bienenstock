@@ -27,6 +27,8 @@ class Dataset(models.Model):
     title = models.CharField(_('title'), max_length=30, unique=True)
     data_file = models.FileField(_('data_file'), upload_to='csv/', blank=False, null=True, validators=[validate_csv])
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project_dataset')
+    label_x = models.CharField(_('Label X'), max_length=30, blank=True)
+    label_y = models.CharField(_('Label Y'), max_length=30, blank=True)
 
     def get_absolute_url(self):
         if self.project.user == self.user:

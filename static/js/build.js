@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/main.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/main.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -397,15 +397,75 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 
 /***/ }),
 
-/***/ "./src/main.js":
-/*!*********************!*\
-  !*** ./src/main.js ***!
-  \*********************/
+/***/ "./src/js/dygraphs.js":
+/*!****************************!*\
+  !*** ./src/js/dygraphs.js ***!
+  \****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _dygraphs = __webpack_require__(/*! dygraphs */ \"./node_modules/dygraphs/index.js\");\n\nvar _dygraphs2 = _interopRequireDefault(_dygraphs);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// Main CSS\n__webpack_require__(/*! ./scss/styles.sass */ \"./src/scss/styles.sass\");\n\n// Dygraph\n\n\ndocument.addEventListener('DOMContentLoaded', function () {\n  // Get all \"navbar-burger\" elements\n  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.js-navbar-burger'), 0);\n  var $navbarDropdowns = Array.prototype.slice.call(document.querySelectorAll('.js-navbar-dropdown'), 0);\n  // Check if there are any navbar burgers\n  if ($navbarBurgers.length > 0) {\n\n    // Add a click event on each of them\n    $navbarBurgers.forEach(function (el) {\n      el.addEventListener('click', function () {\n\n        // Get the target from the \"data-target\" attribute\n        var target = el.dataset.target;\n        var $target = Array.prototype.slice.call(document.querySelectorAll('.js-navbar-menu'), 0)[0];\n\n        // Toggle the \"is-active\" class on both the \"navbar-burger\" and the \"navbar-menu\"\n        el.classList.toggle('is-active');\n        $target.classList.toggle('is-active');\n      });\n    });\n  }\n\n  if ($navbarDropdowns.length > 0) {\n    $navbarDropdowns.forEach(function (el) {\n      el.addEventListener('click', function (e) {\n        e.stopPropagation();\n        var target = el.parentNode;\n        $navbarDropdowns.forEach(function (el) {\n          var parent = el.parentNode;\n          if (parent !== target) {\n            parent.classList.remove('is-active');\n          }\n        });\n        target.classList.toggle('is-active');\n      });\n    });\n\n    // hide dropdowns when clicking somewhere else\n    document.addEventListener('click', function () {\n      $navbarDropdowns.forEach(function (el) {\n        el.parentNode.classList.remove('is-active');\n      });\n    });\n  }\n\n  // init dygraphs\n  var dygraphs = [];\n  var dygraphDivs = document.querySelectorAll('.js-dygraph');\n\n  dygraphDivs.forEach(function (el) {\n    var csvUrl = el.dataset.csvurl;\n    setTimeout(function () {\n      dygraphs.push(new _dygraphs2.default(el, // div\n      csvUrl, {\n        colors: ['#388e3c', '#607d8b', '#ff5722', '#ffc107 ', '#5c6bc0'],\n        showRangeSelector: true,\n        title: 'T and RH in a nuc bee hive',\n        titleHeight: 20,\n        xlabel: 'Date/Time',\n        xLabelHeight: 18,\n        ylabel: 'T[°C] / RH [%]',\n        yLabelWidth: 18,\n        labelsSeparateLines: true\n      }));\n      el.classList.remove('is-loading');\n      setTimeout(function () {\n        el.classList.add('is-loaded');\n      }, 500);\n    }, 500);\n  });\n\n  // init file input fields\n  var fileInputFields = document.querySelectorAll('.file-input');\n\n  fileInputFields.forEach(function (el) {\n    // remove font awesome icon\n    var icon = el.parentNode.getElementsByClassName('file-icon')[0];\n    icon.innerHTML = \"<span class='icon'><i class='material-icons'>cloud_upload</i></span>\";\n\n    var fileCta = el.parentNode.getElementsByClassName('file-cta')[0];\n\n    el.addEventListener('change', function () {\n      console.log(el);\n      var fileName = el.parentNode.getElementsByClassName('file-label')[0];\n\n      if (!fileName) {\n        fileLabel.innerHTML = dataArr[0] + \"<span class='file-name'></span>\";\n      }\n\n      fileName.innerHTML = el.value;\n    });\n  });\n\n  // init project form toggle\n\n  var projectFormToggle = document.querySelector('.js-project-form-toggle');\n  var projectFormContainer = document.querySelector('.js-project-form-container');\n\n  if (projectFormToggle && projectFormContainer) {\n    projectFormToggle.addEventListener('click', function () {\n      projectFormContainer.classList.toggle('is-active');\n    });\n  }\n});\n\n//# sourceURL=webpack:///./src/main.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _dygraphs = __webpack_require__(/*! dygraphs */ \"./node_modules/dygraphs/index.js\");\n\nvar _dygraphs2 = _interopRequireDefault(_dygraphs);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar dygraphs = [];\n\nfunction initDygraphs() {\n  var dygraphDivs = document.querySelectorAll('.js-dygraph');\n\n  dygraphDivs.forEach(function (el) {\n    var csvUrl = el.dataset.csvurl;\n    var labelX = el.dataset.labelx;\n    var labelY = el.dataset.labely;\n    setTimeout(function () {\n      dygraphs.push(new _dygraphs2.default(el, // div\n      csvUrl, {\n        showRangeSelector: true,\n        titleHeight: 20,\n        xlabel: labelX,\n        xLabelHeight: 18,\n        ylabel: labelY,\n        yLabelWidth: 18,\n        labelsSeparateLines: true\n      }));\n      el.classList.remove('is-loading');\n      setTimeout(function () {\n        el.classList.add('is-loaded');\n      }, 500);\n    }, 500);\n  });\n}\n\nexports.default = initDygraphs;\n\n//# sourceURL=webpack:///./src/js/dygraphs.js?");
+
+/***/ }),
+
+/***/ "./src/js/fileInputFields.js":
+/*!***********************************!*\
+  !*** ./src/js/fileInputFields.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _utils = __webpack_require__(/*! ./utils */ \"./src/js/utils.js\");\n\nfunction initFileInputFields() {\n  // init file input fields\n  var fileInputFields = document.querySelectorAll('.file-input');\n\n  fileInputFields.forEach(function (el) {\n\n    var icon = el.parentNode.querySelector('.file-icon');\n    var fileNameEl = el.parentNode.querySelector('.file-label');\n    var lang = (0, _utils.readCookie)('django_language');\n\n    // insert line break before element\n    el.parentNode.insertBefore(document.createElement(\"br\"), el);\n\n    // only change language if not set to 'en'\n    if (lang !== 'en') {\n      fileNameEl.innerHTML = \"Wähle Datei\";\n    }\n\n    // replace font awesome icon\n    icon.innerHTML = \"<span class='icon'><i class='material-icons'>cloud_upload</i></span>\";\n\n    // on change, replace text in file name element value according to selected file\n    el.addEventListener('change', function () {\n\n      if (!fileNameEl) {\n        fileLabel.innerHTML = dataArr[0] + \"<span class='file-name'></span>\";\n      }\n\n      // only use file name, not path (remove fakepath etc.)\n      var parts = el.value.split(\"\\\\\");\n      fileNameEl.innerHTML = parts[parts.length - 1];\n    });\n  });\n}\n\nexports.default = initFileInputFields;\n\n//# sourceURL=webpack:///./src/js/fileInputFields.js?");
+
+/***/ }),
+
+/***/ "./src/js/main.js":
+/*!************************!*\
+  !*** ./src/js/main.js ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _navbar = __webpack_require__(/*! ./navbar */ \"./src/js/navbar.js\");\n\nvar _navbar2 = _interopRequireDefault(_navbar);\n\nvar _dygraphs = __webpack_require__(/*! ./dygraphs */ \"./src/js/dygraphs.js\");\n\nvar _dygraphs2 = _interopRequireDefault(_dygraphs);\n\nvar _toggles = __webpack_require__(/*! ./toggles */ \"./src/js/toggles.js\");\n\nvar _toggles2 = _interopRequireDefault(_toggles);\n\nvar _fileInputFields = __webpack_require__(/*! ./fileInputFields */ \"./src/js/fileInputFields.js\");\n\nvar _fileInputFields2 = _interopRequireDefault(_fileInputFields);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// Main CSS\n__webpack_require__(/*! ../scss/styles.sass */ \"./src/scss/styles.sass\");\n\n// Dygraph\n\n\ndocument.addEventListener('DOMContentLoaded', function () {\n  (0, _navbar2.default)();\n  (0, _dygraphs2.default)();\n  (0, _toggles2.default)();\n  (0, _fileInputFields2.default)();\n});\n\n//# sourceURL=webpack:///./src/js/main.js?");
+
+/***/ }),
+
+/***/ "./src/js/navbar.js":
+/*!**************************!*\
+  !*** ./src/js/navbar.js ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar Navbar = function () {\n  function Navbar(el) {\n    _classCallCheck(this, Navbar);\n\n    this.el = el;\n    this.burger = this.el.querySelector('.js-navbar-burger');\n    this.menu = this.el.querySelector('.js-navbar-menu');\n    this.dropdownItems = this.el.querySelectorAll('.has-dropdown');\n    this.dropdownToggles = this.el.querySelectorAll('.js-navbar-dropdown');\n\n    this.init();\n  }\n\n  _createClass(Navbar, [{\n    key: 'init',\n    value: function init() {\n      var _this = this;\n\n      this.addEventHandlers();\n\n      // hide dropdowns when clicking somewhere else\n      document.addEventListener('click', function () {\n        _this.dropdownItems.forEach(function (el) {\n          el.classList.remove('is-active');\n        });\n      });\n    }\n  }, {\n    key: 'addEventHandlers',\n    value: function addEventHandlers() {\n      var _this2 = this;\n\n      // Add Burger click event\n      this.burger.addEventListener('click', function () {\n        _this2.burger.classList.toggle('is-active');\n        _this2.menu.classList.toggle('is-active');\n      });\n\n      // add dropwdown toggle click event\n      this.dropdownToggles.forEach(function (el) {\n        el.addEventListener('click', function (e) {\n          e.stopPropagation();\n          var target = el.parentNode;\n          // hide all other dropdowns\n          _this2.dropdownItems.forEach(function (dropdownItem) {\n            if (dropdownItem !== target) {\n              dropdownItem.classList.remove('is-active');\n            }\n          });\n          target.classList.toggle('is-active');\n        });\n      });\n    }\n  }]);\n\n  return Navbar;\n}();\n\nfunction initNavbars() {\n  var navbars = Array.prototype.slice.call(document.querySelectorAll('.js-navbar'), 0);\n  if (navbars.length > 0) {\n    navbars.forEach(function (el) {\n      new Navbar(el);\n    });\n  }\n}\n\nexports.default = initNavbars;\n\n//# sourceURL=webpack:///./src/js/navbar.js?");
+
+/***/ }),
+
+/***/ "./src/js/toggles.js":
+/*!***************************!*\
+  !*** ./src/js/toggles.js ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar Toggle = function Toggle(el) {\n  var _this = this;\n\n  _classCallCheck(this, Toggle);\n\n  this.el = el;\n  this.target = document.querySelector(el.dataset.target);\n  if (this.target) {\n    this.el.addEventListener('click', function () {\n      _this.target.classList.toggle('is-active');\n    });\n  }\n};\n\nfunction initToggles() {\n  var toggles = document.querySelectorAll('.js-toggle');\n\n  if (toggles.length > 0) {\n    toggles.forEach(function (el) {\n      new Toggle(el);\n    });\n  }\n}\n\nexports.default = initToggles;\n\n//# sourceURL=webpack:///./src/js/toggles.js?");
+
+/***/ }),
+
+/***/ "./src/js/utils.js":
+/*!*************************!*\
+  !*** ./src/js/utils.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.readCookie = readCookie;\nfunction readCookie(name) {\n    var nameEQ = name + \"=\";\n    var ca = document.cookie.split(';');\n    for (var i = 0; i < ca.length; i++) {\n        var c = ca[i];\n        while (c.charAt(0) === ' ') {\n            c = c.substring(1, c.length);\n        }\n        if (c.indexOf(nameEQ) === 0) {\n            return c.substring(nameEQ.length, c.length);\n        }\n    }\n    return null;\n}\n\n//# sourceURL=webpack:///./src/js/utils.js?");
 
 /***/ }),
 

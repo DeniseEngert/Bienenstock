@@ -7,17 +7,18 @@ function initDygraphs() {
 
   dygraphDivs.forEach((el) => {
     const csvUrl = el.dataset.csvurl;
+    const labelX = el.dataset.labelx;
+    const labelY = el.dataset.labely;
     setTimeout(() => {
       dygraphs.push(
         new Dygraph(
           el, // div
           csvUrl, {
             showRangeSelector: true,
-            title: 'T and RH in a nuc bee hive',
             titleHeight: 20,
-            xlabel: 'Date/Time',
+            xlabel: labelX,
             xLabelHeight: 18,
-            ylabel: 'T[°C] / RH [%]',
+            ylabel: labelY,
             yLabelWidth: 18,
             labelsSeparateLines: true,
           }
@@ -32,3 +33,4 @@ function initDygraphs() {
 }
 
 export default initDygraphs
+
