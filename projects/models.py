@@ -10,7 +10,7 @@ from django.utils.translation import gettext_lazy as _
 class Project(models.Model):
     class Meta:
         unique_together = (("title", "user"),)
-        ordering = ('updated', )
+        ordering = ('-updated', )
 
     title = models.CharField(_('title'), max_length=30)
     picture = models.ImageField(_('picture'),upload_to='images/', default='images/None/placeProject.png')
