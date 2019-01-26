@@ -1,4 +1,4 @@
-
+// Bulma overwrites and additions
 .file-label
   display: block!important
   font-size: 0.8rem
@@ -9,6 +9,9 @@
 
     span
       font-size: 1rem
+    &:before
+      content: '\a'
+      white-space: pre
 
 
 .button,
@@ -22,3 +25,13 @@
 .select select,
 .textarea
   border-width: 1px
+
+
+hr
+  height: 1px
+  background-color: $grey-lighter
+
+
+.table thead td,
+.table thead th
+  border-width: 0 0 1px
