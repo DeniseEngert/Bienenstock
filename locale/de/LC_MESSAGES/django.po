@@ -1,14 +1,22 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-23 11:42+0100\n"
+"POT-Creation-Date: 2019-01-26 16:03+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: comments/models.py:9
+#: comments/models.py:9 pages/models.py:12
 msgid "text"
 msgstr "Text"
 
-#: common/models.py:24
+#: common/models.py:27 projects/models.py:13
+msgid "description"
+msgstr "Beschreibung"
+
+#: common/models.py:28
+msgid "contact"
+msgstr "Kontakt"
+
+#: common/models.py:29
 msgid "about_text"
 msgstr "About Text"
 
@@ -19,6 +27,22 @@ msgstr "Englisch"
 #: databee/settings.py:170
 msgid "German"
 msgstr "Deutsch"
+
+#: pages/models.py:9 projects/models.py:11 projects/models.py:27
+msgid "title"
+msgstr "Titel"
+
+#: pages/models.py:10 profiles/models.py:15
+msgid "image"
+msgstr "Bild"
+
+#: pages/models.py:11
+msgid "teaser"
+msgstr "Teaser"
+
+#: pages/models.py:13
+msgid "slug"
+msgstr "slug"
 
 #: profiles/forms.py:18
 msgid "First name"
@@ -60,25 +84,13 @@ msgstr "Biografie"
 msgid "birth_date"
 msgstr "Geburtsdatum"
 
-#: profiles/models.py:15
-msgid "image"
-msgstr "Bild"
-
 #: projects/forms.py:11
 msgid "is public"
 msgstr "veröffentlichen"
 
-#: projects/models.py:11 projects/models.py:27
-msgid "title"
-msgstr "Titel"
-
 #: projects/models.py:12
 msgid "picture"
 msgstr "Bild"
-
-#: projects/models.py:13
-msgid "description"
-msgstr "Beschreibung"
 
 #: projects/models.py:14
 msgid "is_public"
@@ -92,32 +104,56 @@ msgstr "Kategorie"
 msgid "data_file"
 msgstr "Datensatz Datei"
 
-#: templates/_parts/_footer.html:42
-msgid "Support"
-msgstr "Support"
+#: projects/models.py:30
+msgid "Label X"
+msgstr "Label X"
 
-#: templates/_parts/_navbar.html:42
-msgid "Explore"
-msgstr "Erkunden"
+#: projects/models.py:31
+msgid "Label Y"
+msgstr "Label Y"
 
-#: templates/_parts/_navbar.html:64 templates/auth/login.html:7
-#: templates/auth/login.html:16
+#: templates/403.html:7 templates/404.html:7 templates/_parts/_navbar.html:66
+#: templates/auth/login.html:7 templates/auth/login.html:16
 msgid "Log In"
 msgstr "Anmelden"
 
-#: templates/_parts/_navbar.html:73 templates/profiles/dashboard.html:19
+#: templates/403.html:18
+msgid "Permission denied"
+msgstr "Zugriff verweigert"
+
+#: templates/403.html:21
+msgid "You don't have the right permissions to view this page."
+msgstr "Sie verfügen nicht über die Rechte, diese Seite anzuzeigen."
+
+#: templates/403.html:22 templates/404.html:22
+msgid "Go to start page."
+msgstr "Zur Startseite"
+
+#: templates/404.html:18
+msgid "Not found"
+msgstr "Seite nicht gefunden"
+
+#: templates/404.html:21
+msgid "The requested page was not found."
+msgstr "Die angefragte Seite konnte nicht gefunden werden."
+
+#: templates/_parts/_navbar.html:44
+msgid "Explore"
+msgstr "Erkunden"
+
+#: templates/_parts/_navbar.html:75 templates/profiles/dashboard.html:19
 #: templates/profiles/dashboard_list.html:19
 msgid "Profile"
 msgstr "Profil"
 
-#: templates/_parts/_navbar.html:76 templates/profiles/dashboard.html:7
+#: templates/_parts/_navbar.html:78 templates/profiles/dashboard.html:7
 #: templates/profiles/dashboard.html:16
 #: templates/profiles/dashboard_list.html:7
 #: templates/profiles/dashboard_list.html:16
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: templates/_parts/_navbar.html:79
+#: templates/_parts/_navbar.html:81
 msgid "Log Out"
 msgstr "Abmelden"
 
@@ -250,12 +286,20 @@ msgstr "Sind Sie sicher, dass Sie das folgende Projekt löschen wollen: "
 
 #: templates/projects/project_detail.html:21
 msgid "Edit Project Details"
-msgstr ""
+msgstr "Projektdetails bearbeiten"
 
 #: templates/projects/project_detail.html:33
 #: templates/projects/project_detail.html:70
 msgid "Save Changes"
 msgstr "Änderungen Speichern"
+
+#: templates/projects/project_detail.html:36
+msgid "Delete Project"
+msgstr "Projekt löschen"
+
+#: templates/projects/project_detail.html:73
+msgid "Delete Dataset"
+msgstr "Datensatz Löschen"
 
 #: templates/projects/project_detail.html:80
 #: templates/projects/public_project_detail.html:31
@@ -300,11 +344,8 @@ msgstr "Datum"
 msgid "Commentary text"
 msgstr "Kommentartext"
 
-#~ msgid "Delete Project"
-#~ msgstr "Projekt löschen"
-
-#~ msgid "Delete Dataset"
-#~ msgstr "Datensatz Löschen"
+#~ msgid "Support"
+#~ msgstr "Support"
 
 #~ msgid "New comment"
 #~ msgstr "Neuer Kommentar"

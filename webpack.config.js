@@ -6,7 +6,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/js/main.js',
   mode: process.env.NODE_ENV,
   output: {
     path: path.resolve(__dirname, './static'),

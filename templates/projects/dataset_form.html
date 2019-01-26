@@ -13,7 +13,7 @@
       <div class="container">
         <div class="columns">
           <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
-            <p>{{ project.title }}</p>
+            <p><a href="{% url 'editProject' pk=project.pk %}">{{ project.title }}</a></p>
             <h1 class="title is-1">{% if dataset.title %}{{ dataset.title }}{% else %}{% trans "New Dataset" %}{% endif %}</h1>
             <div class="c-comments-form">
               <form action="" method="POST" enctype="multipart/form-data" class="c-dataset-form">

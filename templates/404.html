@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load bulma_tags %}
+
+{% block title %}
+  {% trans "Log In" %}
+{% endblock %}
+
+{% block content %}
+  <div class="c-page">
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-offset-2-tablet is-8-tablet is-offset-3-desktop is-6-desktop">
+            <article class="message">
+              <div class="message-header">
+                <p>{% trans "Not found" %}</p>
+              </div>
+              <div class="message-body">
+                <p>{% trans "The requested page was not found." %}</p>
+                <a><a href="{% url 'start' %}">{% trans "Go to start page." %}</a></p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

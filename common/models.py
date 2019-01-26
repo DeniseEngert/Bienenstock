@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from markupfield.fields import MarkupField
 
 class SingletonModel(models.Model):
 
@@ -20,8 +21,12 @@ class SingletonModel(models.Model):
 
 
 class SiteSettings(SingletonModel):
-    support = models.EmailField()
-    about_text = models.CharField(_('about_text'), max_length=4999)
+    class Meta:
+        verbose_name_plural = "Site Settings"
+
+    description = models.CharField(_('description'), max_length=300, blank=True)
+    contact = models.CharField(_('contact'), max_length=300, blank=True)
+    about_text = MarkupField(_('about_text'), markup_type='markdown', escape_html=True, blank=True)
 
     def __str__(self):
         return "Site Settings"

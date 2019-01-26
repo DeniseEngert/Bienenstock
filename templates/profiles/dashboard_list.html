@@ -30,7 +30,7 @@
               </div>
             </div>
             <hr>
-            <div class="c-projects-list columns is-multiline">
+            <div class="c-projects-list is-multiline">
               <table class="table is-fullwidth">
                 <thead>
                 <tr>
@@ -43,7 +43,7 @@
                 <tbody>
                 {% for project in projects %}
                   <tr>
-                    <td><a href="{% url 'editProject' pk=project.pk %}">{{ project.title }}</a></td>
+                    <td><a href="{% url 'editProject' pk=project.pk %}" class="has-text-weight-bold">{{ project.title }}</a></td>
                     <td>{{ project.updated }}</td>
                     <td>{{ project.category }}</td>
                     <td>{% if project.is_public %}{% trans "Public" %}{% endif %}</td>

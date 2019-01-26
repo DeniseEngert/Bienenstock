@@ -18,11 +18,11 @@
                    <h1 class="title is-1">{{ project.title }}</h1>
                 </div>
                 <div class="level-right">
-                  {% if project.user == user %} <a class="button is-small is-outlined js-project-form-toggle">{% trans "Edit Project Details" %}</a>{% endif %}
+                  {% if project.user == user %} <a class="button is-small is-outlined js-toggle" data-target=".js-project-form">{% trans "Edit Project Details" %}</a>{% endif %}
                 </div>
               </div>
               {% if project.user == user %}
-                <div class="c-form-wrapper c-form-wrapper--hidden js-project-form-container">
+                <div class="c-form-wrapper c-form-wrapper--hidden js-project-form">
                   <form id="updateForm" action="{% url 'editProject' pk=project.pk %}" method="POST" enctype="multipart/form-data" class="c-form">
                     {% csrf_token %}
                     {{ form|bulma }}
@@ -33,7 +33,7 @@
                       <button class="button is-outlined" type="submit" value="Save" form="updateForm">{% trans "Save Changes" %}</button>
                     </div>
                     <div class="level-right">
-                      <a class="button is-danger is-outlined" href="{% url "deleteProject" pk=project.pk %}">Delete Project</a>
+                      <a class="button is-danger is-outlined" href="{% url "deleteProject" pk=project.pk %}">{% trans "Delete Project" %}</a>
                     </div>
                   </div>
                 </div>
@@ -57,7 +57,7 @@
                     </ul>
                   </div>
                   <div class="c-project__dygraph">
-                    <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}"></div>
+                    <div class="c-dygraph js-dygraph is-loading" data-csvurl="{{ dataset.data_file.url }}" data-labelx="{{ dataset.label_x }}" data-labely="{{ dataset.label_y }}"></div>
                     {% if project.user == user %}
                       <div class="c-form-wrapper">
                         <form id="datasetForm"action="{% url 'editDataset' project_pk=project.pk pk=dataset.pk %}" method="POST" enctype="multipart/form-data" class="c-form">
@@ -70,7 +70,7 @@
                             <button class="button is-outlined" type="submit" value="Save" form="datasetForm">{% trans "Save Changes" %}</button>
                           </div>
                           <div class="level-right">
-                            <a class="button is-danger is-outlined" href="{% url "deleteDataset" project_pk=dataset.pk pk=dataset.pk %}">Delete Dataset</a>
+                            <a class="button is-danger is-outlined" href="{% url "deleteDataset" project_pk=dataset.pk pk=dataset.pk %}">{% trans "Delete Dataset" %}</a>
                           </div>
                         </div>
                       </div>
