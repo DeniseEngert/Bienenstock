@@ -37,7 +37,7 @@ class CommentaryDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteVi
 
     def has_permission(self):
         commentary = self.get_object()
-        return commentary.user == self.request.user
+        return commentary.user == self.request.user or commentary.project.user == self.request.user
 
     def dispatch(self, request, *args, **kwargs):
         comment = self.get_object()
