@@ -25,8 +25,11 @@ class SiteSettings(SingletonModel):
         verbose_name_plural = "Site Settings"
 
     description = models.CharField(_('description'), max_length=300, blank=True)
+    description_en = models.CharField(_('description (EN)'), max_length=300, blank=True)
     contact = models.CharField(_('contact'), max_length=300, blank=True)
+    contact_en = models.CharField(_('contact (EN)'), max_length=300, blank=True)
     about_text = MarkupField(_('about_text'), markup_type='markdown', escape_html=True, blank=True)
+    about_text_en = MarkupField(_('about_text (EN)'), markup_type='markdown', escape_html=True, blank=True)
 
     def __str__(self):
         return "Site Settings"
