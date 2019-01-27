@@ -1,6 +1,7 @@
 {% load static %}
 {% load i18n %}
 {% load mptt_tags %}
+{% get_current_language as LANGUAGE_CODE %}
 
 
 <footer class="c-footer footer">
@@ -18,7 +19,13 @@
           {% recursetree pages %}
             <li class="c-footer__nav-section{% if not node.is_leaf_node %} has-children {% endif %}">
               <span class="c-footer__nav-item is-level-{{ node.level }}"><a
-                href="http://{{ request.get_host }}/{{ node.slug }}">{{ node.title }}</a></span>
+                href="http://{{ request.get_host }}/{{ node.slug }}">
+                {% if LANGUAGE_CODE == 'en-us' %}
+                  {{ node.title_en }}
+                {% else %}
+                  {{ node.title }}
+                {% endif %}
+              </a></span>
               {% if not node.is_leaf_node %}
                 <ul class="children">
                   {{ children }}
@@ -31,18 +38,22 @@
     </div>
     <div class="column">
       <div class="c-footer__info-block">
-        {% if settings.about_text %}
-          <p class="c-footer__text">
+        <p class="c-footer__text">
+          {% if LANGUAGE_CODE == 'en-us' %}
+            {{ settings.about_text_en }}
+          {% else %}
             {{ settings.about_text }}
-          </p>
-        {% endif %}
+          {% endif %}
+         </p>
       </div>
       <div class="c-footer__info-block">
-        {% if settings.contact %}
-          <p class="c-footer__contact">
+        <p class="c-footer__contact">
+          {% if LANGUAGE_CODE == 'en-us' %}
+            {{ settings.contact_en }}
+          {% else %}
             {{ settings.contact }}
-          </p>
-        {% endif %}
+          {% endif %}
+        </p>
       </div>
     </div>
   </div>

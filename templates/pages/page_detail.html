@@ -3,17 +3,26 @@
 {% load i18n %}
 
 {% block title %}
-  {{ page.title }}
+  {% if lang == 'en-us' %}
+    {{ page.title_en }}
+  {% else %}
+    {{ page.title }}
+  {% endif %}
 {% endblock %}
 
 {% block content %}
   <div class="c-page c-page__start">
-
     <section class="section">
       <div class="container">
         <div class="columns">
           <div class="column is-8-tablet is-offset-2-tablet">
-            <h1 class="c-page__title c-t-page-headline">{{ page.title }}</h1>
+            <h1 class="c-page__title c-t-page-headline">
+              {% if lang == 'en-us' %}
+                {{ page.title_en }}
+              {% else %}
+                {{ page.title }}
+              {% endif %}
+            </h1>
 
             {% if page.image %}
               <div class="c-page__image">
@@ -21,11 +30,19 @@
               </div>
             {% endif %}
             <div class="c-page__teaser">
-              {{ page.teaser }}
+              {% if lang == 'en-us' %}
+                {{ page.teaser_en }}
+              {% else %}
+                {{ page.teaser }}
+              {% endif %}
             </div>
 
             <div class="content c-page__text">
-              {{ page.text }}
+               {% if lang == 'en-us' %}
+                {{ page.text_en }}
+              {% else %}
+                {{ page.text }}
+              {% endif %}
             </div>
           </div>
         </div>
